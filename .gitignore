@@ -1,0 +1,28 @@
+# Environment & Secrets
+.env
+*.env
+*.env.local
+
+# Build outputs
+target/
+build/
+bin/
+out/
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
