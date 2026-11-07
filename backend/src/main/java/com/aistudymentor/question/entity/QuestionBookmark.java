@@ -1,7 +1,7 @@
 package com.aistudymentor.question.entity;
 
-import com.aistudymentor.profile.entity.StudentProfile;
 import com.aistudymentor.common.entity.BaseEntity;
+import com.aistudymentor.profile.entity.StudentProfile;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,12 +17,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "question_bookmarks", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"profile_id", "question_id"})
+        @UniqueConstraint(name = "uq_bookmarks_profile_question", columnNames = {"profile_id", "question_id"})
 })
 @Getter
 @Setter
@@ -33,7 +35,8 @@ public class QuestionBookmark extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "bookmark_id", updatable = false, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name = "bookmark_id", updatable = false, nullable = false, length = 36)
     private UUID bookmarkId;
 
     @ManyToOne(fetch = FetchType.LAZY)

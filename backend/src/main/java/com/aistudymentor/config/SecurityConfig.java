@@ -22,24 +22,29 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final GuardianConsentEnforcementFilter guardianConsentEnforcementFilter;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    private final CustomAccessDeniedHandler customAccessDeniedHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(restAuthenticationEntryPoint))
+                .exceptionHandling(exceptions -> exceptions
+                        .authenticationEntryPoint(restAuthenticationEntryPoint)
+                        .accessDeniedHandler(customAccessDeniedHandler)
+                )
                 .authorizeHttpRequests(authorize -> authorize
                         // Public endpoints
                         .requestMatchers(
                                 "/api/v1/auth/**",
+                                "/api/v1/guardian-consent/verify",
                                 "/error",
                                 "/actuator/health"
                         ).permitAll()
                         // Protected endpoints
                         .anyRequest().authenticated()
                 )
-                // Filter chain: JWT Auth -> Guardian Consent Check
+                // Filter chain: JWT Auth -> Guardian Consent & Status Check
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterAfter(guardianConsentEnforcementFilter, JwtAuthenticationFilter.class);
 

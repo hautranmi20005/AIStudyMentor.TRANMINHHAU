@@ -17,6 +17,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -32,7 +34,8 @@ public class GuardianConsent extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "consent_id", updatable = false, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name = "consent_id", updatable = false, nullable = false, length = 36)
     private UUID consentId;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -46,6 +49,22 @@ public class GuardianConsent extends BaseEntity {
     @Column(name = "status", nullable = false, length = 30)
     @Builder.Default
     private ConsentStatus status = ConsentStatus.PENDING;
+
+    @Column(name = "token_hash", length = 64)
+    private String tokenHash;
+
+    @Column(name = "token_expires_at")
+    private LocalDateTime tokenExpiresAt;
+
+    @Column(name = "resend_count", nullable = false)
+    @Builder.Default
+    private Integer resendCount = 0;
+
+    @Column(name = "last_sent_at")
+    private LocalDateTime lastSentAt;
+
+    @Column(name = "approved_ip", length = 45)
+    private String approvedIp;
 
     @Column(name = "verified_at")
     private LocalDateTime verifiedAt;

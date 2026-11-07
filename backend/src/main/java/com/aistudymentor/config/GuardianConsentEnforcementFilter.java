@@ -1,6 +1,7 @@
 package com.aistudymentor.config;
 
 import com.aistudymentor.auth.entity.AccountStatus;
+import com.aistudymentor.common.dto.ErrorResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -16,8 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
 
 @Slf4j
 @Component
@@ -36,36 +36,54 @@ public class GuardianConsentEnforcementFilter extends OncePerRequestFilter {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal userPrincipal) {
-            if (userPrincipal.getAccountStatus() == AccountStatus.PENDING_CONSENT) {
-                String requestUri = request.getRequestURI();
+            AccountStatus status = userPrincipal.getAccountStatus();
+            String requestUri = request.getRequestURI();
 
-                // Whitelisted endpoints for U13 pending consent accounts:
-                // 1. Consent status check endpoint
-                // 2. Auth endpoints
-                // 3. Error endpoint
-                boolean isWhitelisted = requestUri.startsWith("/api/v1/users/me/guardian-consent")
-                        || requestUri.startsWith("/api/v1/auth/")
-                        || requestUri.startsWith("/error");
+            // 1. Enforce SUSPENDED account policy
+            if (status == AccountStatus.SUSPENDED) {
+                log.warn("Blocked SUSPENDED user {} from accessing {}", userPrincipal.getUserId(), requestUri);
+                sendErrorResponse(response, requestUri, HttpServletResponse.SC_FORBIDDEN,
+                        "FORBIDDEN", "ACCOUNT_SUSPENDED", "Your account has been suspended. Please contact support.");
+                return;
+            }
+
+            // 2. Enforce PENDING_CONSENT (Under-13) policy
+            if (status == AccountStatus.PENDING_CONSENT) {
+                // H5 Whitelist: Auth, GET/POST consent status, read/update profile, error, actuator
+                boolean isWhitelisted = requestUri.startsWith("/api/v1/auth/")
+                        || requestUri.startsWith("/api/v1/users/me/guardian-consent")
+                        || requestUri.startsWith("/api/v1/users/me/profile")
+                        || requestUri.startsWith("/error")
+                        || requestUri.startsWith("/actuator/");
 
                 if (!isWhitelisted) {
                     log.warn("Blocked U13 user {} from accessing {} due to PENDING_CONSENT",
                             userPrincipal.getUserId(), requestUri);
-
-                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-
-                    Map<String, Object> errorBody = new HashMap<>();
-                    errorBody.put("status", HttpServletResponse.SC_FORBIDDEN);
-                    errorBody.put("error", "FORBIDDEN");
-                    errorBody.put("code", "GUARDIAN_CONSENT_REQUIRED");
-                    errorBody.put("message", "Guardian consent is required before accessing study features. Please check your parent/guardian email for verification.");
-
-                    objectMapper.writeValue(response.getOutputStream(), errorBody);
+                    sendErrorResponse(response, requestUri, HttpServletResponse.SC_FORBIDDEN,
+                            "FORBIDDEN", "GUARDIAN_CONSENT_REQUIRED",
+                            "Guardian consent is required before accessing study features. Please check your parent/guardian email for verification.");
                     return;
                 }
             }
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private void sendErrorResponse(HttpServletResponse response, String path, int status,
+                                   String error, String code, String message) throws IOException {
+        response.setStatus(status);
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(status)
+                .error(error)
+                .code(code)
+                .message(message)
+                .timestamp(LocalDateTime.now())
+                .path(path)
+                .build();
+
+        objectMapper.writeValue(response.getOutputStream(), errorResponse);
     }
 }

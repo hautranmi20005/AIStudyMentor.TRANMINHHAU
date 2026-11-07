@@ -1,10 +1,10 @@
-# Project Brief: AI Study Mentor
+# Project Brief: AI Study Mentor (v1.2)
 
-**Objective**: Deliver a secure, Android-based AI tutoring application that uses Google Gemini to explain academic concepts step-by-step, while offering practice quizzes to assess learning progress.
+**Objective**: Deliver a secure, Android-first AI tutoring application that uses Google Gemini to explain academic concepts step-by-step, while offering practice quizzes to assess learning progress.
 
-**Target Audience**: Students (including Under-13 users requiring verifiable guardian consent).
+**Target Audience**: Students across grade levels (including Under-13 students requiring verifiable parental/guardian consent).
 
-**Key Differentiators**:
-1. Safety First: MFA, strict data ownership, under-13 consent blocks, Gemini safety guardrails.
-2. Structured AI: Not a raw chatbot; explanations are strictly JSON-structured into steps, concepts, and common mistakes.
-3. Measurement: Practice quizzes and progress dashboards track learning over time.
+**Key Differentiators & Invariants**:
+1. **Safety & Compliance First**: TOTP Multi-Factor Authentication (RFC 6238), strict student profile data ownership, under-13 consent blocks with 72-hour email loop verification, and server-side secret isolation.
+2. **Pedagogical Structured AI**: Not a free-form chatbot. All explanations strictly adhere to `docs/ai_response.schema.json`, providing sequenced steps with KaTeX formulas, final answers, and key takeaways.
+3. **Assessment & Measurement**: Practice quizzes with strictly server-side evaluation (answers never leaked to client pre-submission) and progress dashboards tracking subject accuracy.

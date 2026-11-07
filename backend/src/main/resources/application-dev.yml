@@ -1,0 +1,21 @@
+# ==============================================================================
+# LOCAL DEVELOPMENT PROFILE ONLY - NEVER FOR PRODUCTION
+# ==============================================================================
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/ai_study_mentor?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: studymentor_app
+    password: studymentor_dev_password
+
+app:
+  jwt:
+    secret: dev_only_jwt_secret_must_be_at_least_32_bytes_long_123456
+  security:
+    mfa-encryption-key: dev_aes_key_32_bytes_length_123456
+  gemini:
+    api-key: <SET_ME>
+    model: <SET_ME>
+    api-version: <SET_ME>

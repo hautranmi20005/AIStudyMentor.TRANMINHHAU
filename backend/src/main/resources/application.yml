@@ -7,9 +7,9 @@ spring:
   application:
     name: ai-study-mentor-backend
   datasource:
-    url: jdbc:mysql://localhost:3306/ai_study_mentor?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:password}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -22,17 +22,33 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
   flyway:
     enabled: true
     baseline-on-migrate: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: when-authorized
+
 app:
+  base-url: ${APP_BASE_URL:http://localhost:8080}
   jwt:
-    secret: ${JWT_SECRET:verySecretJwtSigningKeyForAiStudyMentorChangeInProduction12345}
-    access-token-expiration-ms: 900000 # 15 minutes
-    refresh-token-expiration-ms: 604800000 # 7 days
-    mfa-session-expiration-ms: 300000 # 5 minutes
+    secret: ${JWT_SECRET}
+    access-token-expiration-ms: ${JWT_ACCESS_EXPIRATION_MS:900000}
+    refresh-token-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}
+    mfa-session-expiration-ms: ${JWT_MFA_SESSION_EXPIRATION_MS:300000}
+  security:
+    mfa-encryption-key: ${MFA_ENCRYPTION_KEY}
   gemini:
-    api-key: ${GEMINI_API_KEY:}
-    model: ${GEMINI_MODEL:gemini-1.5-flash}
-    api-version: ${GEMINI_API_VERSION:v1beta}
+    api-key: ${GEMINI_API_KEY}
+    model: ${GEMINI_MODEL}
+    api-version: ${GEMINI_API_VERSION}
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
