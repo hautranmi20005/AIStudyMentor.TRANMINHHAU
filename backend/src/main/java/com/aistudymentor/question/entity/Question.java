@@ -1,7 +1,7 @@
 package com.aistudymentor.question.entity;
 
-import com.aistudymentor.profile.entity.StudentProfile;
 import com.aistudymentor.common.entity.BaseEntity;
+import com.aistudymentor.profile.entity.StudentProfile;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +12,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -21,6 +20,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,8 @@ public class Question extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "question_id", updatable = false, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name = "question_id", updatable = false, nullable = false, length = 36)
     private UUID questionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -47,7 +49,6 @@ public class Question extends BaseEntity {
     @Column(name = "subject", nullable = false, length = 100)
     private String subject;
 
-    @Lob
     @Column(name = "question_text", columnDefinition = "TEXT")
     private String questionText;
 
@@ -55,10 +56,6 @@ public class Question extends BaseEntity {
     @Column(name = "status", nullable = false, length = 30)
     @Builder.Default
     private QuestionStatus status = QuestionStatus.SUBMITTED;
-
-    @Column(name = "is_bookmarked", nullable = false)
-    @Builder.Default
-    private Boolean isBookmarked = false;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default

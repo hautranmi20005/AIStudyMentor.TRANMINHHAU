@@ -20,7 +20,7 @@ import java.util.UUID;
 @Component
 public class JwtTokenProvider {
 
-    @Value("${app.jwt.secret:defaultSecretKeyWithAtLeast256BitsLengthForHmacSha256Security123456789}")
+    @Value("${app.jwt.secret}")
     private String jwtSecret;
 
     @Value("${app.jwt.access-token-expiration-ms:900000}")
@@ -36,6 +36,9 @@ public class JwtTokenProvider {
 
     @PostConstruct
     public void init() {
+        if (jwtSecret == null || jwtSecret.getBytes(StandardCharsets.UTF_8).length < 32) {
+            throw new IllegalStateException("JWT_SECRET must be configured and at least 32 bytes (256 bits) in length.");
+        }
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
@@ -44,6 +47,7 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime() + accessTokenExpirationMs);
 
         return Jwts.builder()
+                .id(UUID.randomUUID().toString())
                 .subject(email)
                 .claim("userId", userId.toString())
                 .claim("accountStatus", accountStatus.name())
@@ -59,6 +63,7 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime() + refreshTokenExpirationMs);
 
         return Jwts.builder()
+                .id(UUID.randomUUID().toString())
                 .subject(email)
                 .claim("userId", userId.toString())
                 .claim("tokenType", "REFRESH")
@@ -73,6 +78,7 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime() + mfaSessionExpirationMs);
 
         return Jwts.builder()
+                .id(UUID.randomUUID().toString())
                 .subject(email)
                 .claim("userId", userId.toString())
                 .claim("tokenType", "MFA_SESSION")
@@ -102,6 +108,17 @@ public class JwtTokenProvider {
         return false;
     }
 
+    public boolean isTokenExpired(String token) {
+        try {
+            Claims claims = Jwts.parser().verifyWith(key).build().parseSignedClaims(token).getPayload();
+            return claims.getExpiration().before(new Date());
+        } catch (ExpiredJwtException e) {
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public String getEmailFromToken(String token) {
         return parseClaims(token).getSubject();
     }
@@ -113,6 +130,10 @@ public class JwtTokenProvider {
 
     public String getTokenType(String token) {
         return parseClaims(token).get("tokenType", String.class);
+    }
+
+    public String getJtiFromToken(String token) {
+        return parseClaims(token).getId();
     }
 
     public AccountStatus getAccountStatusFromToken(String token) {

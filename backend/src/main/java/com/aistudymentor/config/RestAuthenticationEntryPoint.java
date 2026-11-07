@@ -1,5 +1,6 @@
 package com.aistudymentor.config;
 
+import com.aistudymentor.common.dto.ErrorResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,8 +11,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
 
 @Component
 @RequiredArgsConstructor
@@ -28,11 +28,15 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("status", HttpServletResponse.SC_UNAUTHORIZED);
-        errorBody.put("error", "UNAUTHORIZED");
-        errorBody.put("message", "Full authentication is required to access this resource");
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpServletResponse.SC_UNAUTHORIZED)
+                .error("UNAUTHORIZED")
+                .code("UNAUTHORIZED")
+                .message(authException.getMessage() != null ? authException.getMessage() : "Full authentication is required to access this resource")
+                .timestamp(LocalDateTime.now())
+                .path(request.getRequestURI())
+                .build();
 
-        objectMapper.writeValue(response.getOutputStream(), errorBody);
+        objectMapper.writeValue(response.getOutputStream(), errorResponse);
     }
 }

@@ -1,17 +1,15 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8.0
     container_name: studymentor_mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASS:-password}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_dev_password}
       MYSQL_DATABASE: ai_study_mentor
-      MYSQL_USER: ${DB_USER:-root}
-      MYSQL_PASSWORD: ${DB_PASS:-password}
+      MYSQL_USER: ${DB_USERNAME:-studymentor_app}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-studymentor_dev_password}
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -24,19 +22,36 @@ services:
     image: redis:7-alpine
     container_name: studymentor_redis
     restart: unless-stopped
-    command: redis-server --appendonly yes
+    command: ["sh", "-c", "exec redis-server --appendonly yes --requirepass \"$${REDIS_PASSWORD}\""]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis_dev_password}
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
     volumes:
       - redis_data:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-redis_dev_password}", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: studymentor_mailpit
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+    environment:
+      MP_MAX_MESSAGES: 500
+      MP_DATABASE: /data/mailpit.db
+    volumes:
+      - mailpit_data:/data
 
 volumes:
   mysql_data:
     driver: local
   redis_data:
+    driver: local
+  mailpit_data:
     driver: local

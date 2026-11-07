@@ -1,5 +1,6 @@
 package com.aistudymentor.auth.dto;
 
+import com.aistudymentor.auth.dto.validation.ValidAgeAndGuardianEmail;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ValidAgeAndGuardianEmail
 public class RegisterRequest {
 
     @NotBlank(message = "Email is required")

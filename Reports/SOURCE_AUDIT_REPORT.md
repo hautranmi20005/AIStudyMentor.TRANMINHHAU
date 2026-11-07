@@ -3,7 +3,7 @@
 ## 1. Source Documents Provided & Reviewed
 1. `AGENT_COLLABORATION_RULES.md`
 2. `AI_ORCHESTRATOR_SPEC.md`
-3. `API_CONTRACT.md`
+3. `API_SPEC.md`
 4. `DATABASE_DESIGN.md`
 5. `DECISION_LOG.md`
 6. `MVP_SCOPE.md`
@@ -16,7 +16,7 @@
 13. `orchestrator_skill_specs.md`
 14. `qa_infra_firebase_skill_specs.md`
 15. `TEST_STRATEGY.md`
-16. `UI_UX_DEMO_SPEC.md`
+16. `UI_UX_SPEC.md`
 
 ## 2. Missing Input Documents
 The following documents were referenced in the user prompt or original project structure but were **not** provided in the v1.0 alignment pack. They have been recreated from scratch based on the confirmed requirements:

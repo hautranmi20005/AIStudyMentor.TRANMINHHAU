@@ -17,6 +17,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.UUID;
 
@@ -31,7 +33,8 @@ public class MfaFactor extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "factor_id", updatable = false, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name = "factor_id", updatable = false, nullable = false, length = 36)
     private UUID factorId;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -42,7 +45,10 @@ public class MfaFactor extends BaseEntity {
     @Column(name = "type", nullable = false, length = 30)
     private MfaType type;
 
-    @Column(name = "secret", nullable = false, length = 255)
+    /**
+     * Stored AES-GCM encrypted secret using MFA_ENCRYPTION_KEY
+     */
+    @Column(name = "secret", nullable = false, length = 512)
     private String secret;
 
     @Column(name = "is_verified", nullable = false)
