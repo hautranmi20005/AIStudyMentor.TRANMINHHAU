@@ -34,8 +34,8 @@ public class MfaRateLimitService {
         if (ip != null) {
             long ipFailures = mfaAttemptRepository.countFailedAttemptsByIpSince(ip, windowStart);
             if (ipFailures >= MAX_FAILED_ATTEMPTS) {
-                log.warn("MFA brute-force locked for IP {}: {} failed attempts in last {}m",
-                        ip, ipFailures, WINDOW_MINUTES);
+                log.warn("MFA IP-based throttling activated after {} failed attempts in {}m",
+                        ipFailures, WINDOW_MINUTES);
                 return true;
             }
         }

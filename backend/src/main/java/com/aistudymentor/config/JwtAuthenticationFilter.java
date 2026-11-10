@@ -83,7 +83,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                         SecurityContextHolder.getContext().setAuthentication(authentication);
                     } catch (Exception ex) {
-                        log.error("Failed to authenticate user from token", ex);
+                        log.warn("Failed to authenticate request token ({})", ex.getClass().getSimpleName());
                     }
                 }
             } else {

@@ -50,6 +50,7 @@ public class GuardianConsent extends BaseEntity {
     @Builder.Default
     private ConsentStatus status = ConsentStatus.PENDING;
 
+    @JdbcTypeCode(SqlTypes.CHAR)
     @Column(name = "token_hash", length = 64)
     private String tokenHash;
 

@@ -9,6 +9,14 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/ai_study_mentor?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: studymentor_app
     password: studymentor_dev_password
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: redis_dev_password
+  mail:
+    host: localhost
+    port: 1025
 
 app:
   jwt:

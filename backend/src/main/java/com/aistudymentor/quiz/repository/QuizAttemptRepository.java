@@ -13,6 +13,7 @@ import java.util.UUID;
 @Repository
 public interface QuizAttemptRepository extends JpaRepository<QuizAttempt, UUID> {
     List<QuizAttempt> findByProfileOrderByCreatedAtDesc(StudentProfile profile);
+    List<QuizAttempt> findByProfileAndEndTimeIsNotNullOrderByEndTimeDesc(StudentProfile profile);
     Optional<QuizAttempt> findByAttemptIdAndProfile(UUID attemptId, StudentProfile profile);
     List<QuizAttempt> findByQuizAndProfile(PracticeQuiz quiz, StudentProfile profile);
 }

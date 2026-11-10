@@ -125,7 +125,7 @@ public class SecurityRulesUnitTest {
     }
 
     @Test
-    @DisplayName("Rule 3: PENDING_CONSENT user accessing /questions returns 403 GUARDIAN_CONSENT_REQUIRED")
+    @DisplayName("Rule 3: PENDING_CONSENT user accessing /questions returns 403 ACCOUNT_PENDING_CONSENT")
     void testPendingConsentUserBlockedFromQuestions() throws ServletException, IOException {
         GuardianConsentEnforcementFilter filter = new GuardianConsentEnforcementFilter(objectMapper);
 
@@ -144,7 +144,7 @@ public class SecurityRulesUnitTest {
         filter.doFilter(request, response, filterChain);
 
         assertEquals(HttpServletResponse.SC_FORBIDDEN, response.getStatus());
-        assertTrue(response.getContentAsString().contains("GUARDIAN_CONSENT_REQUIRED"));
+        assertTrue(response.getContentAsString().contains("ACCOUNT_PENDING_CONSENT"));
         verify(filterChain, never()).doFilter(any(), any());
     }
 
