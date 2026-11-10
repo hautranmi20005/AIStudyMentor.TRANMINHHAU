@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.aistudymentor.data.local.OfflineDaoTest" tests="4" failures="0" errors="0" skipped="0" time="17.022" timestamp="2026-11-09T22:01:16" hostname="localhost">
+  <properties>
+    <property name="device" value="Medium_Phone_API_37.0(AVD) - 17" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="cachesHistoryBookmarksAndQuizResultsPerAccount" classname="com.aistudymentor.data.local.OfflineDaoTest" time="0.106" />
+  <testcase name="askAiScreenSubmitsQuestionAndNavigatesToExplanation" classname="com.aistudymentor.ui.StudentFlowsInstrumentedTest" time="8.252" />
+  <testcase name="loginScreenAuthenticatesAndSignalsGuardianRoutingState" classname="com.aistudymentor.ui.StudentFlowsInstrumentedTest" time="4.54" />
+  <testcase name="answerDetailScreenRendersSummaryStepsFormulaAndFinalAnswer" classname="com.aistudymentor.ui.StudentFlowsInstrumentedTest" time="3.245" />
+</testsuite>

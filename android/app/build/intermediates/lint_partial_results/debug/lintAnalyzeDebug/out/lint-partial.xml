@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.3.0" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.aistudymentor.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.mipmap.ic_launcher"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"
+            startOffset="40"
+            endLine="15"
+            endColumn="17"
+            endOffset="582"/>
+        <location id="R.string.app_name"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="3"
+            column="13"
+            startOffset="65"
+            endLine="3"
+            endColumn="28"
+            endOffset="80"/>
+        <entry
+            name="model"
+            string="drawable[ic_launcher(U)],mipmap[ic_launcher(D)],string[app_name(D)],style[Theme_AIStudyMentor(U)],xml[data_extraction_rules(U),backup_rules(U),network_security_config(U),network_security_config_debug(U)];;;;"/>
+    </map>
+
+</incidents>

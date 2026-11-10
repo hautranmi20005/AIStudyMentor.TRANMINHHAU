@@ -14,4 +14,6 @@ import java.util.UUID;
 public interface QuestionRepository extends JpaRepository<Question, UUID> {
     Page<Question> findByProfileOrderByCreatedAtDesc(StudentProfile profile, Pageable pageable);
     Optional<Question> findByQuestionIdAndProfile(UUID questionId, StudentProfile profile);
+    long countByProfile(StudentProfile profile);
+    java.util.List<Question> findByProfile(StudentProfile profile);
 }

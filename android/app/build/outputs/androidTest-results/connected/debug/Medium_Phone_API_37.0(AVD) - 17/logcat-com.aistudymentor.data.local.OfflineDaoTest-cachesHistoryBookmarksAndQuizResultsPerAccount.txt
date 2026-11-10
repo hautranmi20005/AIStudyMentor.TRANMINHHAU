@@ -1,0 +1,2 @@
+11-10 05:00:58.489 14669 14689 I TestRunner: started: cachesHistoryBookmarksAndQuizResultsPerAccount(com.aistudymentor.data.local.OfflineDaoTest)
+11-10 05:00:58.644 14669 14689 I TestRunner: finished: cachesHistoryBookmarksAndQuizResultsPerAccount(com.aistudymentor.data.local.OfflineDaoTest)

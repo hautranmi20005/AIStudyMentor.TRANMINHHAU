@@ -1,0 +1,120 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ai_study_mentor}
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - backend_net
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD}
+    command:
+      - sh
+      - -c
+      - exec redis-server --appendonly yes --appendfsync everysec --requirepass "$${REDIS_PASSWORD}"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" ping 2>/dev/null | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - backend_net
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-study-mentor-backend:latest
+    restart: unless-stopped
+    init: true
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:postgresql://postgres:5432/${POSTGRES_DB:-ai_study_mentor}}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:?Set POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: ${SPRING_DATA_REDIS_PORT:-6379}
+      SPRING_DATA_REDIS_USERNAME: ${SPRING_DATA_REDIS_USERNAME:-default}
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD}
+      SPRING_DATA_REDIS_SSL_ENABLED: ${SPRING_DATA_REDIS_SSL_ENABLED:-false}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-}
+      RATE_LIMIT_ENABLED: ${RATE_LIMIT_ENABLED:-true}
+      RATE_LIMIT_KEY_PREFIX: ${RATE_LIMIT_KEY_PREFIX:-studymentor:rate-limit}
+      RATE_LIMIT_LOGIN_LIMIT: ${RATE_LIMIT_LOGIN_LIMIT:-10}
+      RATE_LIMIT_LOGIN_WINDOW_SECONDS: ${RATE_LIMIT_LOGIN_WINDOW_SECONDS:-60}
+      RATE_LIMIT_REGISTER_LIMIT: ${RATE_LIMIT_REGISTER_LIMIT:-5}
+      RATE_LIMIT_REGISTER_WINDOW_SECONDS: ${RATE_LIMIT_REGISTER_WINDOW_SECONDS:-3600}
+      RATE_LIMIT_REFRESH_LIMIT: ${RATE_LIMIT_REFRESH_LIMIT:-30}
+      RATE_LIMIT_REFRESH_WINDOW_SECONDS: ${RATE_LIMIT_REFRESH_WINDOW_SECONDS:-60}
+      RATE_LIMIT_MFA_LIMIT: ${RATE_LIMIT_MFA_LIMIT:-5}
+      RATE_LIMIT_MFA_WINDOW_SECONDS: ${RATE_LIMIT_MFA_WINDOW_SECONDS:-900}
+      RATE_LIMIT_AI_LIMIT: ${RATE_LIMIT_AI_LIMIT:-20}
+      RATE_LIMIT_AI_WINDOW_SECONDS: ${RATE_LIMIT_AI_WINDOW_SECONDS:-60}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET}
+      MFA_ENCRYPTION_KEY: ${MFA_ENCRYPTION_KEY:?Set MFA_ENCRYPTION_KEY}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:?Set GEMINI_API_KEY}
+      GEMINI_MODEL: ${GEMINI_MODEL:?Set GEMINI_MODEL}
+      GEMINI_API_VERSION: ${GEMINI_API_VERSION:?Set GEMINI_API_VERSION}
+      APP_BASE_URL: ${APP_BASE_URL:?Set APP_BASE_URL}
+      MAIL_HOST: ${MAIL_HOST:-smtp.sendgrid.net}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USERNAME: ${MAIL_USERNAME:-apikey}
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY:?Set SENDGRID_API_KEY}
+      MAIL_FROM: ${MAIL_FROM:?Set MAIL_FROM to a verified sender}
+      MAIL_CONNECTION_TIMEOUT_MS: ${MAIL_CONNECTION_TIMEOUT_MS:-5000}
+      MAIL_TIMEOUT_MS: ${MAIL_TIMEOUT_MS:-5000}
+      MAIL_WRITE_TIMEOUT_MS: ${MAIL_WRITE_TIMEOUT_MS:-5000}
+      GUARDIAN_CONSENT_REMINDER_SCAN_DELAY_MS: ${GUARDIAN_CONSENT_REMINDER_SCAN_DELAY_MS:-3600000}
+      MANAGEMENT_USERNAME: ${MANAGEMENT_USERNAME:?Set MANAGEMENT_USERNAME}
+      MANAGEMENT_PASSWORD: ${MANAGEMENT_PASSWORD:?Set MANAGEMENT_PASSWORD (24+ characters)}
+    ports:
+      - "127.0.0.1:${APP_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --user=\"$${MANAGEMENT_USERNAME}\" --password=\"$${MANAGEMENT_PASSWORD}\" --spider http://127.0.0.1:8081/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 45s
+      retries: 3
+    networks:
+      - backend_net
+
+networks:
+  backend_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

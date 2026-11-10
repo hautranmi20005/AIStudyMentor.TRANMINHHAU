@@ -1,0 +1,450 @@
+11-10 05:01:06.930 14669 14689 I TestRunner: started: loginScreenAuthenticatesAndSignalsGuardianRoutingState(com.aistudymentor.ui.StudentFlowsInstrumentedTest)
+11-10 05:01:06.937 13579 13611 I Finsky  : [60] Completed 0 account content syncs with 0 successful.
+11-10 05:01:06.942 13579 13579 I Finsky  : [2] [ContentSync] Installation state replication succeeded.
+11-10 05:01:06.943 13579 13579 I Finsky  : [2] SCH: jobFinished: 12-1. TimeElapsed: 571ms.
+11-10 05:01:06.949 13579 13579 I Finsky  : [2] WM::SCH: Logging work end for 12-1
+11-10 05:01:06.953  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:06.971  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:06.971  1230  1230 D RecentsView: onTaskRemoved: 46, not handling task stack changes
+11-10 05:01:06.971  1230  1230 D RecentsView: onTaskRemoved: 46, not handling task stack changes
+11-10 05:01:06.971  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:06.974 14669 14689 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.junit4.EspressoLink@176fe71]
+11-10 05:01:06.978   731 11939 I GFXSTREAM: [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+11-10 05:01:06.979 14669 14689 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+11-10 05:01:07.005  1230  1230 D ShortcutAndWidgetContainer: appWidgetScale - [x,y]: [1.0,1.0]
+11-10 05:01:07.007  1230  1230 D NavigableAppWidgetHostView: updateScale - [fitScale,bounceScale]: [1.0,1.0]
+11-10 05:01:07.019   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.019   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.022  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:07.023  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:07.024  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:07.024  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:07.025  1230  1230 I SsBaseTemplateCard: Secondary card pane is null
+11-10 05:01:07.035 13579 13613 I Finsky  : [61] SCH: Scheduling phonesky job Id: 1-1337, CT: 1794251140482, Constraints: [{ L: 35285580, D: 78485580, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+11-10 05:01:07.050   731 11939 I GFXSTREAM: [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+11-10 05:01:07.059 13579 13615 I Finsky  : [63] SCH: Scheduling 1 system job(s)
+11-10 05:01:07.060 13579 13615 I Finsky  : [63] SCH: Scheduling system job Id: 9400, L: 24759003, D: 67959003, C: false, I: false, N: 1
+11-10 05:01:07.065   731 11939 W libc    : Access denied finding property "vendor.mesa.virtgpu.kumquat"
+11-10 05:01:07.052   731   731 W GrallocUploadTh: type=1400 audit(0.0:1297): avc:  denied  { read } for  name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=404 scontext=u:r:system_server:s0 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+11-10 05:01:07.070   731  2253 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@9b8ca71b does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+11-10 05:01:07.078   731 11939 W HWUI    : Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+11-10 05:01:07.079   731 11939 W HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-10 05:01:07.083  1230  1230 D LauncherStateManager: StateManager.cancelAnimation: animation ongoing: false, partial trace:
+11-10 05:01:07.083  1230  1230 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.setCurrentAnimation(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:59)
+11-10 05:01:07.083  1230  1230 D LauncherStateManager: 	at com.android.launcher3.QuickstepTransitionManager.createWallpaperOpenAnimations(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:712)
+11-10 05:01:07.083  1230  1230 D LauncherStateManager: 	at com.android.launcher3.QuickstepTransitionManager$WallpaperOpenLauncherAnimationRunner.onAnimationStart(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:135)
+11-10 05:01:07.085  1230  1230 D LauncherStateManager: StateManager.createAtomicAnimation: fromState: Normal, toState: Normal, partial trace:
+11-10 05:01:07.085  1230  1230 D LauncherStateManager: 	at com.android.quickstep.util.WorkspaceRevealAnim.prepareToAnimate(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:19)
+11-10 05:01:07.085  1230  1230 D LauncherStateManager: 	at com.android.quickstep.util.WorkspaceRevealAnim.<init>(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:10)
+11-10 05:01:07.085  1230  1230 D LauncherStateManager: 	at com.android.launcher3.QuickstepTransitionManager.createWallpaperOpenAnimations(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:753)
+11-10 05:01:07.093  1230  1230 D AllAppsTransitionController: shouldProtectHeader: false skipScrim: true state: Normal stateManager.getState(): Normal
+11-10 05:01:07.094  1230  1230 D KeyboardInsetsHandler: removePendingImeController: pendingImeController=null
+11-10 05:01:07.108  1230  1230 D b/311077782: LauncherAnimationRunner.setAnimation
+11-10 05:01:07.117 13579 14657 I Finsky  : [169] SCH: job service finished with id 9387.
+11-10 05:01:07.123  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_deferred_resumed|state_window_focused|state_user_active] +[state_window_focused]
+11-10 05:01:07.159   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.159   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.170   557  1358 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0x766f15623670) with descriptor: '(not cached)'
+11-10 05:01:07.171 13579 13579 I Finsky  : [2] Memory trim requested to level 40
+11-10 05:01:07.171 13579 13579 I Finsky  : [2] Flushing in-memory image cache
+11-10 05:01:07.184  1052  1106 W DisconnectHandler: No disconnect change found in the transition, not handling request.
+11-10 05:01:07.190   731  2039 W libc    : Access denied finding property "vendor.mesa.virtgpu.kumquat"
+11-10 05:01:07.180   731   731 W binder:731_13: type=1400 audit(0.0:1298): avc:  denied  { read } for  name="u:object_r:vendor_default_prop:s0" dev="tmpfs" ino=404 scontext=u:r:system_server:s0 tcontext=u:object_r:vendor_default_prop:s0 tclass=file permissive=0
+11-10 05:01:07.197   731   904 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:07.202  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259
+11-10 05:01:07.212  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+11-10 05:01:07.216  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_deferred_resumed|state_window_focused|state_user_active] -[]
+11-10 05:01:07.217  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.google.android.apps.nexuslauncher, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-10 05:01:07.217  6720  6720 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():322 Update input view padding, isNavbarOverInputWindow=true, bottom inset=63
+11-10 05:01:07.224  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:07.227  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_deferred_resumed|state_window_focused] -[state_user_active]
+11-10 05:01:07.229  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_window_focused] -[state_resumed|state_deferred_resumed]
+11-10 05:01:07.229  1230  1230 W SplitSelectStateCtor: Missing session instanceIds
+11-10 05:01:07.231  1230  1230 D StatsLog: LAUNCHER_SPLIT_SELECTION_EXIT_INTERRUPTED
+11-10 05:01:07.260  1230  1230 D RecentsView: onTaskDisplayChanged: 48, new displayId = 0
+11-10 05:01:07.265  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:07.265  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:07.269   731  1289 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:07.281  1052  1143 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda14@984f215
+11-10 05:01:07.290 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: PRE_ON_CREATE
+11-10 05:01:07.290 14669 14669 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+11-10 05:01:07.299  1052  1143 I Surface : Creating surface for consumer unnamed-1052-57 with slotExpansion=1 for 64 slots
+11-10 05:01:07.303  1052  1143 I Surface : Creating surface for consumer VRI[aistudymentor]#55(BLAST Consumer)55 with slotExpansion=1 for 64 slots
+11-10 05:01:07.303 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: CREATED
+11-10 05:01:07.303 14669 14669 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=androidx.activity.ComponentActivity@1731f06
+11-10 05:01:07.306 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: STARTED
+11-10 05:01:07.306 14669 14669 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=androidx.activity.ComponentActivity@1731f06
+11-10 05:01:07.319 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: RESUMED
+11-10 05:01:07.322 14669 14669 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=androidx.activity.ComponentActivity@1731f06
+11-10 05:01:07.347   731  2039 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:07.364 14669 14669 D VRI[ComponentActivity]: WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84]
+11-10 05:01:07.366 14669 14669 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda14@ec122b7
+11-10 05:01:07.382 14669 14669 I Surface : Creating surface for consumer unnamed-14669-1 with slotExpansion=1 for 64 slots
+11-10 05:01:07.386 14669 14669 I Surface : Creating surface for consumer VRI[ComponentActivity]#1(BLAST Consumer)1 with slotExpansion=1 for 64 slots
+11-10 05:01:07.394  1230  1294 D PreloadThumbnailUseCase: Preloading thumbnails for task ids: [[id=47 windowingMode=1 user=0 lastActiveTime=10037972] null, [id=48 windowingMode=1 user=0 lastActiveTime=10038532] null]
+11-10 05:01:07.449  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:07.450  1230  1230 D BaseActivity: Launcher flags updated: [state_started] -[state_window_focused]
+11-10 05:01:07.511   731   798 I ActivityTaskManager: Displayed com.aistudymentor/androidx.activity.ComponentActivity for user 0: +448ms
+11-10 05:01:07.522  1230  1230 D WorkspaceRevealAnim: onAnimationEnd: workspace alpha = 1.0
+11-10 05:01:07.523 14738 14738 D VRI[InstrumentationActivityInvoker$EmptyActivity]: visibilityChanged oldVisibility=true newVisibility=false
+11-10 05:01:07.526  1052  1143 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): null
+11-10 05:01:07.575   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.575   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.577  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:07.657   731   904 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:07.657 14738 14738 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): null
+11-10 05:01:07.665 14738 14738 D ViewRootImpl: Skipping stats log for color mode
+11-10 05:01:07.675  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259
+11-10 05:01:07.678  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+11-10 05:01:07.689  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.aistudymentor, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-10 05:01:07.690  6720  6720 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():322 Update input view padding, isNavbarOverInputWindow=true, bottom inset=63
+11-10 05:01:07.697  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:07.760   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.760   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.763  1230  1230 D RecentsView: onTaskRemoved: 47, not handling task stack changes
+11-10 05:01:07.763  1230  1230 D RecentsView: onTaskRemoved: 47, not handling task stack changes
+11-10 05:01:07.769  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:07.785  1230  1243 I s.nexuslauncher: NativeAlloc concurrent mark compact GC freed 966KB AllocSpace bytes, 2(104KB) LOS objects, 49% free, 6503KB/12MB, paused 22.899ms,2.568ms total 268.437ms
+11-10 05:01:07.807  1230  1245 W System  : A resource failed to call release.
+11-10 05:01:07.808  1230  1245 W System  : A resource failed to call release.
+11-10 05:01:07.808  1230  1245 W System  : A resource failed to call release.
+11-10 05:01:07.918  1052  1366 D WallpaperService: onVisibilityChanged(false): com.android.systemui.wallpapers.ImageWallpaper$CanvasEngine@3ec25a8
+11-10 05:01:07.936  1230  1230 D VRI[NexusLauncherActivity]: visibilityChanged oldVisibility=true newVisibility=false
+11-10 05:01:07.946   731  1026 I Surface : Creating surface for consumer unnamed-731-33 with slotExpansion=1 for 64 slots
+11-10 05:01:07.950   731  1026 I Surface : Creating surface for consumer ImageReader-864x1920f1m1-731-33 with slotExpansion=1 for 64 slots
+11-10 05:01:07.950   731  1026 W ImageReader_JNI: Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+11-10 05:01:07.963  1052  1143 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): null
+11-10 05:01:07.990  1230  1230 D BaseActivity: Launcher flags updated: [] -[state_started]
+11-10 05:01:07.990  1230  1230 D BaseDepthController: setSurface:
+11-10 05:01:07.990  1230  1230 D BaseDepthController: 	mWaitingOnSurfaceValidity: false
+11-10 05:01:07.990  1230  1230 D BaseDepthController: 	mBaseSurface: null
+11-10 05:01:07.990  1230  1230 D BaseDepthController: mSurface is null and mCurrentBlur is: 0
+11-10 05:01:07.993  1230  1230 D LauncherStateManager: StateManager.goToState: fromState: Normal, toState: Normal, partial trace:
+11-10 05:01:07.993  1230  1230 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:26)
+11-10 05:01:07.993  1230  1230 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:35)
+11-10 05:01:07.993  1230  1230 D LauncherStateManager: 	at com.android.launcher3.statemanager.StatefulActivity.onStop(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:31)
+11-10 05:01:07.994  1230  1230 D LauncherStateManager: StateManager.onRepeatStateSetAborted: state: Normal
+11-10 05:01:07.994  1230  1230 D KeyboardStateManager: hideKeyboard
+11-10 05:01:07.994  1230  1230 D KeyboardStateManager: isImeShown: false
+11-10 05:01:07.994  1230  1230 D StatsLog: LAUNCHER_ONSTOP
+11-10 05:01:07.997   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:07.998   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.004  1230  1230 D StatsLog: LAUNCHER_GOOGLE_SEARCH_RESTORE_LIST_SIZE_AFTER_ACTIVITY_RESTART
+11-10 05:01:08.004  1230  1230 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=7}
+11-10 05:01:08.005  1230  5866 D GmsPlayProvider: Initiating graceful shutdown of binder channel.
+11-10 05:01:08.005  1230  5866 D GmsPlayProvider: Binder channel was terminated gracefully.
+11-10 05:01:08.011  1230  1230 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=7}
+11-10 05:01:08.218   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.242   731  1026 E ConsumerBase: [ImageReader-864x1920f1m1-731-33] abandonLocked: ConsumerBase is abandoned!
+11-10 05:01:08.326   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.430   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.604   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.649 14669 14669 D Compose Focus: Owner FocusChanged(true)
+11-10 05:01:08.686   731   904 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:08.686  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259
+11-10 05:01:08.689  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+11-10 05:01:08.698  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.aistudymentor, inputType=28021, inputTypeString=EmailAddress[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[mParcelledData.dataSize=240], hintText=null, hintLocales=[]}}, false)
+11-10 05:01:08.699  6720  6720 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():322 Update input view padding, isNavbarOverInputWindow=true, bottom inset=63
+11-10 05:01:08.703  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:08.705   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.707   731   904 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:08.723  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.aistudymentor, inputType=28021, inputTypeString=EmailAddress[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[mParcelledData.dataSize=240], hintText=null, hintLocales=[]}}, true)
+11-10 05:01:08.723  6720  6720 W SessionManager: SessionManager.beginSession():72 Try to begin an already begun session [INPUT_SESSION], end it first
+11-10 05:01:08.724  6720  6720 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():322 Update input view padding, isNavbarOverInputWindow=true, bottom inset=63
+11-10 05:01:08.730  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:08.736  6720  6720 I StylusModule: StylusModule.onUpdateToolType():774 Update tool type = 2
+11-10 05:01:08.741  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInputView():1532 onStartInputView(EditorInfo{EditorInfo{packageName=com.aistudymentor, inputType=28021, inputTypeString=EmailAddress[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[{android.support.text.emoji.emojiCompat_metadataVersion=11, android.support.text.emoji.emojiCompat_replaceAll=false}], hintText=null, hintLocales=[]}}, false)
+11-10 05:01:08.744  6720  6720 I KeyboardHeightUtil: KeyboardHeightUtil.getOemKeyboardHeightRatio():81 systemKeyboardHeightRatio:1.000000.
+11-10 05:01:08.750  6720  6749 W ModuleManager: ModuleManager.loadModule():634 Module pyg is not available
+11-10 05:01:08.809   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:08.999  6720  6720 W InputConnectionWrapper: InputConnectionWrapper.recordDuration():1689 IPC IC_GET_SURROUNDING_TEXT took 254 ms
+11-10 05:01:09.001  6720  6720 I AndroidIME: InputBundleManager.startInput():357 startInput2 restarting=false
+11-10 05:01:09.001  6720  6720 I AndroidIME: InputBundleManager.loadActiveInputBundleId():542 loadActiveInputBundleId: en-US, ime_english_united_states
+11-10 05:01:09.001  6720  6720 I InputBundle: InputBundle.activateIme():597 activateIme: INACTIVE, keyboardType=accessory
+11-10 05:01:09.004  6720  6720 I AndroidIME: AbstractIme.onActivate():95 LatinIme.onActivate() : EditorInfo = EditorInfo{packageName=com.aistudymentor, inputType=28021, inputTypeString=EmailAddress[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[{android.support.text.emoji.emojiCompat_metadataVersion=11, android.support.text.emoji.emojiCompat_replaceAll=false}], hintText=null, hintLocales=[]}, IncognitoMode = false, DeviceLocked = false
+11-10 05:01:09.006  6720  6720 I InputBundle: InputBundle.consumeEvent():1051 Skip consuming an event as keyboard status is INACTIVE
+11-10 05:01:09.007  6720  6720 I Delight5Facilitator: Delight5Facilitator.initializeForIme():745 initializeForIme() : Locale = [en_US], layout = qwerty
+11-10 05:01:09.010  6720  6720 I LatinIme: LatinIme.updateEnableInlineSuggestionsOnDecoderSideFlags():1277 inline flag updated to:false
+11-10 05:01:09.025   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.027  6720  6720 I LatinIme: LatinIme.updateEnableInlineSuggestionsOnDecoderSideFlags():1277 inline flag updated to:false
+11-10 05:01:09.070  6720  6720 I InputBundle: InputBundle.consumeEvent():1051 Skip consuming an event as keyboard status is INACTIVE
+11-10 05:01:09.071  6720  6720 I LatinIme: LatinIme.resetInputContext():2283 resetInputContext(): reason=1, externalEditsInfo=ExternalEditsInfo{action=0, offset=-1, text=null, originalText=null, edits=null}
+11-10 05:01:09.072  6720  6720 I InputBundle: InputBundle.consumeEvent():1051 Skip consuming an event as keyboard status is INACTIVE
+11-10 05:01:09.082  6720  6720 I InputBundle: InputBundle.activateKeyboard():652 activateKeyboard: ACTIVE, type=ocu[keyboardType=accessory, payload=null]
+11-10 05:01:09.083  6720  6720 I KeyboardWrapper: KeyboardWrapper.activateKeyboard():592 activateKeyboard(): type=accessory, status=INACTIVE, imeDef=obp{stringId=ime_english_united_states, language=en-US, languageTag=en-US, processedConditions={writing_helper_enable_by_word_revert=false, true=true, enable_number_row=false, device=phone, enable_pk_simulator=false}, className=com.google.android.apps.inputmethod.libs.latin5.LatinIme, label=0, keyEventInterpreter=null, inlineComposing=true, autoCapital=true, announceAutoSelectedCandidate=true, statusIcon=0, indicatorIcon=0, indicatorLabel=US, displayAppCompletions=true, extraValues=obi{#0x7f0b02e5=TypedValue{t=0x3/d=0x0 "com.google.android.apps.inputmethod.libs.latin5.LatinIme"}}, processors=odh@4cc47be, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=true, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@89369ea, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=true}
+11-10 05:01:09.084  6720  6720 I KeyboardManager: KeyboardManager.requestKeyboard():249 Creating keyboard accessory, imeId=ime_english_united_states, cacheKey=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup
+11-10 05:01:09.086  6720  6720 I KeyboardWrapper: KeyboardWrapper.onKeyboardReady():226 onKeyboardReady(): type=accessory(accessory), kb=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard@35fa9cb
+11-10 05:01:09.088  6720  6720 I KeyboardWrapper: KeyboardWrapper.doActivateKeyboard():624 doActivateKeyboard(): accessory
+11-10 05:01:09.089  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=HEADER, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.090  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.091  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.093  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.094  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.getKeyboardInitialStates():186
+11-10 05:01:09.097  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=HEADER, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.097  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.098  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.098  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.100  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=FLOATING_CANDIDATES, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.101  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.103  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=WIDGET, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.103  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.105  6720  6720 I KeyboardManager: KeyboardManager.requestKeyboard():249 Creating keyboard accessory_candidates_consumer, imeId=ime_english_united_states, cacheKey=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup
+11-10 05:01:09.108  6720  6720 I KeyboardDefManager: KeyboardDefManager.requestKeyboardDef():181 requestKeyboardDef(): type=accessory_candidates_consumer, info=ocn{defIds=[#0x7f17004d], defIdsCacheKey=[2132213837]}
+11-10 05:01:09.109  6720  6720 I KeyboardDefManager: KeyboardDefManager.requestKeyboardDef():243 requestKeyboardDef(): getOrCreate from cache, info=ocn{defIds=[#0x7f17004d], defIdsCacheKey=[2132213837]}
+11-10 05:01:09.111  6720  6720 I KeyboardDefManager: KeyboardDefManager$1.onSuccess():277 requestKeyboardDef onSuccess(): info=ocn{defIds=[#0x7f17004d], defIdsCacheKey=[2132213837]}
+11-10 05:01:09.111  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.getKeyboardInitialStates():186
+11-10 05:01:09.113  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={global_theme_key=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup, global_locale=en_US, global_density_dpi=420, global_orientation=1}, className=.latin.keyboard.AccessoryKeyboard, resourceIds=[#0x7f17004d], initialStates=0, keyboardViewDefs=[ocy{direction=null, id=#0x7f0b0229, isScalable=false, layoutId=#0x7f0e0030, type=FLOATING_CANDIDATES, touchable=true, defaultShow=false}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e0611, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=HEADER, helpersCreated={FLOATING_CANDIDATES=nnb@a6afdc2}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.115  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={global_theme_key=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup, global_locale=en_US, global_density_dpi=420, global_orientation=1}, className=.latin.keyboard.AccessoryKeyboard, resourceIds=[#0x7f17004d], initialStates=0, keyboardViewDefs=[ocy{direction=null, id=#0x7f0b0229, isScalable=false, layoutId=#0x7f0e0030, type=FLOATING_CANDIDATES, touchable=true, defaultShow=false}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e0611, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={FLOATING_CANDIDATES=nnb@a6afdc2}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.126  6720  6720 I AndroidIME: InputBundleManager.startInput():372 startInput() with ocu[keyboardType=accessory, payload=null]
+11-10 05:01:09.127  6720  6720 I PkModeUpdater: PkModeUpdater.onActivate():76 onActivate true true
+11-10 05:01:09.132  6720  6720 I AccessoryInputModeManager: AccessoryInputModeManager.onModeStarted():346 Accessory input mode started: STYLUS
+11-10 05:01:09.139  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:09.139  6720  6720 I WidgetViewShowingController: WidgetViewShowingController.showWidgetKeyboardInternal():532 Show companion widget
+11-10 05:01:09.173   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.185  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:09.185  6720  6720 I WidgetViewShowingPositionHandler: WidgetViewShowingPositionHandler.updateAvailableArea():199 update available area Rect(21, 84 - 1059, 2333)
+11-10 05:01:09.191  6720  6720 W NotificationCenter: NotificationCenter$NotificationQueue.notifyPendingNotificationsOnExecutor():877 Heavy notify work detected on UI thread: [kxw->kwa] takes 58ms
+11-10 05:01:09.196  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.onActivate():130
+11-10 05:01:09.197  6720  6720 I KeyboardModeManager: KeyboardModeManager.setKeyboardMode():1128 setKeyboardMode() newKeyboardMode=5, updatePreferences=false
+11-10 05:01:09.200  6720  6720 I AccessoryToolbarAdjacentCustomization: AccessoryToolbarAdjacentCustomization.provideKeyboardPosition():230 showing popup panel at 67, 514
+11-10 05:01:09.224  6720  6759 I Delight5Decoder: Delight5DecoderWrapper.setKeyboardLayout():551 setKeyboardLayout()
+11-10 05:01:09.224  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:09.233  6720  6720 W ExtensionWrapper: ExtensionWrapper.setExtensionViewVisibility():878 interface nqy is not activate
+11-10 05:01:09.234  6720  6720 I NewLanguagePromptExtension: NewLanguagePromptExtension.onActivate():194 Not activated NewLanguagePromptExtension: both the Gboard globe key and the system globe key are disabled.
+11-10 05:01:09.236  6720  6720 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.cancelShutdown():109 cancelShutdown()
+11-10 05:01:09.237  6720  6720 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.syncLanguagePacks():121 syncLanguagePacks()
+11-10 05:01:09.239  6720  6720 I VoiceInputManager: VoiceInputManager.onKeyboardActivated():1204 onKeyboardActivated() [UD]
+11-10 05:01:09.240  6720  6823 I SpeechFactory: SpeechRecognitionFactory.maybeScheduleAutoPackDownloadForFallback():221 maybeScheduleAutoPackDownloadForFallback()
+11-10 05:01:09.240  6720  6823 I FallbackOnDeviceRecognitionProvider: FallbackOnDeviceRecognitionProvider.maybeScheduleAutoPackDownload():213 maybeScheduleAutoPackDownload() for language tag en-US
+11-10 05:01:09.245  6720  6720 I ContactNoticeModule: ContactNoticeModule.shouldPostContactPermissionNotice():148 Not post contact permission notice: not exceed waiting period since installation.
+11-10 05:01:09.249  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:09.250  6720  6720 I VoiceImeExtension: VoiceImeExtension.shouldStartVoiceInputAutomaticallyInCurrentInputBox():384 No private IME option set to start voice input.
+11-10 05:01:09.257  6720 14725 I SystemHapticSettings: SystemHapticSettings.updateSystemVibrationState():63 update vibration state: true
+11-10 05:01:09.258  6720  6720 D ImeBackCallbackSender: Register OnBackInvokedCallback with priority=-1 at app window (packageName=com.aistudymentor)
+11-10 05:01:09.259  6720  6720 I Choreographer: Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-10 05:01:09.271  6720  6720 I Surface : Creating surface for consumer unnamed-6720-34 with slotExpansion=1 for 64 slots
+11-10 05:01:09.272  6720  6720 I Surface : Creating surface for consumer VRI[InputMethod]#34(BLAST Consumer)34 with slotExpansion=1 for 64 slots
+11-10 05:01:09.277   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.278 14669 14669 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@bf413e1
+11-10 05:01:09.294   731   904 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:09.435 14738 14743 I tudymentor.test: Compiler allocated 5231KB to compile void android.view.ViewRootImpl.performTraversals(long)
+11-10 05:01:09.440   731   936 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+11-10 05:01:09.474   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.507  6720  6933 I HWUI    : Davey! duration=731ms; Flags=1, FrameTimelineVsyncId=417444, IntendedVsync=10040028375742, Vsync=10040528375722, InputEventId=0, HandleInputStart=10040550024177, AnimationStart=10040550950077, PerformTraversalsStart=10040551601077, DrawStart=10040698562277, FrameDeadline=10040045042408, FrameStartTime=10040544365277, FrameInterval=16666666, WorkloadTarget=16666666, AnimationTime=10040528375722, SyncQueued=10040708172477, SyncStart=10040719355877, IssueDrawCommandsStart=10040720079777, SwapBuffers=10040765252277, FrameCompleted=10040771524677, DequeueBufferDuration=54900, QueueBufferDuration=712700, GpuCompleted=10040771242977, SwapBuffersCompleted=10040771524677, DisplayPresentTime=0, CommandSubmissionCompleted=10040765252277,
+11-10 05:01:09.576   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.832 14669 14669 W RemoteInputConnectionImpl: getSurroundingText on inactive InputConnection
+11-10 05:01:09.833  6720  6720 W InputConnectionWrapper: InputConnectionWrapper.recordDuration():1689 IPC IC_GET_SURROUNDING_TEXT took 340 ms
+11-10 05:01:09.844 14669 14669 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+11-10 05:01:09.855   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.858 14669 14669 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.aistudymentor
+11-10 05:01:09.865 14669 14669 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+11-10 05:01:09.882  6720  6720 I LatinIme: LatinIme.resetInputContext():2283 resetInputContext(): reason=5, externalEditsInfo=ExternalEditsInfo{action=0, offset=-1, text=null, originalText=null, edits=null}
+11-10 05:01:09.886  6720  6720 I GoogleInputMethodService: GoogleInputMethodService$1.onKeyboardViewShown():344 onKeyboardViewShown: keyboardType=accessory, keyboardViewType=HEADER keyboardView=null
+11-10 05:01:09.887  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.887  6720  6720 I GoogleInputMethodService: GoogleInputMethodService$1.onKeyboardViewShown():344 onKeyboardViewShown: keyboardType=accessory, keyboardViewType=BODY keyboardView=null
+11-10 05:01:09.889  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:09.897  6720  6720 I AccessoryToolbarAdjacentCustomization: AccessoryToolbarAdjacentCustomization.provideKeyboardPosition():230 showing popup panel at 67, 514
+11-10 05:01:09.906  6720  6720 W InputContextProxy: InputContextProxy.applyClientDiffInternal():933 Ignore [FetchSuggestions] diff due to stale request: 626<628, inputStateId=566, lastInputStateId=567
+11-10 05:01:09.907  6720  6720 I Choreographer: Skipped 37 frames!  The application may be doing too much work on its main thread.
+11-10 05:01:09.932  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.aistudymentor, inputType=28001, inputTypeString=Normal[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[mParcelledData.dataSize=240], hintText=null, hintLocales=[]}}, true)
+11-10 05:01:09.932  6720  6720 W SessionManager: SessionManager.beginSession():72 Try to begin an already begun session [INPUT_SESSION], end it first
+11-10 05:01:09.933  6720  6720 W SessionManager: SessionManager.endSession():119 Child session [INPUT_VIEW_SESSION] is not ended while ending session [{INPUT_SESSION=1794261668724, INPUT_VIEW_SESSION=1794261668741, TRAINING_CACHE_SESSION=1794261669005, IME_SESSION=1794261669003}], ending it now.
+11-10 05:01:09.933  6720  6720 W SessionManager: SessionManager.endSession():119 Child session [IME_SESSION] is not ended while ending session [{INPUT_SESSION=1794261668724, INPUT_VIEW_SESSION=1794261668741, TRAINING_CACHE_SESSION=1794261669005, IME_SESSION=1794261669003}], ending it now.
+11-10 05:01:09.935  6720  6720 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():322 Update input view padding, isNavbarOverInputWindow=true, bottom inset=63
+11-10 05:01:09.977   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:09.977   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.001  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:10.008  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInputView():1532 onStartInputView(EditorInfo{EditorInfo{packageName=com.aistudymentor, inputType=28001, inputTypeString=Normal[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[{android.support.text.emoji.emojiCompat_metadataVersion=11, android.support.text.emoji.emojiCompat_replaceAll=false}], hintText=null, hintLocales=[]}}, true)
+11-10 05:01:10.011  6720  6720 I InputBundle: InputBundle.consumeEvent():1051 Skip consuming an event as keyboard status is INACTIVE
+11-10 05:01:10.016  6720  6720 I AndroidIME: AbstractIme.onDeactivate():213 LatinIme.onDeactivate()
+11-10 05:01:10.017  6720  6720 W SessionManager: SessionManager.endSession():111 Try to end a not begun session [IME_SESSION].
+11-10 05:01:10.017  6720  6720 I KeyboardHeightUtil: KeyboardHeightUtil.getOemKeyboardHeightRatio():81 systemKeyboardHeightRatio:1.000000.
+11-10 05:01:10.021  6720  6749 W ModuleManager: ModuleManager.loadModule():634 Module pyg is not available
+11-10 05:01:10.025  6720  6933 I HWUI    : Davey! duration=727ms; Flags=0, FrameTimelineVsyncId=417513, IntendedVsync=10040561709054, Vsync=10041178375696, InputEventId=0, HandleInputStart=10041203494277, AnimationStart=10041203566277, PerformTraversalsStart=10041209567777, DrawStart=10041209912877, FrameDeadline=10040795042378, FrameStartTime=10041192178977, FrameInterval=16666666, WorkloadTarget=16666666, AnimationTime=10041178375696, SyncQueued=10041210406977, SyncStart=10041211168677, IssueDrawCommandsStart=10041213356777, SwapBuffers=10041280257177, FrameCompleted=10041290132277, DequeueBufferDuration=57100, QueueBufferDuration=751800, GpuCompleted=10041288105577, SwapBuffersCompleted=10041290132277, DisplayPresentTime=0, CommandSubmissionCompleted=10041280257177,
+11-10 05:01:10.026  6720  6720 I InputContextChangeTracker: InputContextChangeTracker.fixLyingSelectionRangeFromSurroundingText():1678 fixLyingSelectionRangeFromSurroundingText(): [0, 0]([0, 0]) -> [11, 11]([11, 11])
+11-10 05:01:10.028  6720  6720 I AndroidIME: InputBundleManager.startInput():357 startInput2 restarting=true
+11-10 05:01:10.031  6720  6720 I AndroidIME: InputBundleManager.loadActiveInputBundleId():542 loadActiveInputBundleId: en-US, ime_english_united_states
+11-10 05:01:10.031  6720  6720 I InputBundle: InputBundle.activateIme():597 activateIme: INACTIVE, keyboardType=accessory
+11-10 05:01:10.035  6720  6720 I AndroidIME: AbstractIme.onActivate():95 LatinIme.onActivate() : EditorInfo = EditorInfo{packageName=com.aistudymentor, inputType=28001, inputTypeString=Normal[MultiLine|AutoCorrect], enableLearning=true, autoCorrection=true, autoComplete=true, imeOptions=42000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=0, initialSelEnd=0, initialCapsMode=0, label=null, fieldId=-1, fieldName=null, extras=Bundle[{android.support.text.emoji.emojiCompat_metadataVersion=11, android.support.text.emoji.emojiCompat_replaceAll=false}], hintText=null, hintLocales=[]}, IncognitoMode = false, DeviceLocked = false
+11-10 05:01:10.040  6720  6720 I Delight5Facilitator: Delight5Facilitator.initializeForIme():745 initializeForIme() : Locale = [en_US], layout = qwerty
+11-10 05:01:10.044  6720  6720 I LatinIme: LatinIme.updateEnableInlineSuggestionsOnDecoderSideFlags():1277 inline flag updated to:false
+11-10 05:01:10.048  6720  6720 I LatinIme: LatinIme.updateEnableInlineSuggestionsOnDecoderSideFlags():1277 inline flag updated to:false
+11-10 05:01:10.061  6720  6720 I LatinIme: LatinIme.resetInputContext():2283 resetInputContext(): reason=1, externalEditsInfo=ExternalEditsInfo{action=0, offset=-1, text=null, originalText=null, edits=null}
+11-10 05:01:10.062 14669 14669 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+11-10 05:01:10.062  6720  6720 I InputBundle: InputBundle.consumeEvent():1051 Skip consuming an event as keyboard status is INACTIVE
+11-10 05:01:10.069  6720  6720 I InputBundle: InputBundle.activateKeyboard():652 activateKeyboard: ACTIVE, type=ocu[keyboardType=accessory, payload=null]
+11-10 05:01:10.070  6720  6720 I KeyboardWrapper: KeyboardWrapper.activateKeyboard():592 activateKeyboard(): type=accessory, status=INACTIVE, imeDef=obp{stringId=ime_english_united_states, language=en-US, languageTag=en-US, processedConditions={writing_helper_enable_by_word_revert=false, true=true, enable_number_row=false, device=phone, enable_pk_simulator=false}, className=com.google.android.apps.inputmethod.libs.latin5.LatinIme, label=0, keyEventInterpreter=null, inlineComposing=true, autoCapital=true, announceAutoSelectedCandidate=true, statusIcon=0, indicatorIcon=0, indicatorLabel=US, displayAppCompletions=true, extraValues=obi{#0x7f0b02e5=TypedValue{t=0x3/d=0x0 "com.google.android.apps.inputmethod.libs.latin5.LatinIme"}}, processors=odh@4cc47be, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=true, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@89369ea, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=true}
+11-10 05:01:10.076  6720  6720 I KeyboardManager: KeyboardManager.requestKeyboard():249 Creating keyboard accessory, imeId=ime_english_united_states, cacheKey=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup
+11-10 05:01:10.077 14669 14669 D IdlingRegistry: Registering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@f70a084]
+11-10 05:01:10.080 14669 14669 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda14@ec122b7
+11-10 05:01:10.084  6720  6720 I KeyboardWrapper: KeyboardWrapper.onKeyboardReady():226 onKeyboardReady(): type=accessory(accessory), kb=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard@35fa9cb
+11-10 05:01:10.084  6720  6720 I KeyboardWrapper: KeyboardWrapper.doActivateKeyboard():624 doActivateKeyboard(): accessory
+11-10 05:01:10.085  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=HEADER, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.085  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.086  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.086  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.087  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.getKeyboardInitialStates():186
+11-10 05:01:10.089  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=HEADER, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.089  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.090  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.090  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.093  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=FLOATING_CANDIDATES, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.094  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.095  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=WIDGET, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.095  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.096  6720  6720 I KeyboardManager: KeyboardManager.requestKeyboard():249 Creating keyboard accessory_candidates_consumer, imeId=ime_english_united_states, cacheKey=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup
+11-10 05:01:10.097  6720  6720 I KeyboardDefManager: KeyboardDefManager.requestKeyboardDef():181 requestKeyboardDef(): type=accessory_candidates_consumer, info=ocn{defIds=[#0x7f17004d], defIdsCacheKey=[2132213837]}
+11-10 05:01:10.098  6720  6720 I KeyboardDefManager: KeyboardDefManager.requestKeyboardDef():243 requestKeyboardDef(): getOrCreate from cache, info=ocn{defIds=[#0x7f17004d], defIdsCacheKey=[2132213837]}
+11-10 05:01:10.098  6720  6720 I KeyboardDefManager: KeyboardDefManager$1.onSuccess():277 requestKeyboardDef onSuccess(): info=ocn{defIds=[#0x7f17004d], defIdsCacheKey=[2132213837]}
+11-10 05:01:10.099  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.getKeyboardInitialStates():186
+11-10 05:01:10.101  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={global_theme_key=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup, global_locale=en_US, global_density_dpi=420, global_orientation=1}, className=.latin.keyboard.AccessoryKeyboard, resourceIds=[#0x7f17004d], initialStates=0, keyboardViewDefs=[ocy{direction=null, id=#0x7f0b0229, isScalable=false, layoutId=#0x7f0e0030, type=FLOATING_CANDIDATES, touchable=true, defaultShow=false}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e0611, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=HEADER, helpersCreated={FLOATING_CANDIDATES=nnb@a6afdc2}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.102  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={global_theme_key=theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_MODE=5,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=6.1297245,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,enable_popup_on_keypress=true,extra_2132083422,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup, global_locale=en_US, global_density_dpi=420, global_orientation=1}, className=.latin.keyboard.AccessoryKeyboard, resourceIds=[#0x7f17004d], initialStates=0, keyboardViewDefs=[ocy{direction=null, id=#0x7f0b0229, isScalable=false, layoutId=#0x7f0e0030, type=FLOATING_CANDIDATES, touchable=true, defaultShow=false}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e0611, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={FLOATING_CANDIDATES=nnb@a6afdc2}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.107  6720  6720 I AndroidIME: InputBundleManager.startInput():372 startInput() with ocu[keyboardType=accessory, payload=null]
+11-10 05:01:10.108  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:10.113  6720  6759 I Delight5Decoder: Delight5DecoderWrapper.setKeyboardLayout():551 setKeyboardLayout()
+11-10 05:01:10.119  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:10.125  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.onDeactivate():154
+11-10 05:01:10.126   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.126   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.132  6720  6720 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.shutdown():131 shutdown()
+11-10 05:01:10.134  6720  6720 I PkModeUpdater: PkModeUpdater.onActivate():76 onActivate true true
+11-10 05:01:10.134  6720  6720 I AccessoryInputModeManager: AccessoryInputModeManager.onModeStarted():346 Accessory input mode started: STYLUS
+11-10 05:01:10.141  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:10.142  6720  6720 I WidgetViewShowingController: WidgetViewShowingController.showWidgetKeyboardInternal():532 Show companion widget
+11-10 05:01:10.153  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:10.153  6720  6720 I WidgetViewShowingPositionHandler: WidgetViewShowingPositionHandler.updateAvailableArea():199 update available area Rect(21, 84 - 1059, 2333)
+11-10 05:01:10.157  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.onActivate():130
+11-10 05:01:10.158  6720  6720 I KeyboardModeManager: KeyboardModeManager.setKeyboardMode():1128 setKeyboardMode() newKeyboardMode=5, updatePreferences=false
+11-10 05:01:10.159  6720  6720 I AccessoryToolbarAdjacentCustomization: AccessoryToolbarAdjacentCustomization.provideKeyboardPosition():230 showing popup panel at 67, 514
+11-10 05:01:10.168  6720  6720 I PopupKeyboardViewHolderProviderWrapper: PopupKeyboardViewHolderProviderWrapper.hide():113 hiding popup floating keyboard cb9acb6
+11-10 05:01:10.172  6720  6720 W ExtensionWrapper: ExtensionWrapper.setExtensionViewVisibility():878 interface nqy is not activate
+11-10 05:01:10.174  6720  6720 I NewLanguagePromptExtension: NewLanguagePromptExtension.onActivate():194 Not activated NewLanguagePromptExtension: both the Gboard globe key and the system globe key are disabled.
+11-10 05:01:10.175  6720  6720 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.cancelShutdown():109 cancelShutdown()
+11-10 05:01:10.176  6720  6720 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.syncLanguagePacks():121 syncLanguagePacks()
+11-10 05:01:10.177  6720  6720 I VoiceInputManager: VoiceInputManager.onKeyboardActivated():1204 onKeyboardActivated() [UD]
+11-10 05:01:10.177  6720  6823 I SpeechFactory: SpeechRecognitionFactory.maybeScheduleAutoPackDownloadForFallback():221 maybeScheduleAutoPackDownloadForFallback()
+11-10 05:01:10.179  6720  6720 I ContactNoticeModule: ContactNoticeModule.shouldPostContactPermissionNotice():148 Not post contact permission notice: not exceed waiting period since installation.
+11-10 05:01:10.182  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:10.182  6720  6823 I FallbackOnDeviceRecognitionProvider: FallbackOnDeviceRecognitionProvider.maybeScheduleAutoPackDownload():213 maybeScheduleAutoPackDownload() for language tag en-US
+11-10 05:01:10.182  6720  6720 I VoiceImeExtension: VoiceImeExtension.shouldStartVoiceInputAutomaticallyInCurrentInputBox():384 No private IME option set to start voice input.
+11-10 05:01:10.190  6720 14733 I SystemHapticSettings: SystemHapticSettings.updateSystemVibrationState():63 update vibration state: true
+11-10 05:01:10.194  6720  6720 I StylusModule: StylusModule.onUpdateToolType():774 Update tool type = 2
+11-10 05:01:10.199  6720  6720 I AccessoryToolbarAdjacentCustomization: AccessoryToolbarAdjacentCustomization.provideKeyboardPosition():230 showing popup panel at 67, 514
+11-10 05:01:10.202  6720  6720 W InputContextProxy: InputContextProxy.applyClientDiffInternal():933 Ignore [FetchSuggestions] diff due to stale request: 628<632, inputStateId=568, lastInputStateId=570
+11-10 05:01:10.233  6720  6720 I AccessoryToolbarAdjacentCustomization: AccessoryToolbarAdjacentCustomization.provideKeyboardPosition():230 showing popup panel at 67, 514
+11-10 05:01:10.239  6720  6720 I GoogleInputMethodService: GoogleInputMethodService$1.onKeyboardViewShown():344 onKeyboardViewShown: keyboardType=accessory, keyboardViewType=HEADER keyboardView=null
+11-10 05:01:10.242  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.243  6720  6720 I GoogleInputMethodService: GoogleInputMethodService$1.onKeyboardViewShown():344 onKeyboardViewShown: keyboardType=accessory, keyboardViewType=BODY keyboardView=null
+11-10 05:01:10.243  6720  6720 W Keyboard: Keyboard.getKeyboardViewHelper():607 null helper is returned: keyboardDef=oci{processedConditions={}, globalConditions={}, className=com.google.android.libraries.inputmethod.keyboard.impl.Keyboard, resourceIds=[#0x7f17004e], initialStates=0, keyboardViewDefs=[], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x0, recentKeyLayoutId=#0x0, recentKeyPopupLayoutId=#0x0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=0}, type=BODY, helpersCreated={}, context.getResources().getConfiguration(): {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.9 fontWeightAdjustment=0}
+11-10 05:01:10.252  6720  6720 I StylusModule: StylusModule.onUpdateToolType():774 Update tool type = 2
+11-10 05:01:10.291   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.292   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.309  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onFinishInputView():1661 onFinishInputView(false)
+11-10 05:01:10.310  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:10.316  6720  6720 W ExtensionWrapper: ExtensionWrapper.setAllowUpdateNavigationBarStyle():887 class kwe is not activate
+11-10 05:01:10.318  6720  6720 I GlobeKeyExtension: GlobeKeyExtension.onDeactivate():154
+11-10 05:01:10.323  6720  6720 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.shutdown():131 shutdown()
+11-10 05:01:10.326  6720  6720 I InputBundle: InputBundle.consumeEvent():1051 Skip consuming an event as keyboard status is INACTIVE
+11-10 05:01:10.332  6720  6720 I AndroidIME: AbstractIme.onDeactivate():213 LatinIme.onDeactivate()
+11-10 05:01:10.343  6720  6720 I PrimesLoggerHolder: FrameMetricServiceImpl.stopAsFuture():213 Measurement not found: OnConfigurationChanged
+11-10 05:01:10.343  6720  6720 D ImeBackCallbackSender: Unregister OnBackInvokedCallback at app window (packageName=com.aistudymentor)
+11-10 05:01:10.390   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.462 14669 14669 D IdlingRegistry: Unregistering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@f70a084]
+11-10 05:01:10.503   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.538   731  1289 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@9d417fba does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+11-10 05:01:10.542  1230  1230 D RecentsView: onTaskDisplayChanged: 49, new displayId = 0
+11-10 05:01:10.547   557  1037 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0x766f15627870) with descriptor: '(not cached)'
+11-10 05:01:10.558  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:10.559  1052  1106 W DisconnectHandler: No disconnect change found in the transition, not handling request.
+11-10 05:01:10.569  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:10.573   731  1289 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:10.581 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: PAUSED
+11-10 05:01:10.581 14669 14669 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=androidx.activity.ComponentActivity@1731f06
+11-10 05:01:10.583  1052  1143 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda14@e38edf0
+11-10 05:01:10.594 14738 14755 I GFXSTREAM: [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+11-10 05:01:10.598 14738 14755 I GFXSTREAM: [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+11-10 05:01:10.620 14738 14755 W libc    : Access denied finding property "vendor.mesa.virtgpu.kumquat"
+11-10 05:01:10.634  1052  1143 I Surface : Creating surface for consumer unnamed-1052-58 with slotExpansion=1 for 64 slots
+11-10 05:01:10.635  1052  1143 I Surface : Creating surface for consumer VRI[test]#56(BLAST Consumer)56 with slotExpansion=1 for 64 slots
+11-10 05:01:10.645 14738 14755 W HWUI    : Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+11-10 05:01:10.646 14738 14755 W HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-10 05:01:10.704  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:10.710 14669 14674 W m.aistudymentor: Suspending all threads took: 5.057ms
+11-10 05:01:10.716 14669 14674 W m.aistudymentor: Cleared Reference was only reachable from finalizer (only reported once)
+11-10 05:01:10.720  1230  1294 D PreloadThumbnailUseCase: Preloading thumbnails for task ids: [[id=48 windowingMode=1 user=0 lastActiveTime=10041837] null, [id=49 windowingMode=1 user=0 lastActiveTime=10041874] null]
+11-10 05:01:10.794   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.818   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:10.840   731  1378 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:10.868   557  1358 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0x766f1561d2c0) with descriptor: '(not cached)'
+11-10 05:01:10.889  1052  1106 W DisconnectHandler: No disconnect change found in the transition, not handling request.
+11-10 05:01:10.895  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:10.902 14738 14738 D VRI[InstrumentationActivityInvoker$EmptyActivity]: WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84]
+11-10 05:01:10.905 14738 14738 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda14@dd6e281
+11-10 05:01:10.913 14738 14738 I Surface : Creating surface for consumer unnamed-14738-1 with slotExpansion=1 for 64 slots
+11-10 05:01:10.915 14738 14738 I Surface : Creating surface for consumer VRI[InstrumentationActivityInvoker$EmptyActivity]#1(BLAST Consumer)1 with slotExpansion=1 for 64 slots
+11-10 05:01:11.043  1230  1230 D BaseActivity: Launcher flags updated: [state_started] +[state_started]
+11-10 05:01:11.044  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_user_active] +[state_resumed|state_user_active]
+11-10 05:01:11.048  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_user_active] +[]
+11-10 05:01:11.049  1230  1230 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=6}
+11-10 05:01:11.056  1230  1230 I Surface : Creating surface for consumer unnamed-1230-38 with slotExpansion=1 for 64 slots
+11-10 05:01:11.065  1230  1230 I Surface : Creating surface for consumer VRI[NexusLauncherActivity]#28(BLAST Consumer)28 with slotExpansion=1 for 64 slots
+11-10 05:01:11.073  1052  1366 D WallpaperService: onVisibilityChanged(true): com.android.systemui.wallpapers.ImageWallpaper$CanvasEngine@3ec25a8
+11-10 05:01:11.084  1230  1230 D BaseDepthController: setSurface:
+11-10 05:01:11.084  1230  1230 D BaseDepthController: 	mWaitingOnSurfaceValidity: false
+11-10 05:01:11.084  1230  1230 D BaseDepthController: 	mBaseSurface: Surface(name=VRI-com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity#1321)/@0xe344ea5
+11-10 05:01:11.085  1230  1230 V BaseDepthController: Applying blur: 0 to Surface(name=VRI-com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity#1321)/@0xe344ea5 applyImmediately: false
+11-10 05:01:11.086  1230  1230 D BaseDepthController: shouldBlurWorkspace: false targetState: Normal currentStableState: Normal mCurrentBlur: 0 mLauncher.getDepthBlurTargets(): [com.android.launcher3.Workspace{ccf904b V.ED..... .......D 0,0-1080,2400 #7f0a0486 app:id/workspace}, com.android.launcher3.Hotseat{7597a28 V.ED..... .......D 0,1905-1080,2400 #7f0a01f6 app:id/hotseat}]
+11-10 05:01:11.158  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_deferred_resumed|state_user_active] +[state_deferred_resumed]
+11-10 05:01:11.158  1230  1230 D StatsLog: LAUNCHER_ONRESUME
+11-10 05:01:11.158  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:11.166  1230  1230 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+11-10 05:01:11.167  1230  1294 D PreloadThumbnailUseCase: Preloading thumbnails for task ids: [[id=48 windowingMode=1 user=0 lastActiveTime=10041837] null, [id=49 windowingMode=1 user=0 lastActiveTime=10042145] null]
+11-10 05:01:11.167  1654  1957 I AiAiEcho: Predicting[0]:  [CONTEXT sampling_count=5 ]
+11-10 05:01:11.167  1654  1957 I AiAiEcho: EchoTargets:
+11-10 05:01:11.167  1654  1957 I AiAiEcho: Filtered by AiAi flag check:
+11-10 05:01:11.167  1654  1957 I AiAiEcho: [CONTEXT ratelimit_period="10 SECONDS" ]
+11-10 05:01:11.169  1654  1957 I AiAiEcho: #remoteViewsTwiddler: feature disabled.
+11-10 05:01:11.173  1654  1957 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0 (types=[])
+11-10 05:01:11.173  1230  1296 D QuickstepModelDelegate: notifyAppTargetEvent action=1 launchLocation=workspace/0/[-1,-1]/[1,1]
+11-10 05:01:11.199  1230  1230 D ShortcutAndWidgetContainer: appWidgetScale - [x,y]: [1.0,1.0]
+11-10 05:01:11.199  1230  1230 D NavigableAppWidgetHostView: updateScale - [fitScale,bounceScale]: [1.0,1.0]
+11-10 05:01:11.201  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:11.202  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:11.203  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:11.203  1230  1230 D SsBaseTemplateCard: Passed-in item info is null
+11-10 05:01:11.203  1230  1230 I SsBaseTemplateCard: Secondary card pane is null
+11-10 05:01:11.237   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:11.238   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:11.267 14669 14669 D VRI[ComponentActivity]: visibilityChanged oldVisibility=true newVisibility=false
+11-10 05:01:11.289  1230  1230 D LauncherStateManager: StateManager.cancelAnimation: animation ongoing: false, partial trace:
+11-10 05:01:11.289  1230  1230 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.setCurrentAnimation(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:59)
+11-10 05:01:11.289  1230  1230 D LauncherStateManager: 	at com.android.launcher3.QuickstepTransitionManager.createWallpaperOpenAnimations(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:712)
+11-10 05:01:11.289  1230  1230 D LauncherStateManager: 	at com.android.launcher3.QuickstepTransitionManager$WallpaperOpenLauncherAnimationRunner.onAnimationStart(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:135)
+11-10 05:01:11.291  1230  1230 D LauncherStateManager: StateManager.createAtomicAnimation: fromState: Normal, toState: Normal, partial trace:
+11-10 05:01:11.291  1230  1230 D LauncherStateManager: 	at com.android.quickstep.util.WorkspaceRevealAnim.prepareToAnimate(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:19)
+11-10 05:01:11.291  1230  1230 D LauncherStateManager: 	at com.android.quickstep.util.WorkspaceRevealAnim.<init>(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:10)
+11-10 05:01:11.291  1230  1230 D LauncherStateManager: 	at com.android.launcher3.QuickstepTransitionManager.createWallpaperOpenAnimations(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:753)
+11-10 05:01:11.291  1230  1230 D AllAppsTransitionController: shouldProtectHeader: false skipScrim: true state: Normal stateManager.getState(): Normal
+11-10 05:01:11.293  1230  1230 D KeyboardInsetsHandler: removePendingImeController: pendingImeController=null
+11-10 05:01:11.293   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:11.293  1230  1230 D b/311077782: LauncherAnimationRunner.setAnimation
+11-10 05:01:11.294   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:11.316 14669 14708 D HWUI    : endAllActiveAnimators on 0x7dbc9b050990 (UnprojectedRipple) with handle 0x7dbc1b0472f0
+11-10 05:01:11.327  1230  1230 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_deferred_resumed|state_window_focused|state_user_active] +[state_window_focused]
+11-10 05:01:11.334 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: STOPPED
+11-10 05:01:11.334 14669 14669 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=androidx.activity.ComponentActivity@1731f06
+11-10 05:01:11.342   731   904 W InputChannel-JNI: Channel already disposed.
+11-10 05:01:11.343  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259
+11-10 05:01:11.349  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+11-10 05:01:11.355  6720  6720 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.google.android.apps.nexuslauncher, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-10 05:01:11.355  6720  6720 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():322 Update input view padding, isNavbarOverInputWindow=true, bottom inset=63
+11-10 05:01:11.364  6720  6720 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+11-10 05:01:11.386  1230  1243 I s.nexuslauncher: NativeAlloc concurrent mark compact GC freed 942KB AllocSpace bytes, 6(312KB) LOS objects, 49% free, 6355KB/12MB, paused 6.540ms,2.848ms total 101.243ms
+11-10 05:01:11.392   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:11.393   557   599 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+11-10 05:01:11.403 14669 14669 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@1731f06 in: DESTROYED
+11-10 05:01:11.403 14669 14669 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+11-10 05:01:11.405 14669 14669 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): null
+11-10 05:01:11.411 14669 14669 D ViewRootImpl: Skipping stats log for color mode
+11-10 05:01:11.441 14669 14689 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.junit4.EspressoLink@176fe71]
+11-10 05:01:11.442 14669 14689 I TestRunner: finished: loginScreenAuthenticatesAndSignalsGuardianRoutingState(com.aistudymentor.ui.StudentFlowsInstrumentedTest)

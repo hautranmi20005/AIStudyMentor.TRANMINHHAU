@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS questions (
     question_text TEXT NULL,
     status VARCHAR(30) NOT NULL DEFAULT 'SUBMITTED',
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6),
     CONSTRAINT pk_questions PRIMARY KEY (question_id),
     CONSTRAINT fk_questions_profile FOREIGN KEY (profile_id) 
         REFERENCES student_profiles (profile_id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 CREATE INDEX idx_questions_profile_created ON questions (profile_id, created_at);
 
@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS question_attachments (
     firebase_storage_path VARCHAR(500) NOT NULL,
     file_type VARCHAR(50) NULL,
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6),
     CONSTRAINT pk_question_attachments PRIMARY KEY (attachment_id),
     CONSTRAINT fk_question_attachments_question FOREIGN KEY (question_id) 
         REFERENCES questions (question_id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 CREATE INDEX idx_question_attachments_question_id ON question_attachments (question_id);
 
@@ -49,11 +49,11 @@ CREATE TABLE IF NOT EXISTS ai_generation_logs (
     latency_total_ms BIGINT NULL,
     cache_hit BOOLEAN NOT NULL DEFAULT FALSE,
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6),
     CONSTRAINT pk_ai_generation_logs PRIMARY KEY (log_id),
     CONSTRAINT fk_ai_logs_profile FOREIGN KEY (profile_id) 
         REFERENCES student_profiles (profile_id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 CREATE INDEX idx_ai_logs_profile_created ON ai_generation_logs (profile_id, created_at);
 CREATE INDEX idx_ai_logs_question_id ON ai_generation_logs (question_id);
@@ -68,13 +68,13 @@ CREATE TABLE IF NOT EXISTS answers (
     is_alternative BOOLEAN NOT NULL DEFAULT FALSE,
     ai_log_id VARCHAR(36) NULL,
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6),
     CONSTRAINT pk_answers PRIMARY KEY (answer_id),
     CONSTRAINT fk_answers_question FOREIGN KEY (question_id) 
         REFERENCES questions (question_id) ON DELETE CASCADE,
     CONSTRAINT fk_answers_ai_log FOREIGN KEY (ai_log_id) 
         REFERENCES ai_generation_logs (log_id) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 CREATE INDEX idx_answers_question_id ON answers (question_id);
 CREATE INDEX idx_answers_ai_log_id ON answers (ai_log_id);
@@ -85,13 +85,13 @@ CREATE TABLE IF NOT EXISTS question_bookmarks (
     profile_id VARCHAR(36) NOT NULL,
     question_id VARCHAR(36) NOT NULL,
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP(6),
     CONSTRAINT pk_question_bookmarks PRIMARY KEY (bookmark_id),
     CONSTRAINT uq_bookmarks_profile_question UNIQUE (profile_id, question_id),
     CONSTRAINT fk_bookmarks_profile FOREIGN KEY (profile_id) 
         REFERENCES student_profiles (profile_id) ON DELETE CASCADE,
     CONSTRAINT fk_bookmarks_question FOREIGN KEY (question_id) 
         REFERENCES questions (question_id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 CREATE INDEX idx_bookmarks_profile_created ON question_bookmarks (profile_id, created_at);

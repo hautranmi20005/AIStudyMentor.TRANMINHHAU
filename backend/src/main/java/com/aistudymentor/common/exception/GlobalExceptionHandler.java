@@ -9,12 +9,26 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ErrorResponse> handleBusinessException(BusinessException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(ex.getStatus().value())
+                .error(ex.getStatus().getReasonPhrase())
+                .code(ex.getCode())
+                .message(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .path(request.getRequestURI())
+                .build();
+        return ResponseEntity.status(ex.getStatus()).body(errorResponse);
+    }
 
     @ExceptionHandler(AiNotConfiguredException.class)
     public ResponseEntity<ErrorResponse> handleAiNotConfigured(AiNotConfiguredException ex, HttpServletRequest request) {

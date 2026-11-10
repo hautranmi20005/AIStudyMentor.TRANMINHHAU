@@ -52,6 +52,8 @@ public class GuardianConsentEnforcementFilter extends OncePerRequestFilter {
                 // H5 Whitelist: Auth, GET/POST consent status, read/update profile, error, actuator
                 boolean isWhitelisted = requestUri.startsWith("/api/v1/auth/")
                         || requestUri.startsWith("/api/v1/users/me/guardian-consent")
+                    || requestUri.equals("/api/v1/guardian-consent/status")
+                    || requestUri.equals("/api/v1/guardian-consent/resend")
                         || requestUri.startsWith("/api/v1/users/me/profile")
                         || requestUri.startsWith("/error")
                         || requestUri.startsWith("/actuator/");
@@ -60,7 +62,7 @@ public class GuardianConsentEnforcementFilter extends OncePerRequestFilter {
                     log.warn("Blocked U13 user {} from accessing {} due to PENDING_CONSENT",
                             userPrincipal.getUserId(), requestUri);
                     sendErrorResponse(response, requestUri, HttpServletResponse.SC_FORBIDDEN,
-                            "FORBIDDEN", "GUARDIAN_CONSENT_REQUIRED",
+                            "FORBIDDEN", "ACCOUNT_PENDING_CONSENT",
                             "Guardian consent is required before accessing study features. Please check your parent/guardian email for verification.");
                     return;
                 }

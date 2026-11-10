@@ -14,4 +14,6 @@ import java.util.UUID;
 public interface PracticeQuizRepository extends JpaRepository<PracticeQuiz, UUID> {
     Page<PracticeQuiz> findByProfileOrderByCreatedAtDesc(StudentProfile profile, Pageable pageable);
     Optional<PracticeQuiz> findByQuizIdAndProfile(UUID quizId, StudentProfile profile);
+    long countByProfileAndStatus(StudentProfile profile, com.aistudymentor.quiz.entity.QuizStatus status);
+    java.util.List<PracticeQuiz> findByProfile(StudentProfile profile);
 }

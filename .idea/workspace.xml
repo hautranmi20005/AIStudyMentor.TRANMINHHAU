@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1390ba3b-6555-4276-9341-c4d84779dd57" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FIX_REPORT.md" beforeDir="false" afterPath="$PROJECT_DIR$/FIX_REPORT.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO_DECISIONS_PENDING.md" beforeDir="false" afterPath="$PROJECT_DIR$/PO_DECISIONS_PENDING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/BackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/ai/service/GeminiAdapterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/ai/service/GeminiAdapterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/auth/entity/GuardianConsent.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/auth/entity/GuardianConsent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/auth/repository/GuardianConsentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/auth/repository/GuardianConsentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/auth/service/MfaRateLimitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/auth/service/MfaRateLimitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/common/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/GuardianConsentEnforcementFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/GuardianConsentEnforcementFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/question/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/question/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/quiz/repository/PracticeQuizRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/quiz/repository/PracticeQuizRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/quiz/repository/QuizAttemptRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/aistudymentor/quiz/repository/QuizAttemptRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__Init_Core_Security_Schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__Init_Core_Security_Schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2__Fix_Core_Security.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2__Fix_Core_Security.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V3__Question_And_Ai_Schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V3__Question_And_Ai_Schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V4__Quiz_Schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V4__Quiz_Schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/aistudymentor/FlywaySchemaValidationIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/aistudymentor/FlywaySchemaValidationIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/aistudymentor/security/SecurityRulesUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/aistudymentor/security/SecurityRulesUnitTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LsOKlWIAQ11U3R7Jhv48uDyYZ9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CidrDebugProfileConversion": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/AIStudyMentor",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "templates.modelproviders.configurable"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1390ba3b-6555-4276-9341-c4d84779dd57" name="Changes" comment="" />
+      <created>1794239248282</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794239248282</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:junit:junit" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.flywaydb:flyway-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+  </component>
+</project>

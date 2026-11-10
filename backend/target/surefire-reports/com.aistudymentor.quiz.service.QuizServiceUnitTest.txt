@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.aistudymentor.quiz.service.QuizServiceUnitTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.216 s -- in com.aistudymentor.quiz.service.QuizServiceUnitTest
