@@ -1,0 +1,11 @@
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\ai\service\GeminiAdapterServiceTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\auth\service\AuthServiceGuardianConsentTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\auth\service\GuardianConsentServiceTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\BackendEndToEndIntegrationTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\config\ApiRateLimitFilterTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\config\GuardianConsentEnforcementFilterTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\config\SecurityConfigCorsTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\dashboard\service\DashboardServiceUnitTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\FlywaySchemaValidationIntegrationTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\quiz\service\QuizServiceUnitTest.java
+D:\AIStudyMentor\backend\src\test\java\com\aistudymentor\security\SecurityRulesUnitTest.java

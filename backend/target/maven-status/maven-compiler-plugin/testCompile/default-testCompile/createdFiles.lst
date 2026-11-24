@@ -1,0 +1,11 @@
+com\aistudymentor\config\GuardianConsentEnforcementFilterTest.class
+com\aistudymentor\dashboard\service\DashboardServiceUnitTest.class
+com\aistudymentor\quiz\service\QuizServiceUnitTest.class
+com\aistudymentor\config\SecurityConfigCorsTest.class
+com\aistudymentor\config\ApiRateLimitFilterTest.class
+com\aistudymentor\auth\service\GuardianConsentServiceTest.class
+com\aistudymentor\ai\service\GeminiAdapterServiceTest.class
+com\aistudymentor\FlywaySchemaValidationIntegrationTest.class
+com\aistudymentor\auth\service\AuthServiceGuardianConsentTest.class
+com\aistudymentor\security\SecurityRulesUnitTest.class
+com\aistudymentor\BackendEndToEndIntegrationTest.class

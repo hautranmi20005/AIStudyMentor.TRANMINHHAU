@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="serviceName" source="spring.application.name" defaultValue="ai-study-mentor-backend" />
+    <springProperty scope="context" name="deploymentEnvironment" source="spring.profiles.active" defaultValue="local" />
+    <springProperty scope="context" name="serviceVersion" source="app.build.version" defaultValue="unknown" />
+
+    <appender name="JSON_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service":"${serviceName}","env":"${deploymentEnvironment}","version":"${serviceVersion}","dd.service":"${serviceName}","dd.env":"${deploymentEnvironment}","dd.version":"${serviceVersion}"}</customFields>
+            <includeMdc>false</includeMdc>
+            <includeContext>false</includeContext>
+            <includeCallerData>false</includeCallerData>
+            <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                <maxDepthPerThrowable>20</maxDepthPerThrowable>
+                <maxLength>8192</maxLength>
+            </throwableConverter>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="${LOG_LEVEL_SPRING:-INFO}" />
+    <root level="${LOG_LEVEL_ROOT:-INFO}">
+        <appender-ref ref="JSON_CONSOLE" />
+    </root>
+</configuration>
