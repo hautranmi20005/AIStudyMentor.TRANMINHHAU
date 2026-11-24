@@ -52,6 +52,7 @@ public class GuardianConsentEnforcementFilter extends OncePerRequestFilter {
                 // H5 Whitelist: Auth, GET/POST consent status, read/update profile, error, actuator
                 boolean isWhitelisted = requestUri.startsWith("/api/v1/auth/")
                         || requestUri.startsWith("/api/v1/users/me/guardian-consent")
+                        || requestUri.equals("/api/v1/guardian-consent/verify")
                     || requestUri.equals("/api/v1/guardian-consent/status")
                     || requestUri.equals("/api/v1/guardian-consent/resend")
                         || requestUri.startsWith("/api/v1/users/me/profile")

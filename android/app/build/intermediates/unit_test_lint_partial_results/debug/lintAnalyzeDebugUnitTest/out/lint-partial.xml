@@ -3,7 +3,7 @@
     <map id="UnusedResources">
         <entry
             name="model"
-            string=""/>
+            string="string[error_ai_timeout(R),retry(R),registration_complete(R)];;;;"/>
     </map>
 
 </incidents>

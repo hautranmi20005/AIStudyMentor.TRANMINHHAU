@@ -1,0 +1,5 @@
+# Optional API endpoint overrides. No credentials belong in this file.
+# The debug default is the Android emulator host; use 127.0.0.1 with adb reverse
+# when building for a USB-connected physical device.
+DEBUG_API_BASE_URL=http://10.0.2.2:8080/api/v1/
+API_BASE_URL=https://api.example.com/api/v1/

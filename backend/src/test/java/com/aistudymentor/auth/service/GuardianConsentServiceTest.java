@@ -8,11 +8,19 @@ import com.aistudymentor.auth.entity.User;
 import com.aistudymentor.auth.repository.GuardianConsentRepository;
 import com.aistudymentor.auth.repository.UserRepository;
 import com.aistudymentor.common.exception.BusinessException;
+import com.aistudymentor.config.GuardianConsentEnforcementFilter;
+import com.aistudymentor.config.UserPrincipal;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.mail.Session;
 import jakarta.mail.Part;
 import jakarta.mail.internet.MimeMessage;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.util.ReflectionTestUtils;
 
@@ -23,8 +31,10 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -47,6 +57,11 @@ class GuardianConsentServiceTest {
     private AccountStatusService accountStatusService;
     private JavaMailSender mailSender;
     private GuardianConsentService service;
+
+    @AfterEach
+    void clearSecurityContext() {
+        SecurityContextHolder.clearContext();
+    }
 
     @BeforeEach
     void setUp() {
@@ -81,6 +96,8 @@ class GuardianConsentServiceTest {
         assertTrue(html.contains("Reject consent"));
         assertTrue(html.contains("action=approve"));
         assertTrue(html.contains("action=reject"));
+        assertTrue(html.contains("https://api.example.test/api/v1/guardian-consent/verify?token="));
+        assertFalse(html.contains("10.0.2.2"));
         String rawToken = html.replaceFirst("(?s).*?token=([A-Za-z0-9_-]+)&amp;action=approve.*", "$1");
         assertNotEquals(rawToken, saved.getTokenHash());
         assertEquals(hash(rawToken), saved.getTokenHash());
@@ -105,6 +122,35 @@ class GuardianConsentServiceTest {
     }
 
     @Test
+    void approvedMinorCanAccessStudyRoutesAfterConsentVerification() throws Exception {
+        String rawToken = "one-time-token";
+        User user = user();
+        GuardianConsent consent = consent(user, hash(rawToken));
+        when(consentRepository.findByTokenHashForUpdate(hash(rawToken))).thenReturn(java.util.Optional.of(consent));
+
+        service.verifyConsent(rawToken, "approve", "192.0.2.10");
+
+        assertEquals(AccountStatus.ACTIVE, user.getAccountStatus());
+        UserPrincipal principal = UserPrincipal.builder()
+                .userId(user.getUserId())
+                .email(user.getEmail())
+                .accountStatus(user.getAccountStatus())
+                .build();
+        SecurityContextHolder.getContext().setAuthentication(
+                new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities()));
+        MockHttpServletRequest request = new MockHttpServletRequest("GET", "/api/v1/questions");
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        AtomicBoolean continued = new AtomicBoolean();
+
+        new GuardianConsentEnforcementFilter(new ObjectMapper().findAndRegisterModules()).doFilter(
+                request, response, (servletRequest, servletResponse) -> continued.set(true));
+
+        assertTrue(continued.get());
+        assertEquals(200, response.getStatus());
+        SecurityContextHolder.clearContext();
+    }
+
+    @Test
     void rejectsUnknownActionBeforeLookingUpToken() {
         assertThrows(BusinessException.class, () -> service.verifyConsent("token", "anything", "127.0.0.1"));
         verify(consentRepository, never()).findByTokenHashForUpdate(anyString());
@@ -115,10 +161,29 @@ class GuardianConsentServiceTest {
         String page = service.renderConsentConfirmation("one-time-token", "approve");
 
         assertTrue(page.contains("method=\"post\""));
+        assertTrue(page.contains("document.getElementById(\"consent-form\").submit()"));
         assertTrue(page.contains("name=\"token\" value=\"one-time-token\""));
         assertTrue(page.contains("name=\"action\" value=\"approve\""));
         verify(consentRepository, never()).findByTokenHashForUpdate(anyString());
         verify(userRepository, never()).save(any());
+    }
+
+    @Test
+    void approvalResultPageShowsSuccessMessage() {
+        String page = service.renderConsentResult(true);
+
+        assertTrue(page.contains("<title>Consent Approved Successfully</title>"));
+        assertTrue(page.contains("Consent Approved Successfully"));
+        assertTrue(page.contains("The student account can now access its study features."));
+    }
+
+    @Test
+    void expiredConsentResultUsesClearUserFacingMessage() {
+        String page = service.renderConsentError("CONSENT_TOKEN_EXPIRED");
+
+        assertTrue(page.contains("<title>Unable to process consent</title>"));
+        assertTrue(page.contains("This consent link has expired."));
+        assertFalse(page.contains("CONSENT_TOKEN_EXPIRED"));
     }
 
     @Test

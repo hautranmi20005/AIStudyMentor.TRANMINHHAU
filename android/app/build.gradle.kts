@@ -33,6 +33,7 @@ if (gradle.startParameter.taskNames.any { it.contains("bundleRelease") || it.con
 android {
     namespace = "com.aistudymentor"
     compileSdk = 34
+    sourceSets.getByName("androidTest").assets.srcDir("$projectDir/schemas")
 
     defaultConfig {
         applicationId = "com.aistudymentor"
@@ -119,6 +120,9 @@ dependencies {
     // Retrofit & Gson
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("androidx.security:security-crypto:1.1.0")
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
@@ -128,7 +132,10 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("androidx.room:room-testing:2.6.1")
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+    androidTestImplementation("androidx.room:room-testing:2.6.1")
     androidTestImplementation("androidx.test:core:1.6.1")
     androidTestImplementation("androidx.test:runner:1.6.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")

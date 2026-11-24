@@ -1,5 +1,6 @@
 package com.aistudymentor.question.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.util.UUID;
 public class QuestionBookmarkResponse {
 
     private UUID questionId;
+    @JsonProperty("isBookmarked")
     private boolean isBookmarked;
     private LocalDateTime bookmarkedAt;
 }

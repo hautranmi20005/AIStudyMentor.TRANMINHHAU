@@ -1,0 +1,10 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Ignore generated build and IDE metadata; these paths are not source inputs."
+paths = ['''(^|/)(build|target|\.gradle|\.idea|\.vs|\.vscode)/''']
+
+[[allowlists]]
+description = "The ignored developer-local env file contains generated local credentials and is never source-controlled."
+paths = ['''(^|/)backend/\.env$''']

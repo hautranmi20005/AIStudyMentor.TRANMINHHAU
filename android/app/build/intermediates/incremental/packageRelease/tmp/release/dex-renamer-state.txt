@@ -1,0 +1,4 @@
+#Mon Nov 16 01:06:30 ICT 2026
+base.0=D\:\\AIStudyMentor\\android\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

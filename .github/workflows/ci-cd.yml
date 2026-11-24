@@ -42,13 +42,25 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "17.0.21+9"
           cache: maven
           cache-dependency-path: backend/pom.xml
 
       - name: Run unit and integration tests
         working-directory: backend
-        run: mvn --batch-mode --no-transfer-progress verify
+        run: ./mvnw --batch-mode --no-transfer-progress verify
+
+      - name: Upload backend test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-reports-${{ github.sha }}
+          path: |
+            backend/target/surefire-reports/*.xml
+            backend/target/failsafe-reports/*.xml
+            backend/target/site/jacoco/**
+          if-no-files-found: warn
+          retention-days: 14
 
   backend-container:
     name: Build backend container
@@ -83,7 +95,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "17.0.21+9"
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -93,7 +105,19 @@ jobs:
 
       - name: Run Android lint and unit tests
         working-directory: android
-        run: ./gradlew --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug
+        # connectedDebugAndroidTest is local-only: hosted runners do not guarantee nested KVM/hardware acceleration.
+        run: ./gradlew --no-daemon -Pkotlin.compiler.execution.strategy=in-process :app:lintDebug :app:testDebugUnitTest :app:assembleDebug
+
+      - name: Upload Android test and lint reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-test-lint-reports-${{ github.sha }}
+          path: |
+            android/app/build/reports/**
+            android/app/build/test-results/testDebugUnitTest/**
+          if-no-files-found: warn
+          retention-days: 14
 
   android-release:
     name: Sign Android App Bundle
@@ -110,7 +134,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "17.0.21+9"
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -154,7 +178,7 @@ jobs:
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           API_BASE_URL: ${{ vars.API_BASE_URL || 'https://api.example.com/api/v1/' }}
-        run: ./gradlew --no-daemon :app:bundleRelease
+        run: ./gradlew --no-daemon -Pkotlin.compiler.execution.strategy=in-process :app:bundleRelease
 
       - name: Verify App Bundle signature
         run: jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab

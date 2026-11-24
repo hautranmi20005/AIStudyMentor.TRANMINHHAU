@@ -6,24 +6,37 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/ai_study_mentor?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: studymentor_app
-    password: studymentor_dev_password
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: ${DB_DRIVER}
   data:
     redis:
-      host: 127.0.0.1
-      port: 6379
-      password: redis_dev_password
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
   mail:
-    host: localhost
-    port: 1025
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+
+management:
+  server:
+    port: ${MANAGEMENT_SERVER_PORT:8081}
+    address: 127.0.0.1
+  security:
+    username: ${MANAGEMENT_USERNAME}
+    password: ${MANAGEMENT_PASSWORD}
 
 app:
+  dev-seed:
+    password: ${DEV_SEED_PASSWORD}
+    totp-secret: ${DEV_SEED_TOTP_SECRET}
   jwt:
-    secret: dev_only_jwt_secret_must_be_at_least_32_bytes_long_123456
+    secret: ${JWT_SECRET}
   security:
-    mfa-encryption-key: dev_aes_key_32_bytes_length_123456
+    mfa-encryption-key: ${MFA_ENCRYPTION_KEY}
   gemini:
-    api-key: <SET_ME>
-    model: <SET_ME>
-    api-version: <SET_ME>
+    api-key: ${GEMINI_API_KEY:}
+    model: ${GEMINI_MODEL:gemini-3.8-flash}
+    api-version: ${GEMINI_API_VERSION:v1beta}
+    fallback-models: ${GEMINI_FALLBACK_MODELS:gemini-3.5-flash-lite,gemini-flash-lite-latest,gemini-flash-latest}

@@ -18,6 +18,7 @@ public class QuizResponseDto {
 
     private UUID quizId;
     private String subject;
+    private String topic;
     private QuizStatus status;
     private List<QuizQuestionDto> questions;
     private LocalDateTime createdAt;

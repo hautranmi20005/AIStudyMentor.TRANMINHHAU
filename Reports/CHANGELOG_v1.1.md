@@ -1,5 +1,24 @@
 # Changelog
 
+## [P19] - 2026-11-17 (Emulator demo readiness / final acceptance attempt)
+
+### Added
+- Added PowerShell and Bash one-command demo bootstrap scripts with JDK/Gemini/Docker/emulator preflight, local service startup, backend packaging/startup health check, and debug APK installation.
+- Added an 11-minute demo walkthrough and an emulator acceptance checklist tied to observed implementation and evidence.
+
+### Verification
+- PowerShell and Bash syntax checks passed.
+- Docker MySQL, Redis, and Mailpit health checks passed; Redis returned `PONG`.
+- Backend package build passed under Temurin JDK 17.0.21 with Maven tests explicitly skipped.
+- A separate Maven `verify` run was interrupted during `BackendEndToEndIntegrationTest`; nine fresh Surefire XML reports record 29 completed tests with 0 failures/errors/skips, but there is no final Maven status. See [partial Maven evidence](../docs/evidence/final/backend/MAVEN-VERIFY-STATUS.md).
+- Android JDK 17 build/unit/lint/connected-test validation passed: 18 unit and 18 connected tests, 0 failures/errors/skips; `lintDebug` reported 0 `HardcodedText` findings.
+- The first P19 startup failed on mismatched local datasource/Redis settings. After aligning `DB_URL`/`DB_USERNAME` with Compose and removing stale Spring datasource/Redis overrides, the bootstrap completed; authenticated Actuator health returned `UP`, and the debug APK installed and launched.
+
+### Acceptance status
+- No live P19 user journey, failure demo, core-flow screenshot, or screen recording is claimed. The app launch and backend readiness are verified; a sign-in launch-only screenshot is the only P19 UI capture.
+- Source-to-documentation review recorded incomplete cache/quota wiring, photo/report/history-search gaps, placeholder quiz generation, and basic dashboard metrics.
+- No release-candidate tag was created; final acceptance remains blocked. See [the P19 checklist](../docs/evidence/final/ACCEPTANCE_CHECKLIST.md) and [known limitations](../docs/KNOWN_LIMITATIONS.md).
+
 ## [v1.2] - 2026-11-07 (PO Review Remediation)
 
 ### Added

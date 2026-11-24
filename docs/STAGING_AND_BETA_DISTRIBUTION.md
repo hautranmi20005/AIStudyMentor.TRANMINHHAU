@@ -8,7 +8,7 @@ This Compose stack is intended for staging or a single-host deployment. PostgreS
 
 ### Configure and start
 
-1. Copy `backend/.env.prod.example` to `backend/.env.prod` and replace every placeholder with unique, high-entropy secrets. Keep this file out of Git.
+1. Copy `backend/.env.example` to `backend/.env.prod`, uncomment the production-only settings at the bottom, and replace all local defaults/placeholders with unique, high-entropy production values. Keep this file out of Git.
 2. Set `APP_BASE_URL` to the public HTTPS backend URL, `CORS_ALLOWED_ORIGINS` to exact browser origins (comma-separated, no wildcard), and the verified SendGrid sender/API key. Android native clients do not require CORS.
 3. Check and start the stack from the repository root:
 

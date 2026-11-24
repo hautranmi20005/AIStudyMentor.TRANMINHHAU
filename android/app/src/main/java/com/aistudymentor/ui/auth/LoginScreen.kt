@@ -9,7 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.aistudymentor.R
 import com.aistudymentor.ui.common.ObserveSnackbarEvents
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,7 +41,7 @@ fun LoginScreen(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             topBar = {
                 TopAppBar(
-                    title = { Text("Sign In - AI Study Mentor") },
+                    title = { Text(stringResource(R.string.login_title)) },
                     colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
                 )
             }
@@ -54,36 +57,36 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = state.email,
                     onValueChange = viewModel::updateEmail,
-                    label = { Text("Email") },
+                    label = { Text(stringResource(R.string.email)) },
                     enabled = !state.isLoading && !state.mfaRequired,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()
                 )
                 Spacer(Modifier.height(16.dp))
                 if (state.mfaRequired) {
                     OutlinedTextField(
                         value = state.mfaCode,
                         onValueChange = viewModel::updateMfaCode,
-                        label = { Text("6-digit authenticator code") },
+                        label = { Text(stringResource(R.string.mfa_code_hint)) },
                         enabled = !state.isLoading,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()
                     )
                 } else {
                 OutlinedTextField(
                     value = state.password,
                     onValueChange = viewModel::updatePassword,
-                    label = { Text("Password") },
+                    label = { Text(stringResource(R.string.password)) },
                     visualTransformation = PasswordVisualTransformation(),
                     enabled = !state.isLoading,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()
                 )
                 }
-                state.registrationNotice?.let { notice ->
+                state.registrationNoticeRes?.let { resource ->
                     Spacer(Modifier.height(16.dp))
                     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
                         Text(
-                            text = notice,
+                            text = stringResource(resource, *state.registrationNoticeArgs.toTypedArray()),
                             modifier = Modifier.padding(16.dp),
                             style = MaterialTheme.typography.bodyMedium
                         )
@@ -93,18 +96,18 @@ fun LoginScreen(
                 Button(
                     onClick = { if (state.mfaRequired) viewModel.verifyMfa() else viewModel.login() },
                     enabled = !state.isLoading,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()
                 ) {
                     if (state.isLoading) {
                         CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
                     } else {
-                        Text(if (state.mfaRequired) "Verify code" else "Sign in")
+                        Text(stringResource(if (state.mfaRequired) R.string.verify_code else R.string.sign_in))
                     }
                 }
                 Spacer(Modifier.height(8.dp))
                 if (!state.mfaRequired) {
                     TextButton(onClick = onNavigateToRegister, enabled = !state.isLoading) {
-                        Text("Don't have an account? Register")
+                        Text(stringResource(R.string.register_prompt))
                     }
                 }
             }

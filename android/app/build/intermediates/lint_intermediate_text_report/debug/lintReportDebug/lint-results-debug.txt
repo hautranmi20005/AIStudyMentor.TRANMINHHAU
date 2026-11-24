@@ -1,4 +1,4 @@
-D:\AIStudyMentor\android\app\src\main\AndroidManifest.xml:16: Warning: Attribute dataExtractionRules is only used in API level 31 and higher (current min is 26) [UnusedAttribute]
+D:\AIStudyMentor\android\app\src\main\AndroidManifest.xml:17: Warning: Attribute dataExtractionRules is only used in API level 31 and higher (current min is 26) [UnusedAttribute]
         android:dataExtractionRules="@xml/data_extraction_rules"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -19,58 +19,70 @@ D:\AIStudyMentor\android\app\src\main\AndroidManifest.xml:16: Warning: Attribute
    can be unused too, such as the new <tag> element in layouts introduced in
    API 21.
 
-D:\AIStudyMentor\android\app\build.gradle.kts:97: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:104: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1 [GradleDependency]
     implementation("androidx.core:core-ktx:1.12.0")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:98: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.11.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:105: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.11.0 [GradleDependency]
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:99: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.11.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:106: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.11.0 [GradleDependency]
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:100: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.11.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:107: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.11.0 [GradleDependency]
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:101: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.7.0 is available: 2.11.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:108: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.7.0 is available: 2.11.0 [GradleDependency]
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:102: Warning: A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.13.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:109: Warning: A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.13.0 [GradleDependency]
     implementation("androidx.activity:activity-compose:1.8.2")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:103: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.9.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:110: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.10.2 [GradleDependency]
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:104: Warning: A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:111: Warning: A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00 [GradleDependency]
     implementation(platform("androidx.compose:compose-bom:2024.02.00"))
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:109: Warning: A newer version of androidx.navigation:navigation-compose than 2.7.7 is available: 2.10.2 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:112: Warning: A newer version of com.google.firebase:firebase-bom than 32.7.2 is available: 35.2.0 [GradleDependency]
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\build.gradle.kts:117: Warning: A newer version of androidx.navigation:navigation-compose than 2.7.7 is available: 2.10.2 [GradleDependency]
     implementation("androidx.navigation:navigation-compose:2.7.7")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:116: Warning: A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:125: Warning: A newer version of androidx.exifinterface:exifinterface than 1.3.7 is available: 1.4.2 [GradleDependency]
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\build.gradle.kts:127: Warning: A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5 [GradleDependency]
     implementation("androidx.room:room-runtime:2.6.1")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:117: Warning: A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:128: Warning: A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5 [GradleDependency]
     implementation("androidx.room:room-ktx:2.6.1")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:118: Warning: A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:129: Warning: A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5 [GradleDependency]
     ksp("androidx.room:room-compiler:2.6.1")
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:119: Warning: A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.12.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:130: Warning: A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.12.0 [GradleDependency]
     implementation("androidx.work:work-runtime-ktx:2.9.0")
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:122: Warning: A newer version of androidx.room:room-testing than 2.6.1 is available: 2.8.5 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:135: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-test than 1.7.3 is available: 1.10.2 [GradleDependency]
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\build.gradle.kts:136: Warning: A newer version of androidx.room:room-testing than 2.6.1 is available: 2.8.5 [GradleDependency]
     testImplementation("androidx.room:room-testing:2.6.1")
                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:123: Warning: A newer version of androidx.test:core than 1.6.1 is available: 1.7.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:138: Warning: A newer version of androidx.room:room-testing than 2.6.1 is available: 2.8.5 [GradleDependency]
+    androidTestImplementation("androidx.room:room-testing:2.6.1")
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\build.gradle.kts:139: Warning: A newer version of androidx.test:core than 1.6.1 is available: 1.7.0 [GradleDependency]
     androidTestImplementation("androidx.test:core:1.6.1")
                                ~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:124: Warning: A newer version of androidx.test:runner than 1.6.2 is available: 1.7.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:140: Warning: A newer version of androidx.test:runner than 1.6.2 is available: 1.7.0 [GradleDependency]
     androidTestImplementation("androidx.test:runner:1.6.2")
                                ~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:125: Warning: A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:141: Warning: A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0 [GradleDependency]
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:\AIStudyMentor\android\app\build.gradle.kts:127: Warning: A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00 [GradleDependency]
+D:\AIStudyMentor\android\app\build.gradle.kts:143: Warning: A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00 [GradleDependency]
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -81,6 +93,73 @@ D:\AIStudyMentor\android\app\build.gradle.kts:127: Warning: A newer version of a
    However, you may simply not be aware that a more recent version is
    available, and that is what this lint check helps find.
 
+D:\AIStudyMentor\android\app\src\main\java\com\aistudymentor\ui\common\AppComponents.kt:128: Warning: Modifier parameter should be the first optional parameter [ModifierParameter from androidx.compose.ui]
+    modifier: Modifier = Modifier
+    ~~~~~~~~
+
+   Explanation for issues of type "ModifierParameter":
+   The first (or only) Modifier parameter in a Composable function should
+   follow the following rules:
+   - Be named modifier
+   - Have a type of Modifier
+   - Either have no default value, or have a default value of Modifier
+   - If optional, be the first optional parameter in the parameter list
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.ui
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:19: Warning: Formatting %d followed by words ("remaining"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="daily_quota_value">%1$d remaining</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:40: Warning: Formatting %d followed by words ("questions"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="subject_activity">%1$d questions · %2$d quizzes</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:54: Warning: Formatting %d followed by words ("questions"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="quiz_confirm_unanswered">%1$d questions are unanswered. Submit anyway?</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:60: Warning: Formatting %d followed by words ("correct"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="quiz_result_count">%1$d of %2$d correct</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:97: Warning: Formatting %d followed by words ("correct"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="history_quiz_score">%1$d of %2$d correct · %3$d%%</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+D:\AIStudyMentor\android\app\src\main\java\com\aistudymentor\ui\ai\FormulaText.kt:35: Warning: Using setJavaScriptEnabled can introduce XSS vulnerabilities into your application, review carefully [SetJavaScriptEnabled]
+                settings.javaScriptEnabled = true
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetJavaScriptEnabled":
+   Your code should not invoke setJavaScriptEnabled if you are not sure that
+   your app really requires JavaScript support.
+
+   https://goo.gle/SetJavaScriptEnabled
+   https://developer.android.com/training/articles/security-tips
+
+D:\AIStudyMentor\android\app\src\main\java\com\aistudymentor\data\sync\LocalNotificationWorker.kt:121: Warning: Unnecessary; SDK_INT is never < 26 [ObsoleteSdkInt]
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 D:\AIStudyMentor\android\app\src\main\res\mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 26. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]
 
    Explanation for issues of type "ObsoleteSdkInt":
@@ -92,12 +171,27 @@ D:\AIStudyMentor\android\app\src\main\res\mipmap-anydpi-v26: Warning: This folde
    where the version qualifier is less than or equal to the minSdkVersion,
    where the contents should be merged into the best folder.
 
-D:\AIStudyMentor\android\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml:2: Warning: The resource R.mipmap.ic_launcher appears to be unused [UnusedResources]
-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-^
-D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:3: Warning: The resource R.string.app_name appears to be unused [UnusedResources]
-    <string name="app_name">AI Study Mentor</string>
-            ~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:17: Warning: The resource R.string.ask_accessibility appears to be unused [UnusedResources]
+    <string name="ask_accessibility">Submit question</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:29: Warning: The resource R.string.empty_state appears to be unused [UnusedResources]
+    <string name="empty_state">Nothing here yet.</string>
+            ~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:44: Warning: The resource R.string.quiz_suggested appears to be unused [UnusedResources]
+    <string name="quiz_suggested">Start a practice quiz</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:64: Warning: The resource R.string.quiz_subject appears to be unused [UnusedResources]
+    <string name="quiz_subject">Mathematics</string>
+            ~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:99: Warning: The resource R.string.back_to_history appears to be unused [UnusedResources]
+    <string name="back_to_history">Back to history</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:196: Warning: The resource R.string.error_empty_response appears to be unused [UnusedResources]
+    <string name="error_empty_response">The service returned no information. Please try again.</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\AIStudyMentor\android\app\src\main\res\values\strings.xml:214: Warning: The resource R.string.quiz_weak_topic appears to be unused [UnusedResources]
+    <string name="quiz_weak_topic">Practice %1$s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
 
    Explanation for issues of type "UnusedResources":
    Unused resources make applications larger and slow down builds.
@@ -123,4 +217,4 @@ D:\AIStudyMentor\android\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml:5: W
    accidental leftovers from copy/pasting XML from other files or
    documentation.
 
-0 errors, 23 warnings
+0 errors, 40 warnings

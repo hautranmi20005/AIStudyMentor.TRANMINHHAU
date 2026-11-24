@@ -1,5 +1,6 @@
 package com.aistudymentor.ui.history
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -34,7 +35,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.aistudymentor.R
 import com.aistudymentor.data.local.CachedBookmarkEntity
 import com.aistudymentor.data.local.CachedQuestionEntity
 import com.aistudymentor.data.local.CachedQuizResultEntity
@@ -42,11 +45,11 @@ import com.aistudymentor.ui.common.ObserveSnackbarEvents
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HistoryScreen(viewModel: OfflineLibraryViewModel) {
+fun HistoryScreen(viewModel: OfflineLibraryViewModel, onOpenQuestion: (String) -> Unit = {}) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     var selectedTab by remember { mutableIntStateOf(0) }
-    val tabs = listOf("Questions", "Bookmarks", "Quiz results")
+    val tabs = listOf(R.string.history_questions, R.string.history_bookmarks, R.string.history_results)
     ObserveSnackbarEvents(viewModel, snackbarHostState)
 
     LaunchedEffect(viewModel) { viewModel.synchronize() }
@@ -55,7 +58,7 @@ fun HistoryScreen(viewModel: OfflineLibraryViewModel) {
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
-                title = { Text("Study History") },
+                title = { Text(stringResource(R.string.history_title)) },
                 actions = {
                     if (state.isSyncing) {
                         CircularProgressIndicator(
@@ -64,7 +67,7 @@ fun HistoryScreen(viewModel: OfflineLibraryViewModel) {
                         )
                     } else {
                         IconButton(onClick = viewModel::synchronize) {
-                            Icon(Icons.Default.Refresh, contentDescription = "Sync offline library")
+                            Icon(Icons.Default.Refresh, contentDescription = stringResource(R.string.history_sync))
                         }
                     }
                 },
@@ -78,13 +81,13 @@ fun HistoryScreen(viewModel: OfflineLibraryViewModel) {
                     Tab(
                         selected = selectedTab == index,
                         onClick = { selectedTab = index },
-                        text = { Text(title) }
+                        text = { Text(stringResource(title)) }
                     )
                 }
             }
             when (selectedTab) {
-                0 -> QuestionList(state.questions)
-                1 -> BookmarkList(state.bookmarks)
+                0 -> QuestionList(state.questions, onOpenQuestion)
+                1 -> BookmarkList(state.bookmarks, onOpenQuestion)
                 else -> QuizResultList(state.quizResults)
             }
         }
@@ -92,42 +95,44 @@ fun HistoryScreen(viewModel: OfflineLibraryViewModel) {
 }
 
 @Composable
-private fun QuestionList(questions: List<CachedQuestionEntity>) {
+private fun QuestionList(questions: List<CachedQuestionEntity>, onOpenQuestion: (String) -> Unit) {
     if (questions.isEmpty()) {
-        EmptyMessage("Your question history will appear here and remain available offline.")
+        EmptyMessage(stringResource(R.string.history_empty_questions))
         return
     }
     LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         items(questions, key = { it.accountId + it.questionId }) { question ->
             HistoryCard(
-                title = question.subject.ifBlank { "Study question" },
+                title = question.subject.ifBlank { stringResource(R.string.history_question_default) },
                 detail = question.questionSnippet,
                 metadata = listOfNotNull(
                     question.status.takeIf(String::isNotBlank),
-                    if (question.hasImage) "Photo question" else null,
+                    if (question.hasImage) stringResource(R.string.history_photo_question) else null,
                     question.createdAt
-                ).joinToString(" · ")
+                ).joinToString(" · "),
+                onClick = { onOpenQuestion(question.questionId) }
             )
         }
     }
 }
 
 @Composable
-private fun BookmarkList(bookmarks: List<CachedBookmarkEntity>) {
+private fun BookmarkList(bookmarks: List<CachedBookmarkEntity>, onOpenQuestion: (String) -> Unit) {
     if (bookmarks.isEmpty()) {
-        EmptyMessage("Bookmarked questions will be available here offline.")
+        EmptyMessage(stringResource(R.string.history_empty_bookmarks))
         return
     }
     LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         items(bookmarks, key = { it.accountId + it.questionId }) { bookmark ->
             HistoryCard(
-                title = bookmark.subject.ifBlank { "Bookmarked question" },
+                title = bookmark.subject.ifBlank { stringResource(R.string.history_bookmark_default) },
                 detail = bookmark.questionSnippet,
                 metadata = listOfNotNull(
                     bookmark.status.takeIf(String::isNotBlank),
-                    if (bookmark.hasImage) "Photo question" else null,
+                    if (bookmark.hasImage) stringResource(R.string.history_photo_question) else null,
                     bookmark.createdAt
-                ).joinToString(" · ")
+                ).joinToString(" · "),
+                onClick = { onOpenQuestion(bookmark.questionId) }
             )
         }
     }
@@ -136,23 +141,32 @@ private fun BookmarkList(bookmarks: List<CachedBookmarkEntity>) {
 @Composable
 private fun QuizResultList(results: List<CachedQuizResultEntity>) {
     if (results.isEmpty()) {
-        EmptyMessage("Completed quiz results will appear here for offline review.")
+        EmptyMessage(stringResource(R.string.history_empty_results))
         return
     }
     LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         items(results, key = { it.accountId + it.attemptId }) { result ->
             HistoryCard(
-                title = result.subject.ifBlank { "Practice quiz" },
-                detail = "${result.correctCount} of ${result.totalQuestions} correct · ${result.score}%",
-                metadata = listOfNotNull("Completed", result.submittedAt).joinToString(" · ")
+                title = result.subject.ifBlank { stringResource(R.string.history_quiz_default) },
+                detail = stringResource(
+                    R.string.history_quiz_score,
+                    result.correctCount,
+                    result.totalQuestions,
+                    result.score
+                ),
+                metadata = listOfNotNull(stringResource(R.string.history_completed), result.submittedAt).joinToString(" · ")
             )
         }
     }
 }
 
 @Composable
-private fun HistoryCard(title: String, detail: String, metadata: String) {
-    Card(Modifier.fillMaxWidth()) {
+private fun HistoryCard(title: String, detail: String, metadata: String, onClick: (() -> Unit)? = null) {
+    Card(
+        modifier = Modifier.fillMaxWidth().then(
+            if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier
+        )
+    ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Text(title, style = MaterialTheme.typography.titleMedium)
             if (detail.isNotBlank()) Text(detail, style = MaterialTheme.typography.bodyLarge)
@@ -169,6 +183,6 @@ private fun EmptyMessage(message: String) {
     ) {
         Text(message, style = MaterialTheme.typography.bodyLarge)
         Spacer(Modifier.height(8.dp))
-        Text("Connect to the internet to sync your account history.", style = MaterialTheme.typography.bodySmall)
+        Text(stringResource(R.string.history_offline_sync_hint), style = MaterialTheme.typography.bodySmall)
     }
 }

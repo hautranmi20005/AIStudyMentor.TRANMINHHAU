@@ -43,5 +43,11 @@ public class QuestionAttachment extends BaseEntity {
     private String firebaseStoragePath;
 
     @Column(name = "file_type", length = 50)
-    private String fileType;
+    private String mimeType;
+
+    @Column(name = "size_bytes")
+    private Long sizeBytes;
+
+    @Column(name = "sha256", length = 64)
+    private String sha256;
 }

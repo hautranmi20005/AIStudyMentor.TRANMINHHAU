@@ -1,6 +1,7 @@
 package com.aistudymentor.question.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,7 @@ public class UploadAuthorizeRequest {
 
     @NotBlank(message = "contentType is required")
     private String contentType;
+
+    @Positive(message = "sizeBytes must be positive")
+    private long sizeBytes;
 }

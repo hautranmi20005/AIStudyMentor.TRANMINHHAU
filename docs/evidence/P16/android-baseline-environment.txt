@@ -1,0 +1,20 @@
+Command: adb shell cat /proc/meminfo
+MemTotal: 4007628 kB
+MemFree: 433784 kB
+MemAvailable: 2181380 kB
+
+Device: emulator-5554, sdk_gphone64_x86_64, Android API 37
+Display: 1080x2400, density 420
+Application ID: com.aistudymentor
+Launcher activity: com.aistudymentor/.MainActivity
+APK: android/app/build/outputs/apk/debug/app-debug.apk
+APK bytes: 20118949
+Startup samples: android-startup-baseline.csv
+
+Command: adb shell dumpsys meminfo com.aistudymentor
+PSS sample 1: 108263 kB
+PSS sample 2: 107447 kB
+RSS sample 1: 235868 kB
+RSS sample 2: 235820 kB
+
+Qualification: APK existed before the current-source Gradle build attempt and was not rebuilt from the current source tree. These observations are exploratory only.

@@ -1,0 +1,23 @@
+{
+  "provider": "stub",
+  "stubLatencyMs": 1500,
+  "idempotencyKeyPrefix": "p16-loadtest",
+  "askBody": {
+    "subject": "Mathematics",
+    "questionText": "Explain how to solve 2x + 5 = 15."
+  },
+  "users": [
+    {
+      "email": "replace-with-test-account@example.invalid",
+      "password": "replace-with-test-password",
+      "accessToken": "replace-with-test-access-token",
+      "quizId": "00000000-0000-0000-0000-000000000000",
+      "quizResponses": [
+        {
+          "questionId": "00000000-0000-0000-0000-000000000000",
+          "selectedOptionId": "00000000-0000-0000-0000-000000000000"
+        }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,5 @@ public class StudentProfileDto {
     private UUID profileId;
     private UUID userId;
     private String educationLevel;
-    private String preferredSubject;
     private String learningStyle;
 }

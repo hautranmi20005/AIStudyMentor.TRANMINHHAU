@@ -1,0 +1,18 @@
+Observed via read-only query against the local dev MySQL container after the P19 bootstrap failure:
+
+1	Init Core Security Schema	1
+2	Fix Core Security	1
+3	Question And Ai Schema	1
+4	Quiz Schema	1
+5	Identity Journey	1
+6	Ai Orchestrator Usage	1
+7	Answer Reports	1
+8	Private Image Uploads	1
+9	Question History And Sync	1
+10	Quiz Schema Extensions	1
+11	Dashboard Aggregation Indexes	1
+12	Notifications And Device Tokens	1
+13	Privacy Deletion And Consent Evidence	1
+14	Remove Redundant Profile And Answer Fields	1
+15	Question Sync Deletion Account Cascade	1
+16	Allow Deletion Pending Account Status	1

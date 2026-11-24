@@ -335,6 +335,33 @@ public class AuthService {
         }
     }
 
+    @Transactional
+    public void verifySensitiveAction(UUID userId, String password, String code, String clientIp) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new BusinessException(HttpStatus.NOT_FOUND, "ACCOUNT_NOT_FOUND",
+                        "The account was not found."));
+        if (accountStatusService.getAccountStatus(userId) == AccountStatus.DELETION_PENDING) {
+            throw new BusinessException(HttpStatus.CONFLICT, "ACCOUNT_DELETION_PENDING",
+                    "This account is being deleted.");
+        }
+        if (mfaRateLimitService.isRateLimited(user, clientIp)) {
+            throw new BusinessException(HttpStatus.TOO_MANY_REQUESTS, "MFA_RATE_LIMITED",
+                    "Too many failed verification attempts. Please wait 15 minutes before trying again.");
+        }
+
+        Optional<MfaFactor> factor = mfaFactorRepository.findByUserAndType(user, MfaType.TOTP);
+        boolean valid = password != null
+                && passwordEncoder.matches(password, user.getPasswordHash())
+                && factor.filter(MfaFactor::getIsVerified)
+                .map(value -> verifyTotp(aesGcmEncryptionUtil.decrypt(value.getSecret()), code))
+                .orElse(false);
+        mfaRateLimitService.recordAttempt(user, valid, clientIp);
+        if (!valid) {
+            throw new BusinessException(HttpStatus.UNAUTHORIZED, "INVALID_REAUTHENTICATION",
+                    "The password or multi-factor code is invalid.");
+        }
+    }
+
     // ─────────────────────────── HELPERS ───────────────────────────
 
     private boolean isMinor(LocalDate dob) {

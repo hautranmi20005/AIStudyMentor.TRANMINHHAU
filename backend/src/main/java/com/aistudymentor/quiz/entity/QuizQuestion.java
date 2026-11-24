@@ -58,6 +58,9 @@ public class QuizQuestion extends BaseEntity {
     @Column(name = "correct_answer", nullable = false, length = 255)
     private String correctAnswer;
 
+    @Column(name = "explanation", columnDefinition = "TEXT")
+    private String explanation;
+
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default
     private List<QuizOption> options = new ArrayList<>();

@@ -55,6 +55,10 @@ public class User extends BaseEntity {
     @Column(name = "account_status", nullable = false, length = 30)
     private AccountStatus accountStatus;
 
+    @Column(name = "auth_version", nullable = false)
+    @Builder.Default
+    private int authVersion = 0;
+
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private StudentProfile profile;
 

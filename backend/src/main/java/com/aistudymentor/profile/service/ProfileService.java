@@ -48,9 +48,6 @@ public class ProfileService {
         if (request.getEducationLevel() != null) {
             profile.setEducationLevel(request.getEducationLevel());
         }
-        if (request.getPreferredSubject() != null) {
-            profile.setPreferredSubject(request.getPreferredSubject());
-        }
         if (request.getLearningStyle() != null) {
             profile.setLearningStyle(request.getLearningStyle());
         }
@@ -67,7 +64,6 @@ public class ProfileService {
                 .profileId(profile.getProfileId())
                 .userId(profile.getUser().getUserId())
                 .educationLevel(profile.getEducationLevel())
-                .preferredSubject(profile.getPreferredSubject())
                 .learningStyle(profile.getLearningStyle())
                 .build();
     }

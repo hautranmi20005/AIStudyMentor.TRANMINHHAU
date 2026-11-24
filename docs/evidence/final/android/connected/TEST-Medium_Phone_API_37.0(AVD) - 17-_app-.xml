@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.aistudymentor.data.local.DashboardRoomMigrationTest" tests="18" failures="0" errors="0" skipped="0" time="80.041" timestamp="2026-11-17T15:13:51" hostname="localhost">
+  <properties>
+    <property name="device" value="Medium_Phone_API_37.0(AVD) - 17" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="version3MigratesToAccountScopedDashboardSnapshots" classname="com.aistudymentor.data.local.DashboardRoomMigrationTest" time="0.268" />
+  <testcase name="versionFourMigrationAddsLocalNotificationStateAndBookmarkViewTime" classname="com.aistudymentor.data.local.NotificationRoomMigrationTest" time="0.148" />
+  <testcase name="cachesHistoryBookmarksAndQuizResultsPerAccount" classname="com.aistudymentor.data.local.OfflineDaoTest" time="0.107" />
+  <testcase name="migrationFromVersionTwoPreservesHistoryAndAddsSyncFields" classname="com.aistudymentor.data.local.OfflineMigrationTest" time="0.187" />
+  <testcase name="retrofitSerializesQuestionRequestAndParsesResponse" classname="com.aistudymentor.data.remote.ApiNetworkContractTest" time="0.233" />
+  <testcase name="authenticatorRefreshesTokensAndRetriesUnauthorizedRequest" classname="com.aistudymentor.data.remote.ApiNetworkContractTest" time="0.237" />
+  <testcase name="historyFlowIsScopedToTheCurrentAccount" classname="com.aistudymentor.data.repository.OfflineRepositoryAccountFlowTest" time="0.109" />
+  <testcase name="pendingBookmarkHasNetworkConstrainedRetryWorkQueued" classname="com.aistudymentor.data.sync.PendingBookmarkWorkTest" time="0.081" />
+  <testcase name="askAiScreenSubmitsQuestionAndNavigatesToExplanation" classname="com.aistudymentor.ui.StudentFlowsInstrumentedTest" time="10.963" />
+  <testcase name="loginScreenAuthenticatesAndSignalsGuardianRoutingState" classname="com.aistudymentor.ui.StudentFlowsInstrumentedTest" time="8.891" />
+  <testcase name="answerDetailScreenRendersSummaryStepsFormulaAndFinalAnswer" classname="com.aistudymentor.ui.StudentFlowsInstrumentedTest" time="6.286" />
+  <testcase name="submitRequiresQuestionText" classname="com.aistudymentor.ui.ai.AskAiScreenTest" time="7.275" />
+  <testcase name="submitsQuestionAndCachesTheAnswerBeforeNavigation" classname="com.aistudymentor.ui.ai.AskAiScreenTest" time="7.327" />
+  <testcase name="loadedDashboardShowsMetricsAndSubjectBreakdown" classname="com.aistudymentor.ui.dashboard.DashboardScreenTest" time="5.835" />
+  <testcase name="dashboardFailureShowsRetryState" classname="com.aistudymentor.ui.dashboard.DashboardScreenTest" time="6.208" />
+  <testcase name="deleteRequiresTypedConfirmationAndReauthentication" classname="com.aistudymentor.ui.profile.PrivacyAccountScreenTest" time="10.784" />
+  <testcase name="generatesAnswersAndSubmitsPracticeQuiz" classname="com.aistudymentor.ui.quizzes.QuizzesScreenTest" time="7.254" />
+  <testcase name="rendersPracticeQuizEntryPoint" classname="com.aistudymentor.ui.quizzes.QuizzesScreenTest" time="6.284" />
+</testsuite>

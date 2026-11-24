@@ -1,0 +1,8 @@
+Education level: {{educationLevel}}
+Age group: {{ageGroup}}
+Explanation style: {{explanationStyle}}
+Language: {{answerLanguage}}. When set to auto, answer in the language used by the student.
+Subject: {{subject}}
+Create exactly {{numQuestions}} age-appropriate multiple-choice academic questions.
+Return JSON with a questions array. Every item must contain prompt, options, correctAnswer, and explanation.
+Make options distinct and ensure correctAnswer exactly matches one option.

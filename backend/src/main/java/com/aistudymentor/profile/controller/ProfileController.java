@@ -32,7 +32,7 @@ public class ProfileController {
 
     /**
      * PATCH /api/v1/profile/me
-     * PROTECTED — updates educationLevel, preferredSubject, learningStyle (all optional).
+     * PROTECTED — updates educationLevel and learningStyle (both optional).
      */
     @PatchMapping("/me")
     public ResponseEntity<StudentProfileDto> updateMyProfile(

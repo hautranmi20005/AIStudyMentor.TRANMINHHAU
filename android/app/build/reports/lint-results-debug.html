@@ -177,9 +177,9 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 23 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 40 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Nov 10 05:01:16 ICT 2026 by AGP (8.3.0)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Wed Nov 18 01:18:08 ICT 2026 by AGP (8.3.0)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -187,9 +187,12 @@ document.getElementById(id).style.display = 'none';
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
       <a class="mdl-navigation__link" href="#UnusedAttribute"><i class="material-icons warning-icon">warning</i>Attribute unused on older versions (1)</a>
-      <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (18)</a>
-      <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (1)</a>
-      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (2)</a>
+      <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (22)</a>
+      <a class="mdl-navigation__link" href="#ModifierParameter"><i class="material-icons warning-icon">warning</i>Guidelines for Modifier parameters in a Composable function (1)</a>
+      <a class="mdl-navigation__link" href="#PluralsCandidate"><i class="material-icons warning-icon">warning</i>Potential Plurals (5)</a>
+      <a class="mdl-navigation__link" href="#SetJavaScriptEnabled"><i class="material-icons warning-icon">warning</i>Using <code>setJavaScriptEnabled</code> (1)</a>
+      <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (2)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (7)</a>
       <a class="mdl-navigation__link" href="#RedundantNamespace"><i class="material-icons warning-icon">warning</i>Redundant namespace (1)</a>
     </nav>
   </div>
@@ -209,15 +212,28 @@ document.getElementById(id).style.display = 'none';
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UnusedAttribute">UnusedAttribute</a>: Attribute unused on older versions</td></tr>
 <tr>
-<td class="countColumn">18</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">22</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#GradleDependency">GradleDependency</a>: Obsolete Gradle Dependency</td></tr>
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ModifierParameter">ModifierParameter</a>: Guidelines for Modifier parameters in a Composable function</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness:Messages">Correctness:Messages</a>
+</td></tr>
+<tr>
+<td class="countColumn">5</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#PluralsCandidate">PluralsCandidate</a>: Potential Plurals</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
 </td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#ObsoleteSdkInt">ObsoleteSdkInt</a>: Obsolete SDK_INT Version Check</td></tr>
+<a href="#SetJavaScriptEnabled">SetJavaScriptEnabled</a>: Using <code>setJavaScriptEnabled</code></td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
 <tr>
 <td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ObsoleteSdkInt">ObsoleteSdkInt</a>: Obsolete SDK_INT Version Check</td></tr>
+<tr>
+<td class="countColumn">7</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
@@ -243,14 +259,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:16</span>: <span class="message">Attribute <code>dataExtractionRules</code> is only used in API level 31 and higher (current min is 26)</span><br /><pre class="errorlines">
-<span class="lineno"> 13 </span>        <span class="prefix">android:</span><span class="attribute">supportsRtl</span>=<span class="value">"true"</span>
-<span class="lineno"> 14 </span>        <span class="prefix">android:</span><span class="attribute">theme</span>=<span class="value">"@style/Theme.AIStudyMentor"</span>
-<span class="lineno"> 15 </span>        <span class="prefix">android:</span><span class="attribute">networkSecurityConfig</span>=<span class="value">"@xml/network_security_config"</span>
-<span class="caretline"><span class="lineno"> 16 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">dataExtractionRules</span>=<span class="value">"@xml/data_extraction_rules"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 17 </span>        <span class="prefix">android:</span><span class="attribute">fullBackupContent</span>=<span class="value">"@xml/backup_rules"</span>>
-<span class="lineno"> 18 </span>
-<span class="lineno"> 19 </span>        <span class="tag">&lt;activity</span><span class="attribute">
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:17</span>: <span class="message">Attribute <code>dataExtractionRules</code> is only used in API level 31 and higher (current min is 26)</span><br /><pre class="errorlines">
+<span class="lineno"> 14 </span>        <span class="prefix">android:</span><span class="attribute">supportsRtl</span>=<span class="value">"true"</span>
+<span class="lineno"> 15 </span>        <span class="prefix">android:</span><span class="attribute">theme</span>=<span class="value">"@style/Theme.AIStudyMentor"</span>
+<span class="lineno"> 16 </span>        <span class="prefix">android:</span><span class="attribute">networkSecurityConfig</span>=<span class="value">"@xml/network_security_config"</span>
+<span class="caretline"><span class="lineno"> 17 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">dataExtractionRules</span>=<span class="value">"@xml/data_extraction_rules"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 18 </span>        <span class="prefix">android:</span><span class="attribute">fullBackupContent</span>=<span class="value">"@xml/backup_rules"</span>>
+<span class="lineno"> 19 </span>
+<span class="lineno"> 20 </span>        <span class="tag">&lt;meta-data</span><span class="attribute">
 </span></pre>
 
 </div>
@@ -293,185 +309,225 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:97</span>: <span class="message">A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1</span><br /><pre class="errorlines">
-<span class="lineno">  94 </span>}
-<span class="lineno">  95 </span>
-<span class="lineno">  96 </span>dependencies {
-<span class="caretline"><span class="lineno">  97 </span>    implementation("<span class="warning">androidx.core:core-ktx:1.12.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="lineno"> 100 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:104</span>: <span class="message">A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1</span><br /><pre class="errorlines">
+<span class="lineno"> 101 </span>}
+<span class="lineno"> 102 </span>
+<span class="lineno"> 103 </span>dependencies {
+<span class="caretline"><span class="lineno"> 104 </span>    implementation("<span class="warning">androidx.core:core-ktx:1.12.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 105 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno"> 106 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="lineno"> 107 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:98</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
-<span class="lineno">  95 </span>
-<span class="lineno">  96 </span>dependencies {
-<span class="lineno">  97 </span>    implementation("androidx.core:core-ktx:1.12.0")
-<span class="caretline"><span class="lineno">  98 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-runtime-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="lineno"> 100 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-<span class="lineno"> 101 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:105</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
+<span class="lineno"> 102 </span>
+<span class="lineno"> 103 </span>dependencies {
+<span class="lineno"> 104 </span>    implementation("androidx.core:core-ktx:1.12.0")
+<span class="caretline"><span class="lineno"> 105 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-runtime-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 106 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="lineno"> 107 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+<span class="lineno"> 108 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:99</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
-<span class="lineno">  96 </span>dependencies {
-<span class="lineno">  97 </span>    implementation("androidx.core:core-ktx:1.12.0")
-<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="caretline"><span class="lineno">  99 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 100 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-<span class="lineno"> 101 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
-<span class="lineno"> 102 </span>    implementation("androidx.activity:activity-compose:1.8.2")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:106</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
+<span class="lineno"> 103 </span>dependencies {
+<span class="lineno"> 104 </span>    implementation("androidx.core:core-ktx:1.12.0")
+<span class="lineno"> 105 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="caretline"><span class="lineno"> 106 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 107 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+<span class="lineno"> 108 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+<span class="lineno"> 109 </span>    implementation("androidx.activity:activity-compose:1.8.2")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:100</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
-<span class="lineno">  97 </span>    implementation("androidx.core:core-ktx:1.12.0")
-<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="caretline"><span class="lineno"> 100 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 101 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
-<span class="lineno"> 102 </span>    implementation("androidx.activity:activity-compose:1.8.2")
-<span class="lineno"> 103 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:107</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
+<span class="lineno"> 104 </span>    implementation("androidx.core:core-ktx:1.12.0")
+<span class="lineno"> 105 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno"> 106 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="caretline"><span class="lineno"> 107 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 108 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+<span class="lineno"> 109 </span>    implementation("androidx.activity:activity-compose:1.8.2")
+<span class="lineno"> 110 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:101</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
-<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="lineno"> 100 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-<span class="caretline"><span class="lineno"> 101 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-runtime-compose:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 102 </span>    implementation("androidx.activity:activity-compose:1.8.2")
-<span class="lineno"> 103 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-<span class="lineno"> 104 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:108</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.7.0 is available: 2.11.0</span><br /><pre class="errorlines">
+<span class="lineno"> 105 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno"> 106 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="lineno"> 107 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+<span class="caretline"><span class="lineno"> 108 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-runtime-compose:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 109 </span>    implementation("androidx.activity:activity-compose:1.8.2")
+<span class="lineno"> 110 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="lineno"> 111 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
 </pre>
 
-<button class="mdl-button mdl-js-button mdl-button--primary" id="GradleDependencyDivLink" onclick="reveal('GradleDependencyDiv');" />+ 13 More Occurrences...</button>
+<button class="mdl-button mdl-js-button mdl-button--primary" id="GradleDependencyDivLink" onclick="reveal('GradleDependencyDiv');" />+ 17 More Occurrences...</button>
 <div id="GradleDependencyDiv" style="display: none">
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:102</span>: <span class="message">A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.13.0</span><br /><pre class="errorlines">
-<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="lineno"> 100 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-<span class="lineno"> 101 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
-<span class="caretline"><span class="lineno"> 102 </span>    implementation("<span class="warning">androidx.activity:activity-compose:1.8.2</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 103 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-<span class="lineno"> 104 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
-<span class="lineno"> 105 </span>    implementation("androidx.compose.ui:ui")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:109</span>: <span class="message">A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.13.0</span><br /><pre class="errorlines">
+<span class="lineno"> 106 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="lineno"> 107 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+<span class="lineno"> 108 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+<span class="caretline"><span class="lineno"> 109 </span>    implementation("<span class="warning">androidx.activity:activity-compose:1.8.2</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 110 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="lineno"> 111 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
+<span class="lineno"> 112 </span>    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:103</span>: <span class="message">A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.9.0</span><br /><pre class="errorlines">
-<span class="lineno"> 100 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-<span class="lineno"> 101 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
-<span class="lineno"> 102 </span>    implementation("androidx.activity:activity-compose:1.8.2")
-<span class="caretline"><span class="lineno"> 103 </span>    implementation("<span class="warning">org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 104 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
-<span class="lineno"> 105 </span>    implementation("androidx.compose.ui:ui")
-<span class="lineno"> 106 </span>    implementation("androidx.compose.ui:ui-graphics")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:110</span>: <span class="message">A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.10.2</span><br /><pre class="errorlines">
+<span class="lineno"> 107 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+<span class="lineno"> 108 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+<span class="lineno"> 109 </span>    implementation("androidx.activity:activity-compose:1.8.2")
+<span class="caretline"><span class="lineno"> 110 </span>    implementation("<span class="warning">org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 111 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
+<span class="lineno"> 112 </span>    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+<span class="lineno"> 113 </span>    implementation("androidx.compose.ui:ui")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:104</span>: <span class="message">A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00</span><br /><pre class="errorlines">
-<span class="lineno"> 101 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
-<span class="lineno"> 102 </span>    implementation("androidx.activity:activity-compose:1.8.2")
-<span class="lineno"> 103 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-<span class="caretline"><span class="lineno"> 104 </span>    implementation(<span class="warning">platform("androidx.compose:compose-bom:2024.02.00")</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 105 </span>    implementation("androidx.compose.ui:ui")
-<span class="lineno"> 106 </span>    implementation("androidx.compose.ui:ui-graphics")
-<span class="lineno"> 107 </span>    implementation("androidx.compose.ui:ui-tooling-preview")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:111</span>: <span class="message">A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00</span><br /><pre class="errorlines">
+<span class="lineno"> 108 </span>    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+<span class="lineno"> 109 </span>    implementation("androidx.activity:activity-compose:1.8.2")
+<span class="lineno"> 110 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="caretline"><span class="lineno"> 111 </span>    implementation(<span class="warning">platform("androidx.compose:compose-bom:2024.02.00")</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 112 </span>    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+<span class="lineno"> 113 </span>    implementation("androidx.compose.ui:ui")
+<span class="lineno"> 114 </span>    implementation("androidx.compose.ui:ui-graphics")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:109</span>: <span class="message">A newer version of androidx.navigation:navigation-compose than 2.7.7 is available: 2.10.2</span><br /><pre class="errorlines">
-<span class="lineno"> 106 </span>    implementation("androidx.compose.ui:ui-graphics")
-<span class="lineno"> 107 </span>    implementation("androidx.compose.ui:ui-tooling-preview")
-<span class="lineno"> 108 </span>    implementation("androidx.compose.material3:material3")
-<span class="caretline"><span class="lineno"> 109 </span>    implementation("<span class="warning">androidx.navigation:navigation-compose:2.7.7</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 110 </span>    implementation("androidx.compose.material:material-icons-extended")
-<span class="lineno"> 111 </span>
-<span class="lineno"> 112 </span>    // Retrofit &amp; Gson
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:112</span>: <span class="message">A newer version of com.google.firebase:firebase-bom than 32.7.2 is available: 35.2.0</span><br /><pre class="errorlines">
+<span class="lineno"> 109 </span>    implementation("androidx.activity:activity-compose:1.8.2")
+<span class="lineno"> 110 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="lineno"> 111 </span>    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
+<span class="caretline"><span class="lineno"> 112 </span>    implementation(<span class="warning">platform("com.google.firebase:firebase-bom:32.7.2")</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 113 </span>    implementation("androidx.compose.ui:ui")
+<span class="lineno"> 114 </span>    implementation("androidx.compose.ui:ui-graphics")
+<span class="lineno"> 115 </span>    implementation("androidx.compose.ui:ui-tooling-preview")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:116</span>: <span class="message">A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
-<span class="lineno"> 113 </span>    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-<span class="lineno"> 114 </span>    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-<span class="lineno"> 115 </span>    implementation("androidx.security:security-crypto:1.1.0")
-<span class="caretline"><span class="lineno"> 116 </span>    implementation("<span class="warning">androidx.room:room-runtime:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 117 </span>    implementation("androidx.room:room-ktx:2.6.1")
-<span class="lineno"> 118 </span>    ksp("androidx.room:room-compiler:2.6.1")
-<span class="lineno"> 119 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:117</span>: <span class="message">A newer version of androidx.navigation:navigation-compose than 2.7.7 is available: 2.10.2</span><br /><pre class="errorlines">
+<span class="lineno"> 114 </span>    implementation("androidx.compose.ui:ui-graphics")
+<span class="lineno"> 115 </span>    implementation("androidx.compose.ui:ui-tooling-preview")
+<span class="lineno"> 116 </span>    implementation("androidx.compose.material3:material3")
+<span class="caretline"><span class="lineno"> 117 </span>    implementation("<span class="warning">androidx.navigation:navigation-compose:2.7.7</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 118 </span>    implementation("androidx.compose.material:material-icons-extended")
+<span class="lineno"> 119 </span>
+<span class="lineno"> 120 </span>    // Retrofit &amp; Gson
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:117</span>: <span class="message">A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
-<span class="lineno"> 114 </span>    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-<span class="lineno"> 115 </span>    implementation("androidx.security:security-crypto:1.1.0")
-<span class="lineno"> 116 </span>    implementation("androidx.room:room-runtime:2.6.1")
-<span class="caretline"><span class="lineno"> 117 </span>    implementation("<span class="warning">androidx.room:room-ktx:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 118 </span>    ksp("androidx.room:room-compiler:2.6.1")
-<span class="lineno"> 119 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:125</span>: <span class="message">A newer version of androidx.exifinterface:exifinterface than 1.3.7 is available: 1.4.2</span><br /><pre class="errorlines">
+<span class="lineno"> 122 </span>    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+<span class="lineno"> 123 </span>    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+<span class="lineno"> 124 </span>    implementation("io.coil-kt:coil-compose:2.6.0")
+<span class="caretline"><span class="lineno"> 125 </span>    implementation("<span class="warning">androidx.exifinterface:exifinterface:1.3.7</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 126 </span>    implementation("androidx.security:security-crypto:1.1.0")
+<span class="lineno"> 127 </span>    implementation("androidx.room:room-runtime:2.6.1")
+<span class="lineno"> 128 </span>    implementation("androidx.room:room-ktx:2.6.1")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:118</span>: <span class="message">A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
-<span class="lineno"> 115 </span>    implementation("androidx.security:security-crypto:1.1.0")
-<span class="lineno"> 116 </span>    implementation("androidx.room:room-runtime:2.6.1")
-<span class="lineno"> 117 </span>    implementation("androidx.room:room-ktx:2.6.1")
-<span class="caretline"><span class="lineno"> 118 </span>    ksp("<span class="warning">androidx.room:room-compiler:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 119 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
-<span class="lineno"> 120 </span>
-<span class="lineno"> 121 </span>    testImplementation("junit:junit:4.13.2")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:127</span>: <span class="message">A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
+<span class="lineno"> 124 </span>    implementation("io.coil-kt:coil-compose:2.6.0")
+<span class="lineno"> 125 </span>    implementation("androidx.exifinterface:exifinterface:1.3.7")
+<span class="lineno"> 126 </span>    implementation("androidx.security:security-crypto:1.1.0")
+<span class="caretline"><span class="lineno"> 127 </span>    implementation("<span class="warning">androidx.room:room-runtime:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 128 </span>    implementation("androidx.room:room-ktx:2.6.1")
+<span class="lineno"> 129 </span>    ksp("androidx.room:room-compiler:2.6.1")
+<span class="lineno"> 130 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:119</span>: <span class="message">A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.12.0</span><br /><pre class="errorlines">
-<span class="lineno"> 116 </span>    implementation("androidx.room:room-runtime:2.6.1")
-<span class="lineno"> 117 </span>    implementation("androidx.room:room-ktx:2.6.1")
-<span class="lineno"> 118 </span>    ksp("androidx.room:room-compiler:2.6.1")
-<span class="caretline"><span class="lineno"> 119 </span>    implementation("<span class="warning">androidx.work:work-runtime-ktx:2.9.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 120 </span>
-<span class="lineno"> 121 </span>    testImplementation("junit:junit:4.13.2")
-<span class="lineno"> 122 </span>    testImplementation("androidx.room:room-testing:2.6.1")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:128</span>: <span class="message">A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
+<span class="lineno"> 125 </span>    implementation("androidx.exifinterface:exifinterface:1.3.7")
+<span class="lineno"> 126 </span>    implementation("androidx.security:security-crypto:1.1.0")
+<span class="lineno"> 127 </span>    implementation("androidx.room:room-runtime:2.6.1")
+<span class="caretline"><span class="lineno"> 128 </span>    implementation("<span class="warning">androidx.room:room-ktx:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 129 </span>    ksp("androidx.room:room-compiler:2.6.1")
+<span class="lineno"> 130 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
+<span class="lineno"> 131 </span>    implementation("com.google.firebase:firebase-crashlytics")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:122</span>: <span class="message">A newer version of androidx.room:room-testing than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
-<span class="lineno"> 119 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
-<span class="lineno"> 120 </span>
-<span class="lineno"> 121 </span>    testImplementation("junit:junit:4.13.2")
-<span class="caretline"><span class="lineno"> 122 </span>    testImplementation("<span class="warning">androidx.room:room-testing:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 123 </span>    androidTestImplementation("androidx.test:core:1.6.1")
-<span class="lineno"> 124 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
-<span class="lineno"> 125 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:129</span>: <span class="message">A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
+<span class="lineno"> 126 </span>    implementation("androidx.security:security-crypto:1.1.0")
+<span class="lineno"> 127 </span>    implementation("androidx.room:room-runtime:2.6.1")
+<span class="lineno"> 128 </span>    implementation("androidx.room:room-ktx:2.6.1")
+<span class="caretline"><span class="lineno"> 129 </span>    ksp("<span class="warning">androidx.room:room-compiler:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 130 </span>    implementation("androidx.work:work-runtime-ktx:2.9.0")
+<span class="lineno"> 131 </span>    implementation("com.google.firebase:firebase-crashlytics")
+<span class="lineno"> 132 </span>    implementation("com.google.firebase:firebase-analytics")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:123</span>: <span class="message">A newer version of androidx.test:core than 1.6.1 is available: 1.7.0</span><br /><pre class="errorlines">
-<span class="lineno"> 120 </span>
-<span class="lineno"> 121 </span>    testImplementation("junit:junit:4.13.2")
-<span class="lineno"> 122 </span>    testImplementation("androidx.room:room-testing:2.6.1")
-<span class="caretline"><span class="lineno"> 123 </span>    androidTestImplementation("<span class="warning">androidx.test:core:1.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 124 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
-<span class="lineno"> 125 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-<span class="lineno"> 126 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:130</span>: <span class="message">A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.12.0</span><br /><pre class="errorlines">
+<span class="lineno"> 127 </span>    implementation("androidx.room:room-runtime:2.6.1")
+<span class="lineno"> 128 </span>    implementation("androidx.room:room-ktx:2.6.1")
+<span class="lineno"> 129 </span>    ksp("androidx.room:room-compiler:2.6.1")
+<span class="caretline"><span class="lineno"> 130 </span>    implementation("<span class="warning">androidx.work:work-runtime-ktx:2.9.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 131 </span>    implementation("com.google.firebase:firebase-crashlytics")
+<span class="lineno"> 132 </span>    implementation("com.google.firebase:firebase-analytics")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:124</span>: <span class="message">A newer version of androidx.test:runner than 1.6.2 is available: 1.7.0</span><br /><pre class="errorlines">
-<span class="lineno"> 121 </span>    testImplementation("junit:junit:4.13.2")
-<span class="lineno"> 122 </span>    testImplementation("androidx.room:room-testing:2.6.1")
-<span class="lineno"> 123 </span>    androidTestImplementation("androidx.test:core:1.6.1")
-<span class="caretline"><span class="lineno"> 124 </span>    androidTestImplementation("<span class="warning">androidx.test:runner:1.6.2</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 125 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-<span class="lineno"> 126 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-<span class="lineno"> 127 </span>    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:135</span>: <span class="message">A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-test than 1.7.3 is available: 1.10.2</span><br /><pre class="errorlines">
+<span class="lineno"> 132 </span>    implementation("com.google.firebase:firebase-analytics")
+<span class="lineno"> 133 </span>
+<span class="lineno"> 134 </span>    testImplementation("junit:junit:4.13.2")
+<span class="caretline"><span class="lineno"> 135 </span>    testImplementation("<span class="warning">org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 136 </span>    testImplementation("androidx.room:room-testing:2.6.1")
+<span class="lineno"> 137 </span>    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+<span class="lineno"> 138 </span>    androidTestImplementation("androidx.room:room-testing:2.6.1")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:125</span>: <span class="message">A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0</span><br /><pre class="errorlines">
-<span class="lineno"> 122 </span>    testImplementation("androidx.room:room-testing:2.6.1")
-<span class="lineno"> 123 </span>    androidTestImplementation("androidx.test:core:1.6.1")
-<span class="lineno"> 124 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
-<span class="caretline"><span class="lineno"> 125 </span>    androidTestImplementation("<span class="warning">androidx.test.ext:junit:1.2.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 126 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-<span class="lineno"> 127 </span>    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
-<span class="lineno"> 128 </span>    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:136</span>: <span class="message">A newer version of androidx.room:room-testing than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
+<span class="lineno"> 133 </span>
+<span class="lineno"> 134 </span>    testImplementation("junit:junit:4.13.2")
+<span class="lineno"> 135 </span>    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+<span class="caretline"><span class="lineno"> 136 </span>    testImplementation("<span class="warning">androidx.room:room-testing:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 137 </span>    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+<span class="lineno"> 138 </span>    androidTestImplementation("androidx.room:room-testing:2.6.1")
+<span class="lineno"> 139 </span>    androidTestImplementation("androidx.test:core:1.6.1")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:127</span>: <span class="message">A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00</span><br /><pre class="errorlines">
-<span class="lineno"> 124 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
-<span class="lineno"> 125 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-<span class="lineno"> 126 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-<span class="caretline"><span class="lineno"> 127 </span>    androidTestImplementation(<span class="warning">platform("androidx.compose:compose-bom:2024.02.00")</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 128 </span>    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-<span class="lineno"> 129 </span>    debugImplementation("androidx.compose.ui:ui-tooling")
-<span class="lineno"> 130 </span>    debugImplementation("androidx.compose.ui:ui-test-manifest")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:138</span>: <span class="message">A newer version of androidx.room:room-testing than 2.6.1 is available: 2.8.5</span><br /><pre class="errorlines">
+<span class="lineno"> 135 </span>    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+<span class="lineno"> 136 </span>    testImplementation("androidx.room:room-testing:2.6.1")
+<span class="lineno"> 137 </span>    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+<span class="caretline"><span class="lineno"> 138 </span>    androidTestImplementation("<span class="warning">androidx.room:room-testing:2.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 139 </span>    androidTestImplementation("androidx.test:core:1.6.1")
+<span class="lineno"> 140 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
+<span class="lineno"> 141 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+</pre>
+
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:139</span>: <span class="message">A newer version of androidx.test:core than 1.6.1 is available: 1.7.0</span><br /><pre class="errorlines">
+<span class="lineno"> 136 </span>    testImplementation("androidx.room:room-testing:2.6.1")
+<span class="lineno"> 137 </span>    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+<span class="lineno"> 138 </span>    androidTestImplementation("androidx.room:room-testing:2.6.1")
+<span class="caretline"><span class="lineno"> 139 </span>    androidTestImplementation("<span class="warning">androidx.test:core:1.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 140 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
+<span class="lineno"> 141 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+<span class="lineno"> 142 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+</pre>
+
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:140</span>: <span class="message">A newer version of androidx.test:runner than 1.6.2 is available: 1.7.0</span><br /><pre class="errorlines">
+<span class="lineno"> 137 </span>    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+<span class="lineno"> 138 </span>    androidTestImplementation("androidx.room:room-testing:2.6.1")
+<span class="lineno"> 139 </span>    androidTestImplementation("androidx.test:core:1.6.1")
+<span class="caretline"><span class="lineno"> 140 </span>    androidTestImplementation("<span class="warning">androidx.test:runner:1.6.2</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 141 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+<span class="lineno"> 142 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+<span class="lineno"> 143 </span>    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
+</pre>
+
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:141</span>: <span class="message">A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0</span><br /><pre class="errorlines">
+<span class="lineno"> 138 </span>    androidTestImplementation("androidx.room:room-testing:2.6.1")
+<span class="lineno"> 139 </span>    androidTestImplementation("androidx.test:core:1.6.1")
+<span class="lineno"> 140 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
+<span class="caretline"><span class="lineno"> 141 </span>    androidTestImplementation("<span class="warning">androidx.test.ext:junit:1.2.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 142 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+<span class="lineno"> 143 </span>    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
+<span class="lineno"> 144 </span>    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+</pre>
+
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:143</span>: <span class="message">A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2026.09.00</span><br /><pre class="errorlines">
+<span class="lineno"> 140 </span>    androidTestImplementation("androidx.test:runner:1.6.2")
+<span class="lineno"> 141 </span>    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+<span class="lineno"> 142 </span>    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+<span class="caretline"><span class="lineno"> 143 </span>    androidTestImplementation(<span class="warning">platform("androidx.compose:compose-bom:2024.02.00")</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 144 </span>    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+<span class="lineno"> 145 </span>    debugImplementation("androidx.compose.ui:ui-tooling")
+<span class="lineno"> 146 </span>    debugImplementation("androidx.compose.ui:ui-test-manifest")
 </pre>
 
 </div>
@@ -502,6 +558,214 @@ To suppress this error, use the issue id "GradleDependency" as explained in the 
 Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="GradleDependencyCardLink" onclick="hideid('GradleDependencyCard');">
 Dismiss</button>            </div>
             </div>
+          </section><a name="ModifierParameter"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ModifierParameterCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Guidelines for Modifier parameters in a Composable function</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/aistudymentor/ui/common/AppComponents.kt">../../src/main/java/com/aistudymentor/ui/common/AppComponents.kt</a>:128</span>: <span class="message">Modifier parameter should be the first optional parameter</span><br /><pre class="errorlines">
+<span class="lineno"> 125 </span><span class="annotation">@Composable</span>
+<span class="lineno"> 126 </span><span class="keyword">fun</span> LoadingState(
+<span class="lineno"> 127 </span>    <span class="annotation">@StringRes</span> labelRes: Int = R.string.loading,
+<span class="caretline"><span class="lineno"> 128 </span>    <span class="warning">modifier</span>: Modifier = Modifier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 129 </span>) {
+<span class="lineno"> 130 </span>    Row(
+<span class="lineno"> 131 </span>        modifier = modifier.fillMaxWidth(),
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationModifierParameter" style="display: none;">
+The first (or only) Modifier parameter in a Composable function should follow the following rules:<br/>
+- Be named <code>modifier</code><br/>
+- Have a type of <code>Modifier</code><br/>
+- Either have no default value, or have a default value of <code>Modifier</code><br/>
+- If optional, be the first optional parameter in the parameter list<br/>To suppress this error, use the issue id "ModifierParameter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="vendor">
+Vendor: Jetpack Compose<br/>
+Identifier: androidx.compose.ui<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=612128">https://issuetracker.google.com/issues/new?component=612128</a><br/>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">ModifierParameter</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationModifierParameterLink" onclick="reveal('explanationModifierParameter');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ModifierParameterCardLink" onclick="hideid('ModifierParameterCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Correctness:Messages"></a>
+<a name="PluralsCandidate"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="PluralsCandidateCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Potential Plurals</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:19</span>: <span class="message">Formatting %d followed by words ("remaining"): This should probably be a plural rather than a string</span><br /><pre class="errorlines">
+<span class="lineno">  16 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ask_action"</span>>Solve problem<span class="tag">&lt;/string></span>
+<span class="lineno">  17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ask_accessibility"</span>>Submit question<span class="tag">&lt;/string></span>
+<span class="lineno">  18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_title"</span>>AI questions left today<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  19 </span>    <span class="warning"><span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_value"</span>>%1$d remaining<span class="tag">&lt;/string></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_loading"</span>>Checking daily limit…<span class="tag">&lt;/string></span>
+<span class="lineno">  21 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_unavailable"</span>>Daily limit is unavailable.<span class="tag">&lt;/string></span>
+<span class="lineno">  22 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"recent_questions_title"</span>>Recent questions<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:40</span>: <span class="message">Formatting %d followed by words ("questions"): This should probably be a plural rather than a string</span><br /><pre class="errorlines">
+<span class="lineno">  37 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"overall_accuracy"</span>>Overall accuracy<span class="tag">&lt;/string></span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"by_subject"</span>>By subject<span class="tag">&lt;/string></span>
+<span class="lineno">  39 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"subject_unknown"</span>>Subject<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  40 </span>    <span class="warning"><span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"subject_activity"</span>>%1$d questions · %2$d quizzes<span class="tag">&lt;/string></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  41 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"accuracy_value"</span>>Accuracy: %1$.1f%%<span class="tag">&lt;/string></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_title"</span>>Practice quizzes<span class="tag">&lt;/string></span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_intro"</span>>Ready to test your knowledge?<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:54</span>: <span class="message">Formatting %d followed by words ("questions"): This should probably be a plural rather than a string</span><br /><pre class="errorlines">
+<span class="lineno">  51 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_next"</span>>Next<span class="tag">&lt;/string></span>
+<span class="lineno">  52 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_submit"</span>>Submit quiz<span class="tag">&lt;/string></span>
+<span class="lineno">  53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_confirm_title"</span>>Submit your quiz?<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  54 </span>  <span class="warning"><span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_confirm_unanswered"</span>>%1$d questions are unanswered. Submit anyway?<span class="tag">&lt;/string></span></span>&nbsp;&nbsp;</span>
+<span class="lineno">  55 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_confirm_complete"</span>>You have answered every question. Submit now?<span class="tag">&lt;/string></span>
+<span class="lineno">  56 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_cancel"</span>>Keep practicing<span class="tag">&lt;/string></span>
+<span class="lineno">  57 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_confirm_submit"</span>>Submit answers<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:60</span>: <span class="message">Formatting %d followed by words ("correct"): This should probably be a plural rather than a string</span><br /><pre class="errorlines">
+<span class="lineno">  57 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_confirm_submit"</span>>Submit answers<span class="tag">&lt;/string></span>
+<span class="lineno">  58 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_result_title"</span>>Quiz result<span class="tag">&lt;/string></span>
+<span class="lineno">  59 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_result_score"</span>>%1$d%% correct<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  60 </span>    <span class="warning"><span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_result_count"</span>>%1$d of %2$d correct<span class="tag">&lt;/string></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_retake"</span>>Try another quiz<span class="tag">&lt;/string></span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_new"</span>>Back to quiz home<span class="tag">&lt;/string></span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_no_questions"</span>>This quiz has no questions available.<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:97</span>: <span class="message">Formatting %d followed by words ("correct"): This should probably be a plural rather than a string</span><br /><pre class="errorlines">
+<span class="lineno">  94 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_quiz_default"</span>>Practice quiz<span class="tag">&lt;/string></span>
+<span class="lineno">  95 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_photo_question"</span>>Photo question<span class="tag">&lt;/string></span>
+<span class="lineno">  96 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_completed"</span>>Completed<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  97 </span>    <span class="warning"><span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_quiz_score"</span>>%1$d of %2$d correct · %3$d%%<span class="tag">&lt;/string></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  98 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_detail_title"</span>>Saved question<span class="tag">&lt;/string></span>
+<span class="lineno">  99 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"back_to_history"</span>>Back to history<span class="tag">&lt;/string></span>
+<span class="lineno"> 100 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"remove_bookmark"</span>>Remove bookmark<span class="tag">&lt;/string></span>
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationPluralsCandidate" style="display: none;">
+This lint check looks for potential errors in internationalization where you have translated a message which involves a quantity and it looks like other parts of the string may need grammatical changes.<br/>
+<br/>
+For example, rather than something like this:
+<pre>
+  &lt;string name="try_again">Try again in %d seconds.&lt;/string>
+</pre>
+you should be using a plural:
+<pre>
+   &lt;plurals name="try_again">
+        &lt;item quantity="one">Try again in %d second&lt;/item>
+        &lt;item quantity="other">Try again in %d seconds&lt;/item>
+    &lt;/plurals>
+</pre>
+This will ensure that in other languages the right set of translations are provided for the different quantity classes.<br/>
+<br/>
+(This check depends on some heuristics, so it may not accurately determine whether a string really should be a quantity. You can use tools:ignore to filter out false positives.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/topics/resources/string-resource.html#Plurals">https://developer.android.com/guide/topics/resources/string-resource.html#Plurals</a>
+</div>To suppress this error, use the issue id "PluralsCandidate" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">PluralsCandidate</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Messages</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationPluralsCandidateLink" onclick="reveal('explanationPluralsCandidate');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="PluralsCandidateCardLink" onclick="hideid('PluralsCandidateCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Security"></a>
+<a name="SetJavaScriptEnabled"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SetJavaScriptEnabledCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Using setJavaScriptEnabled</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/aistudymentor/ui/ai/FormulaText.kt">../../src/main/java/com/aistudymentor/ui/ai/FormulaText.kt</a>:35</span>: <span class="message">Using <code>setJavaScriptEnabled</code> can introduce XSS vulnerabilities into your application, review carefully</span><br /><pre class="errorlines">
+<span class="lineno"> 32 </span>    AndroidView(
+<span class="lineno"> 33 </span>        factory = { viewContext ->
+<span class="lineno"> 34 </span>            WebView(viewContext).apply {
+<span class="caretline"><span class="lineno"> 35 </span>                <span class="warning">settings.javaScriptEnabled = <span class="keyword">true</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 36 </span>                settings.allowFileAccess = <span class="keyword">true</span>
+<span class="lineno"> 37 </span>                settings.allowContentAccess = <span class="keyword">false</span>
+<span class="lineno"> 38 </span>                settings.blockNetworkLoads = <span class="keyword">true</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationSetJavaScriptEnabled" style="display: none;">
+Your code should not invoke <code>setJavaScriptEnabled</code> if you are not sure that your app really requires JavaScript support.<br/><div class="moreinfo">More info: <ul><li><a href="https://goo.gle/SetJavaScriptEnabled">https://goo.gle/SetJavaScriptEnabled</a>
+<li><a href="https://developer.android.com/training/articles/security-tips">https://developer.android.com/training/articles/security-tips</a>
+</ul></div>To suppress this error, use the issue id "SetJavaScriptEnabled" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">SetJavaScriptEnabled</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Security</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSetJavaScriptEnabledLink" onclick="reveal('explanationSetJavaScriptEnabled');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SetJavaScriptEnabledCardLink" onclick="hideid('SetJavaScriptEnabledCard');">
+Dismiss</button>            </div>
+            </div>
           </section>
 <a name="Performance"></a>
 <a name="ObsoleteSdkInt"></a>
@@ -513,6 +777,16 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/aistudymentor/data/sync/LocalNotificationWorker.kt">../../src/main/java/com/aistudymentor/data/sync/LocalNotificationWorker.kt</a>:121</span>: <span class="message">Unnecessary; SDK_INT is never &lt; 26</span><br /><pre class="errorlines">
+<span class="lineno"> 118 </span>    }
+<span class="lineno"> 119 </span>
+<span class="lineno"> 120 </span>    private <span class="keyword">fun</span> createChannels() {
+<span class="caretline"><span class="lineno"> 121 </span>        <span class="keyword">if</span> (<span class="warning">Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.O</span>) <span class="keyword">return</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 122 </span>        <span class="keyword">val</span> manager = applicationContext.getSystemService(NotificationManager::<span class="keyword">class</span>.java)
+<span class="lineno"> 123 </span>        channelTitles.forEach { (type, title) ->
+<span class="lineno"> 124 </span>            manager.createNotificationChannel(
+</pre>
+
 <span class="location"><a href="../../src/main/res/mipmap-anydpi-v26">../../src/main/res/mipmap-anydpi-v26</a></span>: <span class="message">This folder configuration (<code>v26</code>) is unnecessary; <code>minSdkVersion</code> is 26. Merge all the resources in this folder into <code>mipmap-anydpi</code>.</span><br />
 </div>
 <div class="metadata"><div class="explanation" id="explanationObsoleteSdkInt" style="display: none;">
@@ -552,19 +826,72 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/res/mipmap-anydpi-v26/ic_launcher.xml">../../src/main/res/mipmap-anydpi-v26/ic_launcher.xml</a>:2</span>: <span class="message">The resource <code>R.mipmap.ic_launcher</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno">  1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="caretline"><span class="lineno">  2 </span><span class="warning"><span class="tag">&lt;adaptive-icon</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  3 </span>    <span class="tag">&lt;background</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">color</span>=<span class="value">"#3F51B5"</span>/>
-<span class="lineno">  4 </span>    <span class="tag">&lt;foreground></span>
-<span class="lineno">  5 </span>        <span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:17</span>: <span class="message">The resource <code>R.string.ask_accessibility</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  14 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"subject_label"</span>>Subject<span class="tag">&lt;/string></span>
+<span class="lineno">  15 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"question_hint"</span>>Ask a study question or paste problem text<span class="tag">&lt;/string></span>
+<span class="lineno">  16 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ask_action"</span>>Solve problem<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  17 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"ask_accessibility"</span></span>>Submit question<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_title"</span>>AI questions left today<span class="tag">&lt;/string></span>
+<span class="lineno">  19 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_value"</span>>%1$d remaining<span class="tag">&lt;/string></span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"daily_quota_loading"</span>>Checking daily limit…<span class="tag">&lt;/string></span>
 </pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:3</span>: <span class="message">The resource <code>R.string.app_name</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="lineno"> 2 </span><span class="tag">&lt;resources></span>
-<span class="caretline"><span class="lineno"> 3 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"app_name"</span></span>>AI Study Mentor<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 4 </span><span class="tag">&lt;/resources></span>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:29</span>: <span class="message">The resource <code>R.string.empty_state</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  26 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"suggestion_action"</span>>Explore quizzes<span class="tag">&lt;/string></span>
+<span class="lineno">  27 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"retry"</span>>Retry<span class="tag">&lt;/string></span>
+<span class="lineno">  28 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"loading"</span>>Loading…<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  29 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"empty_state"</span></span>>Nothing here yet.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  30 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"offline_banner"</span>>You are offline. Saved study material is still available.<span class="tag">&lt;/string></span>
+<span class="lineno">  31 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dashboard_title"</span>>Progress<span class="tag">&lt;/string></span>
+<span class="lineno">  32 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dashboard_refresh"</span>>Refresh progress<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:44</span>: <span class="message">The resource <code>R.string.quiz_suggested</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  41 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"accuracy_value"</span>>Accuracy: %1$.1f%%<span class="tag">&lt;/string></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_title"</span>>Practice quizzes<span class="tag">&lt;/string></span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_intro"</span>>Ready to test your knowledge?<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  44 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"quiz_suggested"</span></span>>Start a practice quiz<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_generate"</span>>Generate a practice quiz<span class="tag">&lt;/string></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_loading"</span>>Loading your quizzes…<span class="tag">&lt;/string></span>
+<span class="lineno">  47 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_offline"</span>>Connect to the internet to start a new quiz.<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:64</span>: <span class="message">The resource <code>R.string.quiz_subject</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  61 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_retake"</span>>Try another quiz<span class="tag">&lt;/string></span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_new"</span>>Back to quiz home<span class="tag">&lt;/string></span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_no_questions"</span>>This quiz has no questions available.<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  64 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"quiz_subject"</span></span>>Mathematics<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  65 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_your_quizzes"</span>>Your quizzes<span class="tag">&lt;/string></span>
+<span class="lineno">  66 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_no_saved_quizzes"</span>>Generated quizzes will appear here.<span class="tag">&lt;/string></span>
+<span class="lineno">  67 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"quiz_status"</span>>Status: %1$s<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:99</span>: <span class="message">The resource <code>R.string.back_to_history</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  96 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_completed"</span>>Completed<span class="tag">&lt;/string></span>
+<span class="lineno">  97 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_quiz_score"</span>>%1$d of %2$d correct · %3$d%%<span class="tag">&lt;/string></span>
+<span class="lineno">  98 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"history_detail_title"</span>>Saved question<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  99 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"back_to_history"</span></span>>Back to history<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 100 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"remove_bookmark"</span>>Remove bookmark<span class="tag">&lt;/string></span>
+<span class="lineno"> 101 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"add_bookmark"</span>>Bookmark question<span class="tag">&lt;/string></span>
+<span class="lineno"> 102 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"question_image"</span>>Question image<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:196</span>: <span class="message">The resource <code>R.string.error_empty_response</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 193 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"error_account_locked"</span>>This account is temporarily unavailable.<span class="tag">&lt;/string></span>
+<span class="lineno"> 194 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"error_invalid_request"</span>>Please check your information and try again.<span class="tag">&lt;/string></span>
+<span class="lineno"> 195 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"error_quota_exceeded"</span>>Your daily AI question limit has been reached.<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 196 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"error_empty_response"</span></span>>The service returned no information. Please try again.<span class="tag">&lt;/string></span></span>
+<span class="lineno"> 197 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"validation_login"</span>>Enter your email and password to continue.<span class="tag">&lt;/string></span>
+<span class="lineno"> 198 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"validation_mfa"</span>>Enter the 6-digit authenticator code.<span class="tag">&lt;/string></span>
+<span class="lineno"> 199 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"validation_register"</span>>Enter a valid email and a password of at least 8 characters.<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:214</span>: <span class="message">The resource <code>R.string.quiz_weak_topic</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 211 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"about_mission"</span>>A study companion for asking questions, reviewing explanations, and practicing what you learn.<span class="tag">&lt;/string></span>
+<span class="lineno"> 212 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"about_app_name"</span>>AI Study Mentor<span class="tag">&lt;/string></span>
+<span class="lineno"> 213 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"formula_accessibility"</span>>Formula: %1$s<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 214 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"quiz_weak_topic"</span></span>>Practice %1$s<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 215 </span><span class="tag">&lt;/resources></span>
 </pre>
 
 </div>
@@ -611,7 +938,7 @@ Dismiss</button>            </div>
 <div class="warningslist">
 <span class="location"><a href="../../src/main/res/mipmap-anydpi-v26/ic_launcher.xml">../../src/main/res/mipmap-anydpi-v26/ic_launcher.xml</a>:5</span>: <span class="message">This namespace declaration is redundant</span><br /><pre class="errorlines">
 <span class="lineno">  2 </span><span class="tag">&lt;adaptive-icon</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>>
-<span class="lineno">  3 </span>    <span class="tag">&lt;background</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">color</span>=<span class="value">"#3F51B5"</span>/>
+<span class="lineno">  3 </span>    <span class="tag">&lt;background</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">color</span>=<span class="value">"#245A8D"</span>/>
 <span class="lineno">  4 </span>    <span class="tag">&lt;foreground></span>
 <span class="caretline"><span class="lineno">  5 </span>        <span class="tag">&lt;vector</span><span class="attribute"> </span><span class="warning"><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  6 </span>            <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"108dp"</span>

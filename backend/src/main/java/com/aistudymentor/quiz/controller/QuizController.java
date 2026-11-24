@@ -4,9 +4,11 @@ import com.aistudymentor.config.UserPrincipal;
 import com.aistudymentor.quiz.dto.QuizAttemptStartResponse;
 import com.aistudymentor.quiz.dto.QuizAttemptHistoryDto;
 import com.aistudymentor.quiz.dto.QuizCreateRequest;
+import com.aistudymentor.quiz.dto.QuizEditResponseDto;
 import com.aistudymentor.quiz.dto.QuizResponseDto;
 import com.aistudymentor.quiz.dto.QuizSubmitRequest;
 import com.aistudymentor.quiz.dto.QuizSubmitResponse;
+import com.aistudymentor.quiz.dto.QuizUpdateRequest;
 import com.aistudymentor.quiz.service.QuizService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,6 +72,32 @@ public class QuizController {
     ) {
         QuizResponseDto response = quizService.getQuiz(principal.getUserId(), quizId);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{id}/edit")
+    public ResponseEntity<QuizEditResponseDto> getQuizForEdit(
+            @AuthenticationPrincipal UserPrincipal principal,
+            @PathVariable("id") UUID quizId
+    ) {
+        return ResponseEntity.ok(quizService.getQuizForEdit(principal.getUserId(), quizId));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<QuizResponseDto> updateQuiz(
+            @AuthenticationPrincipal UserPrincipal principal,
+            @PathVariable("id") UUID quizId,
+            @Valid @RequestBody QuizUpdateRequest request
+    ) {
+        return ResponseEntity.ok(quizService.updateQuiz(principal.getUserId(), quizId, request));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteQuiz(
+            @AuthenticationPrincipal UserPrincipal principal,
+            @PathVariable("id") UUID quizId
+    ) {
+        quizService.deleteQuiz(principal.getUserId(), quizId);
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/{id}/attempts")
