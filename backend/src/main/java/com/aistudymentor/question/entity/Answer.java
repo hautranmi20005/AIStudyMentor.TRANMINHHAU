@@ -40,9 +40,6 @@ public class Answer extends BaseEntity {
     @JoinColumn(name = "question_id", nullable = false)
     private Question question;
 
-    @Column(name = "raw_content", columnDefinition = "TEXT")
-    private String rawContent;
-
     @Column(name = "structured_json", columnDefinition = "TEXT", nullable = false)
     private String structuredJson;
 

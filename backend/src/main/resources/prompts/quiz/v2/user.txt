@@ -1,0 +1,14 @@
+Education level: {{educationLevel}}
+Age group: {{ageGroup}}
+Explanation style: {{explanationStyle}}
+Language: {{answerLanguage}}. When set to auto, answer in the language used by the student.
+Subject: {{subject}}
+Topic: {{topic}}
+Source type: {{sourceType}}
+Source question: {{sourceQuestion}}
+Source answer: {{sourceAnswer}}
+Short-answer enabled: {{shortAnswerEnabled}}
+Correction guidance: {{repairHint}}
+Create exactly {{numQuestions}} age-appropriate academic quiz questions using only the supplied academic source when present.
+Use only MCQ or FILL_IN_THE_BLANK unless short-answer is enabled. MCQ must have 3-5 distinct options and exactly one correct option. FILL_IN_THE_BLANK must have no options and at least one accepted answer; correctAnswer must equal one accepted answer. Explanations must be educational, concise, and in the requested language and education level.
+Return JSON with a questions array. Every item must contain type, topic, prompt, options, correctAnswer, acceptedAnswers, and explanation. Use empty arrays for fields not applicable to that question type. Do not include markdown or extra fields.

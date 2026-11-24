@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.aistudymentor.test.app-mergeDebugAndroidTestResources-32:/values/values.xml",
+            "outputFile": "com.aistudymentor.test.app-mergeDebugAndroidTestResources-36:/values/values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\PC\\.gradle\\caches\\9.7.1\\transforms\\bb931d657b7105394feba4ee0555db98\\transformed\\savedstate-1.2.1\\res\\values\\values.xml",

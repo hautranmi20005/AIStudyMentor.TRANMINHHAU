@@ -6,7 +6,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.aistudymentor.R
 import com.aistudymentor.ui.common.ObserveSnackbarEvents
 import com.aistudymentor.ui.common.ShimmerBlock
 
@@ -30,7 +32,7 @@ fun GuardianConsentScreen(viewModel: AuthViewModel, onConsentApproved: () -> Uni
             snackbarHost = { SnackbarHost(snackbarHostState) },
             topBar = {
                 TopAppBar(
-                    title = { Text("Guardian Consent Required") },
+                    title = { Text(stringResource(R.string.guardian_title)) },
                     colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.errorContainer)
                 )
             }
@@ -44,7 +46,7 @@ fun GuardianConsentScreen(viewModel: AuthViewModel, onConsentApproved: () -> Uni
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    "You are registered as under 13 years old. Per safety regulations, a parent or guardian must approve your account via the verification email sent to their address.",
+                    stringResource(R.string.guardian_description),
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Spacer(Modifier.height(16.dp))
@@ -53,11 +55,11 @@ fun GuardianConsentScreen(viewModel: AuthViewModel, onConsentApproved: () -> Uni
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        Text("Current Status:", style = MaterialTheme.typography.titleSmall)
+                        Text(stringResource(R.string.guardian_current_status), style = MaterialTheme.typography.titleSmall)
                         Spacer(Modifier.height(4.dp))
                         when {
                             state.isLoading && state.consentStatus == null -> ShimmerBlock(Modifier.fillMaxWidth().height(20.dp))
-                            state.consentStatus == null -> Text("Sign in again after your guardian approves the email.")
+                            state.consentStatus == null -> Text(stringResource(R.string.guardian_sign_in_after_approval))
                             else -> Text(
                                 "${state.consentStatus?.status ?: "PENDING"} · ${state.consentStatus?.guardianEmail.orEmpty()}",
                                 style = MaterialTheme.typography.bodyMedium,
@@ -72,7 +74,7 @@ fun GuardianConsentScreen(viewModel: AuthViewModel, onConsentApproved: () -> Uni
                     enabled = !state.isLoading,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("Check Status")
+                    Text(stringResource(R.string.guardian_check_status))
                 }
                 Spacer(Modifier.height(8.dp))
                 OutlinedButton(
@@ -80,11 +82,11 @@ fun GuardianConsentScreen(viewModel: AuthViewModel, onConsentApproved: () -> Uni
                     enabled = !state.isLoading,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("Resend Guardian Email")
+                    Text(stringResource(R.string.guardian_resend_email))
                 }
                 Spacer(Modifier.height(16.dp))
                 TextButton(onClick = onLogout) {
-                    Text("Log Out / Switch Account")
+                    Text(stringResource(R.string.logout_switch_account))
                 }
             }
         }

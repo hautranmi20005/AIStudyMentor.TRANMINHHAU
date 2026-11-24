@@ -37,6 +37,12 @@ import java.util.List;
 @SuppressWarnings("null")
 public class SecurityConfig {
 
+    private static final String GUARDIAN_CONSENT_VERIFY_PATH = "/api/v1/guardian-consent/verify";
+    private static final List<String> GUARDIAN_CONSENT_VIEWER_ORIGINS = List.of(
+            "http://localhost:8025",
+            "http://127.0.0.1:8025",
+            "null");
+
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final ApiRateLimitFilter apiRateLimitFilter;
     private final GuardianConsentEnforcementFilter guardianConsentEnforcementFilter;
@@ -48,7 +54,7 @@ public class SecurityConfig {
 
     @Bean
     @Order(1)
-    @Profile("prod")
+    @Profile({"prod", "dev"})
     public SecurityFilterChain actuatorSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .securityMatcher(EndpointRequest.toAnyEndpoint())
@@ -60,7 +66,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    @Profile("prod")
+    @Profile({"prod", "dev"})
     public UserDetailsService monitoringUserDetailsService(
             PasswordEncoder passwordEncoder,
             @Value("${management.security.username}") String username,
@@ -130,7 +136,59 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/api/**", configuration);
-        return source;
+        CorsConfiguration consentConfiguration = new CorsConfiguration();
+        consentConfiguration.setAllowedOrigins(GUARDIAN_CONSENT_VIEWER_ORIGINS);
+        consentConfiguration.setAllowedMethods(List.of("GET", "POST", "OPTIONS"));
+        consentConfiguration.setAllowedHeaders(List.of("Content-Type", "Accept", "Origin"));
+        consentConfiguration.setAllowCredentials(false);
+        consentConfiguration.setMaxAge(Duration.ofHours(1));
+        return request -> {
+            if (isSameOrigin(request)) {
+                return null;
+            }
+            if (GUARDIAN_CONSENT_VERIFY_PATH.equals(requestPath(request))) {
+                return consentConfiguration;
+            }
+            return source.getCorsConfiguration(request);
+        };
+    }
+
+    private String requestPath(jakarta.servlet.http.HttpServletRequest request) {
+        String contextPath = request.getContextPath();
+        return request.getRequestURI().substring(contextPath.length());
+    }
+
+    private boolean isSameOrigin(jakarta.servlet.http.HttpServletRequest request) {
+        String originHeader = request.getHeader("Origin");
+        if (originHeader == null || originHeader.isBlank()) {
+            return false;
+        }
+        try {
+            URI origin = URI.create(originHeader);
+            String scheme = request.getScheme();
+            int originPort = effectivePort(origin.getScheme(), origin.getPort());
+            int requestPort = effectivePort(scheme, request.getServerPort());
+            return origin.getRawUserInfo() == null
+                    && origin.getHost() != null
+                    && scheme.equalsIgnoreCase(origin.getScheme())
+                    && request.getServerName().equalsIgnoreCase(origin.getHost())
+                    && requestPort == originPort;
+        } catch (IllegalArgumentException exception) {
+            return false;
+        }
+    }
+
+    private int effectivePort(String scheme, int port) {
+        if (port >= 0) {
+            return port;
+        }
+        if ("http".equalsIgnoreCase(scheme)) {
+            return 80;
+        }
+        if ("https".equalsIgnoreCase(scheme)) {
+            return 443;
+        }
+        return -1;
     }
 
     private void validateCorsOrigin(String origin) {

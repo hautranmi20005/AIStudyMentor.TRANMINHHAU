@@ -1,0 +1,3 @@
+11-18 03:22:24.998  5339  5362 I TestRunner: started: longLivedHistoryFlowTracksSignInAccountChanges(com.aistudymentor.data.repository.OfflineRepositoryAccountFlowTest)
+11-18 03:22:25.012   771   970 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+11-18 03:22:25.258  5339  5362 I TestRunner: finished: longLivedHistoryFlowTracksSignInAccountChanges(com.aistudymentor.data.repository.OfflineRepositoryAccountFlowTest)

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aistudymentor.ui.auth.AuthViewModelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-18T19:11:57.861Z" hostname="LAPTOP-VOR58HRT" time="0.023">
+  <properties/>
+  <testcase name="loginRequiresMfaThenCompletesSession" classname="com.aistudymentor.ui.auth.AuthViewModelTest" time="0.01"/>
+  <testcase name="accountDeletionPassesPasswordAndMfaThenCompletesNavigation" classname="com.aistudymentor.ui.auth.AuthViewModelTest" time="0.005"/>
+  <testcase name="registrationPassesAgeAndEducationLevel" classname="com.aistudymentor.ui.auth.AuthViewModelTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

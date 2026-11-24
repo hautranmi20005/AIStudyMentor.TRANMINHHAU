@@ -57,6 +57,23 @@ class GuardianConsentEnforcementFilterTest {
         assertEquals(200, response.getStatus());
     }
 
+    @Test
+    void pendingConsentCanSubmitGuardianApprovalLink() throws Exception {
+        MockHttpServletRequest request = new MockHttpServletRequest(
+                "POST", "/api/v1/guardian-consent/verify");
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        AtomicBoolean continued = new AtomicBoolean(false);
+        authenticatePendingStudent();
+
+        new GuardianConsentEnforcementFilter(new ObjectMapper().findAndRegisterModules()).doFilter(
+                request,
+                response,
+                (servletRequest, servletResponse) -> continued.set(true));
+
+        assertTrue(continued.get());
+        assertEquals(200, response.getStatus());
+    }
+
     private void authenticatePendingStudent() {
         UserPrincipal principal = UserPrincipal.builder()
                 .userId(UUID.randomUUID())

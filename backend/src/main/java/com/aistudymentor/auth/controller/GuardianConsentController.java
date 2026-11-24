@@ -1,14 +1,18 @@
 package com.aistudymentor.auth.controller;
 
 import com.aistudymentor.auth.dto.GuardianConsentResponse;
+import com.aistudymentor.auth.entity.ConsentStatus;
 import com.aistudymentor.auth.service.GuardianConsentService;
+import com.aistudymentor.common.exception.BusinessException;
 import com.aistudymentor.config.UserPrincipal;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,34 +28,66 @@ public class GuardianConsentController {
 
     /**
      * GET /api/v1/guardian-consent/verify?token=...&action=approve|reject
-     * PUBLIC — renders an inert confirmation page; link scanners cannot consume the token.
+     * PUBLIC — renders a page that submits the decision with POST; GET itself never changes consent.
      */
     @GetMapping("/verify")
     @SuppressWarnings("null")
     public ResponseEntity<String> confirm(
-            @RequestParam("token") String token,
-            @RequestParam("action") String action) {
-        String confirmationPage = guardianConsentService.renderConsentConfirmation(token, action);
-        return ResponseEntity.ok()
-                .contentType(MediaType.TEXT_HTML)
-                .header(HttpHeaders.CACHE_CONTROL, "no-store")
-                .header("Referrer-Policy", "no-referrer")
-                .header("X-Content-Type-Options", "nosniff")
-                .body(confirmationPage);
+            @RequestParam(value = "token", required = false) String token,
+            @RequestParam(value = "action", required = false) String action) {
+        if (!StringUtils.hasText(token) || !StringUtils.hasText(action)) {
+            String errorCode = StringUtils.hasText(action)
+                    ? "CONSENT_TOKEN_NOT_FOUND" : "INVALID_CONSENT_ACTION";
+            return htmlResponse(HttpStatus.BAD_REQUEST, guardianConsentService.renderConsentError(errorCode));
+        }
+        try {
+            return htmlResponse(guardianConsentService.renderConsentConfirmation(token, action));
+        } catch (BusinessException exception) {
+            return htmlResponse(exception.getStatus(),
+                    guardianConsentService.renderConsentError(exception.getCode()));
+        }
     }
 
     /**
      * POST /api/v1/guardian-consent/verify
-     * PUBLIC — changes account status only after the guardian confirms the action.
+     * PUBLIC — applies the decision submitted by the consent link's confirmation page.
      */
     @PostMapping("/verify")
-    public ResponseEntity<GuardianConsentResponse> verify(
-            @RequestParam("token") String token,
-            @RequestParam("action") String action,
+    public ResponseEntity<String> verify(
+            @RequestParam(value = "token", required = false) String token,
+            @RequestParam(value = "action", required = false) String action,
             HttpServletRequest request) {
-        String ip = resolveClientIp(request);
-        GuardianConsentResponse response = guardianConsentService.verifyConsent(token, action, ip);
-        return ResponseEntity.ok(response);
+        if (!StringUtils.hasText(token) || !StringUtils.hasText(action)) {
+            String errorCode = StringUtils.hasText(action)
+                    ? "CONSENT_TOKEN_NOT_FOUND" : "INVALID_CONSENT_ACTION";
+            return htmlResponse(HttpStatus.BAD_REQUEST, guardianConsentService.renderConsentError(errorCode));
+        }
+        try {
+            String ip = resolveClientIp(request);
+            GuardianConsentResponse response = guardianConsentService.verifyConsent(token, action, ip);
+            String confirmationPage = guardianConsentService.renderConsentResult(
+                    response.getStatus() == ConsentStatus.APPROVED);
+            return htmlResponse(confirmationPage);
+        } catch (BusinessException exception) {
+            return htmlResponse(exception.getStatus(),
+                    guardianConsentService.renderConsentError(exception.getCode()));
+        }
+    }
+
+    private ResponseEntity<String> htmlResponse(String content) {
+        return htmlResponse(HttpStatus.OK, content);
+    }
+
+    private ResponseEntity<String> htmlResponse(HttpStatus status, String content) {
+        return ResponseEntity.status(status)
+                .contentType(MediaType.TEXT_HTML)
+                .header(HttpHeaders.CACHE_CONTROL, "no-store")
+                .header("Referrer-Policy", "no-referrer")
+                .header("X-Content-Type-Options", "nosniff")
+                .header("Content-Security-Policy",
+                        "default-src 'none'; form-action 'self'; script-src 'unsafe-inline'; "
+                                + "style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'")
+                .body(content);
     }
 
     /**

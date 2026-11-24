@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aistudymentor.ui.ai.ImagePreprocessorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-18T19:11:57.854Z" hostname="LAPTOP-VOR58HRT" time="0.003">
+  <properties/>
+  <testcase name="mapsExifRotationAndMirroringOrientations" classname="com.aistudymentor.ui.ai.ImagePreprocessorTest" time="0.001"/>
+  <testcase name="downscalesTheLongEdgeWithoutChangingAspectRatio" classname="com.aistudymentor.ui.ai.ImagePreprocessorTest" time="0.0"/>
+  <testcase name="acceptsOnlyNonemptyImagesAtOrBelowTenMegabytes" classname="com.aistudymentor.ui.ai.ImagePreprocessorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

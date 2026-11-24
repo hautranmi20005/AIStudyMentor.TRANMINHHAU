@@ -4,6 +4,8 @@ import androidx.room.withTransaction
 import com.aistudymentor.data.local.CachedBookmarkEntity
 import com.aistudymentor.data.local.CachedQuestionEntity
 import com.aistudymentor.data.local.CachedQuizResultEntity
+import com.aistudymentor.data.local.LocalNotificationDeliveryEntity
+import com.aistudymentor.data.local.NotificationPreferencesEntity
 import com.aistudymentor.data.local.OfflineDao
 import com.aistudymentor.data.local.StudyMentorDatabase
 import com.aistudymentor.data.remote.ApiService
@@ -13,8 +15,11 @@ import com.aistudymentor.data.security.SecureTokenStorage
 import com.aistudymentor.data.telemetry.monitorRetrofitCall
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import java.time.Instant
 
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class OfflineRepository(
     private val api: ApiService,
     private val database: StudyMentorDatabase,
@@ -23,13 +28,66 @@ class OfflineRepository(
     private val gson: Gson = Gson()
 ) {
     fun questionHistory(): Flow<List<CachedQuestionEntity>> =
-        tokenStorage.userId()?.let(dao::observeQuestions) ?: flowOf(emptyList())
+        tokenStorage.userIdFlow.flatMapLatest { accountId ->
+            accountId?.let(dao::observeQuestions) ?: flowOf(emptyList())
+        }
 
     fun bookmarks(): Flow<List<CachedBookmarkEntity>> =
-        tokenStorage.userId()?.let(dao::observeBookmarks) ?: flowOf(emptyList())
+        tokenStorage.userIdFlow.flatMapLatest { accountId ->
+            accountId?.let(dao::observeBookmarks) ?: flowOf(emptyList())
+        }
 
     fun quizResults(): Flow<List<CachedQuizResultEntity>> =
-        tokenStorage.userId()?.let(dao::observeQuizResults) ?: flowOf(emptyList())
+        tokenStorage.userIdFlow.flatMapLatest { accountId ->
+            accountId?.let(dao::observeQuizResults) ?: flowOf(emptyList())
+        }
+
+    fun pendingBookmarkCount(): Flow<Int> =
+        tokenStorage.userIdFlow.flatMapLatest { accountId ->
+            accountId?.let(dao::observePendingBookmarkCount) ?: flowOf(0)
+        }
+
+    fun notificationPreferences(): Flow<NotificationPreferencesEntity?> =
+        tokenStorage.userIdFlow.flatMapLatest { accountId ->
+            accountId?.let(dao::observeNotificationPreferences) ?: flowOf(null)
+        }
+
+    suspend fun notificationPreferences(accountId: String): NotificationPreferencesEntity? =
+        dao.getNotificationPreferences(accountId)
+
+    suspend fun saveNotificationPreferences(preferences: NotificationPreferencesEntity) {
+        dao.saveNotificationPreferences(preferences)
+    }
+
+    suspend fun markNotificationPreferencesSynced(accountId: String) {
+        dao.markNotificationPreferencesSynced(accountId)
+    }
+
+    suspend fun notificationBookmarks(accountId: String) = dao.notificationBookmarks(accountId)
+
+    suspend fun notificationQuestions(accountId: String) = dao.notificationQuestions(accountId)
+
+    suspend fun notificationQuizResults(accountId: String) = dao.notificationQuizResults(accountId)
+
+    suspend fun hasLocalNotificationBeenSent(accountId: String, type: String, periodKey: String) =
+        dao.hasLocalNotificationBeenSent(accountId, type, periodKey)
+
+    suspend fun recordLocalNotification(accountId: String, type: String, periodKey: String) {
+        dao.insertLocalNotificationDelivery(
+            LocalNotificationDeliveryEntity(accountId, type, periodKey, Instant.now().toString())
+        )
+    }
+
+    suspend fun pendingBookmarkCount(accountId: String): Int = dao.pendingBookmarkCount(accountId)
+
+    suspend fun cachedQuestion(questionId: String): CachedQuestionEntity? =
+        tokenStorage.userId()?.let { accountId -> dao.getQuestion(accountId, questionId) }
+
+    suspend fun savePendingBookmarkChange(accountId: String, questionId: String, isBookmarked: Boolean) {
+        dao.savePendingBookmarkChange(
+            com.aistudymentor.data.local.PendingBookmarkChangeEntity(accountId, questionId, isBookmarked)
+        )
+    }
 
     suspend fun cacheQuestion(response: QuestionResponseDto) {
         val accountId = tokenStorage.userId() ?: return
@@ -41,9 +99,12 @@ class OfflineRepository(
                 subject = response.subject.orEmpty(),
                 questionSnippet = response.questionText.orEmpty().take(240),
                 hasImage = !response.imageStoragePaths.isNullOrEmpty(),
+                imageUrl = response.imageStoragePaths?.firstOrNull(),
                 isBookmarked = response.isBookmarked == true,
                 status = response.status.orEmpty(),
-                createdAt = response.createdAt
+                createdAt = response.createdAt,
+                questionText = response.questionText.orEmpty(),
+                answerJson = response.answer?.let(gson::toJson)
             )
         )
     }
@@ -116,7 +177,8 @@ class OfflineRepository(
             hasImage = hasImage == true,
             isBookmarked = isBookmarked == true,
             status = status.orEmpty(),
-            createdAt = createdAt
+            createdAt = createdAt,
+            questionText = questionSnippet.orEmpty()
         )
     }
 

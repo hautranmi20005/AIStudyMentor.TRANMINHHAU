@@ -8,7 +8,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.aistudymentor.R
 import com.aistudymentor.ui.common.ObserveSnackbarEvents
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,7 +42,7 @@ fun RegisterScreen(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             topBar = {
                 TopAppBar(
-                    title = { Text("Register - AI Study Mentor") },
+                    title = { Text(stringResource(R.string.register_title)) },
                     colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
                 )
             }
@@ -56,7 +58,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = state.email,
                     onValueChange = viewModel::updateEmail,
-                    label = { Text("Email") },
+                    label = { Text(stringResource(R.string.email)) },
                     enabled = !state.isLoading,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -64,7 +66,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = state.password,
                     onValueChange = viewModel::updatePassword,
-                    label = { Text("Password") },
+                    label = { Text(stringResource(R.string.password)) },
                     visualTransformation = PasswordVisualTransformation(),
                     enabled = !state.isLoading,
                     modifier = Modifier.fillMaxWidth()
@@ -73,7 +75,7 @@ fun RegisterScreen(
                 OutlinedTextField(
                     value = state.ageText,
                     onValueChange = viewModel::updateAge,
-                    label = { Text("Age") },
+                    label = { Text(stringResource(R.string.age)) },
                     keyboardOptions = KeyboardOptions.Default,
                     enabled = !state.isLoading,
                     modifier = Modifier.fillMaxWidth()
@@ -84,13 +86,13 @@ fun RegisterScreen(
                     OutlinedTextField(
                         value = state.guardianEmail,
                         onValueChange = viewModel::updateGuardianEmail,
-                        label = { Text("Guardian Email (Required for under 13)") },
+                        label = { Text(stringResource(R.string.guardian_email_required)) },
                         enabled = !state.isLoading,
                         modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
-                        "A parent or guardian must verify your account before you can ask study questions.",
+                        stringResource(R.string.guardian_approval_notice),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.error
                     )
@@ -103,10 +105,10 @@ fun RegisterScreen(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     if (state.isLoading) CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
-                    else Text("Register Account")
+                    else Text(stringResource(R.string.register_account))
                 }
                 TextButton(onClick = onBackToLogin, enabled = !state.isLoading) {
-                    Text("Already have an account? Login")
+                    Text(stringResource(R.string.login_prompt))
                 }
             }
         }

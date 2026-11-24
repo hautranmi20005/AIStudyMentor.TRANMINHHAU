@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'">
+    <link rel="stylesheet" href="katex.min.css">
+    <style>
+        html, body { margin: 0; min-height: 100%; background: transparent; }
+        body { display: flex; align-items: center; justify-content: center; overflow-x: auto; }
+        #formula { padding: 8px; color: #202124; font-size: 1.15rem; }
+    </style>
+    <script src="katex.min.js"></script>
+</head>
+<body>
+<div id="formula"></div>
+<script>
+    const expression = __FORMULA_JSON__;
+    const output = document.getElementById("formula");
+    try {
+        katex.render(expression, output, {displayMode: true, throwOnError: true});
+    } catch (error) {
+        output.textContent = expression;
+        output.style.fontFamily = "monospace";
+        output.setAttribute("aria-label", "Plain text formula");
+    }
+</script>
+</body>
+</html>

@@ -69,4 +69,8 @@ public class AiGenerationLog extends BaseEntity {
     @Column(name = "cache_hit", nullable = false)
     @Builder.Default
     private Boolean cacheHit = false;
+
+    @Column(name = "outcome", nullable = false, length = 50)
+    @Builder.Default
+    private String outcome = "SUCCESS";
 }

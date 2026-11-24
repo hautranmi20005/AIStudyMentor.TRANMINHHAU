@@ -1,0 +1,11 @@
+scenario,run,status,total_time_ms,wait_time_ms
+cold,1,ok,9112,9146
+cold,2,ok,6517,6569
+cold,3,ok,6262,6267
+cold,4,ok,6413,6416
+cold,5,ok,6736,6742
+warm,1,ok,0,17
+warm,2,ok,0,19
+warm,3,ok,0,14
+warm,4,ok,0,10
+warm,5,ok,0,17

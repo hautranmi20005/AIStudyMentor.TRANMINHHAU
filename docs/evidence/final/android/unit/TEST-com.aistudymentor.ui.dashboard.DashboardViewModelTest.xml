@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aistudymentor.ui.dashboard.DashboardViewModelTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-17T14:24:46.292Z" hostname="LAPTOP-VOR58HRT" time="0.014">
+  <properties/>
+  <testcase name="loadsMetricsOnceUntilExplicitRefresh" classname="com.aistudymentor.ui.dashboard.DashboardViewModelTest" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

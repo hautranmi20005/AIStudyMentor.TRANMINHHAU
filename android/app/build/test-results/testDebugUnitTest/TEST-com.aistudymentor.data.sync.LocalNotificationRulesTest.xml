@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aistudymentor.data.sync.LocalNotificationRulesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-18T19:11:57.513Z" hostname="LAPTOP-VOR58HRT" time="0.107">
+  <properties/>
+  <testcase name="localNotificationPeriodUsesPreferenceTimezone" classname="com.aistudymentor.data.sync.LocalNotificationRulesTest" time="0.035"/>
+  <testcase name="bookmarkReminderStartsAtThreeDaysAndResetsAfterOpeningDetail" classname="com.aistudymentor.data.sync.LocalNotificationRulesTest" time="0.015"/>
+  <testcase name="repeatedMistakeRequiresTheSameTopicAcrossTwoRecentAttempts" classname="com.aistudymentor.data.sync.LocalNotificationRulesTest" time="0.053"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

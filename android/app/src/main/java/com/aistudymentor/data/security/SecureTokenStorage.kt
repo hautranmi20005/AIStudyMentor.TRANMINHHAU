@@ -3,6 +3,8 @@ package com.aistudymentor.data.security
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class SecureTokenStorage(context: Context) {
     private val preferences = EncryptedSharedPreferences.create(
@@ -14,6 +16,8 @@ class SecureTokenStorage(context: Context) {
         EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
         EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
     )
+    private val mutableUserId = MutableStateFlow(preferences.getString(KEY_USER_ID, null))
+    val userIdFlow = mutableUserId.asStateFlow()
 
     fun accessToken(): String? = preferences.getString(KEY_ACCESS_TOKEN, null)
 
@@ -30,6 +34,7 @@ class SecureTokenStorage(context: Context) {
             .remove(KEY_REFRESH_TOKEN)
             .remove(KEY_USER_ID)
             .apply()
+        mutableUserId.value = null
     }
 
     fun saveSession(accessToken: String, refreshToken: String?, userId: String) {
@@ -41,10 +46,12 @@ class SecureTokenStorage(context: Context) {
             }
             .remove(KEY_MFA_SESSION_TOKEN)
             .apply()
+        mutableUserId.value = userId
     }
 
     fun clear() {
         preferences.edit().clear().apply()
+        mutableUserId.value = null
     }
 
     private companion object {

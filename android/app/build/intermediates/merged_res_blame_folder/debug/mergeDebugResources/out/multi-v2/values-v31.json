@@ -1,0 +1,52 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\PC\\.gradle\\daemon\\9.7.1\\com.aistudymentor.app-mergeDebugResources-70:\\values-v31\\values-v31.xml",
+            "map": [
+                {
+                    "source": "D:\\AIStudyMentor\\android\\app\\src\\main\\res\\values-v31\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "587"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "578"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.aistudymentor.app-mergeDebugResources-70:/values-v31/values-v31.xml",
+            "map": [
+                {
+                    "source": "D:\\AIStudyMentor\\android\\app\\src\\main\\res\\values-v31\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "501"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "493"
+                    }
+                }
+            ]
+        }
+    ]
+}

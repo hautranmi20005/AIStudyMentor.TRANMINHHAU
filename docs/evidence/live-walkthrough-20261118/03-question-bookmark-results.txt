@@ -1,0 +1,5 @@
+MFA challenge/verification: PASS (seed account; token omitted)
+Profile onboarding API update: PASS
+Question submission: PASS (local demo, 1 + 1 = 2, isDemo=true)
+Bookmark and saved question detail: PASS (isDemo persisted)
+Alternative explanation endpoint: PASS (local demo; Android action not present)

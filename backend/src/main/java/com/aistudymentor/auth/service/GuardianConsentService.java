@@ -59,7 +59,7 @@ public class GuardianConsentService {
     private final AccountStatusService accountStatusService;
     private final JavaMailSender mailSender;
 
-    @Value("${app.base-url:http://localhost:8080}")
+    @Value("${app.guardian-consent.base-url:http://localhost:8080}")
     private String baseUrl;
 
     @Value("${app.mail.from:no-reply@localhost}")
@@ -94,8 +94,8 @@ public class GuardianConsentService {
     // ─────────────────────────── VERIFY CONSENT ───────────────────────────
 
     /**
-     * Renders an inert confirmation page for email links. A GET must never consume the
-     * single-use token because mail security scanners routinely prefetch links.
+     * Renders the email-link page. A GET never consumes the token; the browser submits it
+     * with POST so the consent change cannot be triggered by a simple link prefetch.
      */
     public String renderConsentConfirmation(String rawToken, String action) {
         validateAction(action);
@@ -108,6 +108,38 @@ public class GuardianConsentService {
             log.error("Guardian consent confirmation template is unavailable");
             throw new BusinessException(HttpStatus.INTERNAL_SERVER_ERROR, "CONSENT_PAGE_UNAVAILABLE",
                     "The consent confirmation page is temporarily unavailable.");
+        }
+    }
+
+    public String renderConsentResult(boolean approved) {
+        String title = approved ? "Consent Approved Successfully" : "Consent Rejected";
+        String message = approved
+                ? "The student account can now access its study features."
+                : "The student account will remain restricted from study features.";
+        return renderConsentResult(title, message);
+    }
+
+    public String renderConsentError(String errorCode) {
+        String message = switch (errorCode) {
+            case "INVALID_CONSENT_ACTION" -> "This consent link contains an invalid action.";
+            case "CONSENT_TOKEN_EXPIRED" -> "This consent link has expired. Ask the student to request a new link.";
+            case "CONSENT_ALREADY_PROCESSED" -> "This consent has already been processed.";
+            case "CONSENT_TOKEN_NOT_FOUND" -> "This consent link is invalid or has already been used.";
+            default -> "We couldn't process this consent link. Ask the student to request a new link.";
+        };
+        return renderConsentResult("Unable to process consent", message);
+    }
+
+    private String renderConsentResult(String title, String message) {
+        try (InputStream templateStream = new ClassPathResource("templates/guardian-consent-result.html")
+                .getInputStream()) {
+            return StreamUtils.copyToString(templateStream, StandardCharsets.UTF_8)
+                    .replace("{{title}}", escapeHtml(title))
+                    .replace("{{message}}", escapeHtml(message));
+        } catch (IOException exception) {
+            log.error("Guardian consent result template is unavailable");
+            throw new BusinessException(HttpStatus.INTERNAL_SERVER_ERROR, "CONSENT_PAGE_UNAVAILABLE",
+                    "The consent result page is temporarily unavailable.");
         }
     }
 

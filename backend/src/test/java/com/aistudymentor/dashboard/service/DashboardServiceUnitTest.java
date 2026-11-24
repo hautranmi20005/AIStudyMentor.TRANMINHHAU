@@ -4,6 +4,9 @@ import com.aistudymentor.dashboard.dto.DashboardMetricsResponse;
 import com.aistudymentor.profile.entity.StudentProfile;
 import com.aistudymentor.profile.repository.StudentProfileRepository;
 import com.aistudymentor.question.repository.QuestionRepository;
+import com.aistudymentor.quiz.entity.PracticeQuiz;
+import com.aistudymentor.quiz.entity.QuizAttempt;
+import com.aistudymentor.quiz.entity.QuizStatus;
 import com.aistudymentor.quiz.repository.PracticeQuizRepository;
 import com.aistudymentor.quiz.repository.QuizAttemptRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,5 +58,26 @@ public class DashboardServiceUnitTest {
         DashboardMetricsResponse metrics = dashboardService.getMetrics(userId);
         assertEquals(10L, metrics.getTotalQuestionsAsked());
         assertEquals(3L, metrics.getTotalQuizzesCompleted());
+    }
+
+    @Test
+    @DisplayName("Dashboard accuracy is the mean of completed attempt scores")
+    void testGetMetricsCalculatesOverallAndSubjectAccuracy() {
+        UUID userId = UUID.randomUUID();
+        StudentProfile profile = StudentProfile.builder().profileId(UUID.randomUUID()).build();
+        PracticeQuiz quiz = PracticeQuiz.builder().subject("Mathematics").build();
+        when(profileRepository.findByUser_UserId(userId)).thenReturn(Optional.of(profile));
+        when(questionRepository.countByProfile(profile)).thenReturn(0L);
+        when(quizRepository.countByProfileAndStatus(profile, QuizStatus.COMPLETED)).thenReturn(2L);
+        when(attemptRepository.findByProfileOrderByCreatedAtDesc(profile)).thenReturn(List.of(
+                QuizAttempt.builder().quiz(quiz).score(80).build(),
+                QuizAttempt.builder().quiz(quiz).score(90).build()));
+        when(questionRepository.findByProfile(profile)).thenReturn(List.of());
+        when(quizRepository.findByProfile(profile)).thenReturn(List.of(quiz));
+
+        DashboardMetricsResponse metrics = dashboardService.getMetrics(userId);
+
+        assertEquals(85.0, metrics.getOverallAccuracyRate());
+        assertEquals(85.0, metrics.getSubjectBreakdown().get(0).getAccuracyRate());
     }
 }

@@ -1,0 +1,14 @@
+Education level: {{educationLevel}}
+Age group: {{ageGroup}}
+Explanation style: {{explanationStyle}}
+Language: {{answerLanguage}}. When set to auto, answer in the language used by the student.
+Subject: {{subject}}
+Topic: {{topic}}
+Source type: {{sourceType}}
+Source question: {{sourceQuestion}}
+Source answer: {{sourceAnswer}}
+Short-answer enabled: {{shortAnswerEnabled}}
+Correction guidance: {{repairHint}}
+Create exactly {{numQuestions}} age-appropriate multiple-choice academic quiz questions using only the supplied academic source when present.
+Every question must be type MCQ with 3-5 distinct options and exactly one correct option. Provide no acceptedAnswers. Explanations must be educational, concise, and in the requested language and education level.
+Return JSON with a questions array. Every item must contain type, topic, prompt, options, correctAnswer, acceptedAnswers, and explanation. Use empty arrays for fields not applicable to that question type. Do not include markdown or extra fields.

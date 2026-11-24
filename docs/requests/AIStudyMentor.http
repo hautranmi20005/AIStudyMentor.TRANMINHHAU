@@ -1,0 +1,368 @@
+@apiBase = http://localhost:8080/api/v1
+@managementBase = http://127.0.0.1:8081/actuator
+@correlationId = {{$guid}}
+
+### Register a fresh student; define studentEmail, studentPassword, and guardianEmail in REST Client environment.
+# @name registerStudent
+POST {{apiBase}}/auth/register
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "email": "{{studentEmail}}",
+  "password": "{{studentPassword}}",
+  "dob": "2005-04-12",
+  "educationLevel": "university"
+}
+> {% 
+client.global.set("userId", response.body.userId);
+client.global.set("mfaSetupToken", response.body.mfaSetupToken);
+client.global.set("mfaSecret", response.body.mfaSecret);
+%}
+
+### Complete TOTP enrollment with the current code for mfaSecret.
+# @name verifyMfaEnrollment
+POST {{apiBase}}/auth/mfa/verify
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "mfaSessionToken": "{{mfaSetupToken}}",
+  "code": "{{totpCode}}",
+  "type": "TOTP"
+}
+> {% 
+client.global.set("accessToken", response.body.accessToken);
+client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Login; stores any returned token/challenge variables.
+# @name loginStudent
+POST {{apiBase}}/auth/login
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "email": "{{studentEmail}}",
+  "password": "{{studentPassword}}"
+}
+> {% 
+if (response.body.accessToken) client.global.set("accessToken", response.body.accessToken);
+if (response.body.refreshToken) client.global.set("refreshToken", response.body.refreshToken);
+if (response.body.mfaSessionToken) client.global.set("mfaSessionToken", response.body.mfaSessionToken);
+if (response.body.mfaSetupToken) client.global.set("mfaSetupToken", response.body.mfaSetupToken);
+if (response.body.mfaSecret) client.global.set("mfaSecret", response.body.mfaSecret);
+%}
+
+### Verify the MFA login challenge with the current authenticator code.
+# @name verifyTotp
+POST {{apiBase}}/auth/mfa/verify
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "mfaSessionToken": "{{mfaSessionToken}}",
+  "code": "{{totpCode}}",
+  "type": "TOTP"
+}
+> {% 
+client.global.set("accessToken", response.body.accessToken);
+client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Verify an MFA login challenge with a one-time recovery code instead of TOTP.
+# @name verifyRecoveryCode
+POST {{apiBase}}/auth/mfa/verify
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "mfaSessionToken": "{{mfaSessionToken}}",
+  "code": "{{recoveryCode}}",
+  "type": "RECOVERY_CODE"
+}
+> {% 
+client.global.set("accessToken", response.body.accessToken);
+client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Rotate refresh/access tokens.
+# @name refreshTokens
+POST {{apiBase}}/auth/refresh
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+> {% 
+client.global.set("accessToken", response.body.accessToken);
+client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Request a password reset; response is the same for known and unknown accounts.
+# @name requestPasswordReset
+POST {{apiBase}}/auth/password/forgot
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "email": "{{studentEmail}}"
+}
+
+### Complete reset using the one-time token copied from the user's Mailpit email.
+# @name resetPassword
+POST {{apiBase}}/auth/password/reset
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "token": "{{passwordResetToken}}",
+  "newPassword": "{{newStudentPassword}}"
+}
+
+### Regenerate ten one-time recovery codes; requires the current password and TOTP.
+# @name regenerateRecoveryCodes
+POST {{apiBase}}/auth/mfa/recovery-codes
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "password": "{{studentPassword}}",
+  "code": "{{totpCode}}"
+}
+
+### Disable MFA; requires the current password and TOTP.
+# @name disableMfa
+POST {{apiBase}}/auth/mfa/disable
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "password": "{{studentPassword}}",
+  "code": "{{totpCode}}"
+}
+
+### Revoke the current refresh token.
+# @name logout
+POST {{apiBase}}/auth/logout
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### Render inert guardian confirmation page; copy consentToken from Mailpit.
+# @name renderGuardianConsentConfirmation
+GET {{apiBase}}/guardian-consent/verify?token={{consentToken}}&action=approve
+X-Correlation-Id: {{correlationId}}
+
+### Submit guardian decision after reviewing the rendered confirmation.
+# @name submitGuardianConsentDecision
+POST {{apiBase}}/guardian-consent/verify?token={{consentToken}}&action=approve
+X-Correlation-Id: {{correlationId}}
+
+### Get authenticated user's consent state.
+# @name getGuardianConsentStatus
+GET {{apiBase}}/guardian-consent/status
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Resend guardian verification email.
+# @name resendGuardianConsentEmail
+POST {{apiBase}}/guardian-consent/resend
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Read authenticated user's profile.
+# @name getMyProfile
+GET {{apiBase}}/profile/me
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Update optional profile fields.
+# @name updateMyProfile
+PATCH {{apiBase}}/profile/me
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "educationLevel": "university",
+  "preferredSubject": "Mathematics",
+  "learningStyle": "step-by-step"
+}
+
+### Request upload authorization metadata (does not transfer image bytes).
+# @name authorizeImageUpload
+POST {{apiBase}}/uploads/authorize
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "fileName": "example-problem.png",
+  "contentType": "image/png"
+}
+
+### Submit a text question. Stores questionId for detail/bookmark examples.
+# @name submitQuestion
+POST {{apiBase}}/questions
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "subject": "Mathematics",
+  "questionText": "Solve 3x + 7 = 22."
+}
+> {% client.global.set("questionId", response.body.questionId); %}
+
+### List question history.
+# @name listQuestions
+GET {{apiBase}}/questions?page=0&size=20
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Read one owned question.
+# @name getQuestion
+GET {{apiBase}}/questions/{{questionId}}
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Request an alternative explanation.
+# @name requestAlternativeExplanation
+POST {{apiBase}}/questions/{{questionId}}/alternative-explanation
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Add bookmark (current server behavior toggles bookmark state).
+# @name addBookmark
+POST {{apiBase}}/questions/{{questionId}}/bookmark
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Remove bookmark (current server behavior toggles bookmark state).
+# @name removeBookmark
+DELETE {{apiBase}}/questions/{{questionId}}/bookmark
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### List bookmarks.
+# @name listBookmarks
+GET {{apiBase}}/questions/bookmarks?page=0&size=20
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Generate a quiz and store quizId and first questionId for subsequent requests.
+# @name generateQuiz
+POST {{apiBase}}/quizzes
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "subject": "Mathematics",
+  "numQuestions": 2
+}
+> {% 
+client.global.set("quizId", response.body.quizId);
+if (response.body.questions && response.body.questions.length > 0) {
+  client.global.set("quizQuestionId", response.body.questions[0].questionId);
+  if (response.body.questions[0].options.length > 0) {
+    client.global.set("quizOptionId", response.body.questions[0].options[0].optionId);
+  }
+}
+%}
+
+### List quizzes.
+# @name listQuizzes
+GET {{apiBase}}/quizzes?page=0&size=20
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Read completed attempt history.
+# @name listCompletedQuizAttempts
+GET {{apiBase}}/quizzes/attempts
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Read quiz detail.
+# @name getQuiz
+GET {{apiBase}}/quizzes/{{quizId}}
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Start attempt and store attemptId.
+# @name startQuizAttempt
+POST {{apiBase}}/quizzes/{{quizId}}/attempts
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+> {% client.global.set("attemptId", response.body.attemptId); %}
+
+### Submit answers; IDs are captured by generateQuiz and startQuizAttempt.
+# @name submitQuizAttempt
+POST {{apiBase}}/quizzes/{{quizId}}/attempts/{{attemptId}}/submit
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+Content-Type: application/json
+
+{
+  "responses": [
+    {
+      "questionId": "{{quizQuestionId}}",
+      "selectedOptionId": "{{quizOptionId}}"
+    }
+  ]
+}
+
+### Read dashboard metrics.
+# @name getDashboardMetrics
+GET {{apiBase}}/dashboard/metrics
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: {{correlationId}}
+
+### Exercise structured validation failure; response echoes this safe correlation ID.
+# @name invalidQuestionRequest
+POST {{apiBase}}/questions
+Authorization: Bearer {{accessToken}}
+X-Correlation-Id: p04-validation-example
+Content-Type: application/json
+
+{
+  "subject": " "
+}
+
+### Management health endpoints; credentials are required by dev/prod profiles.
+# @name managementHealth
+GET {{managementBase}}/health
+Authorization: Basic {{monitoringBasicAuth}}
+X-Correlation-Id: {{correlationId}}
+
+### Process liveness.
+# @name managementLiveness
+GET {{managementBase}}/health/liveness
+Authorization: Basic {{monitoringBasicAuth}}
+X-Correlation-Id: {{correlationId}}
+
+### Dependency readiness (MySQL and Redis).
+# @name managementReadiness
+GET {{managementBase}}/health/readiness
+Authorization: Basic {{monitoringBasicAuth}}
+X-Correlation-Id: {{correlationId}}
+
+### List management metric names.
+# @name managementMetricNames
+GET {{managementBase}}/metrics
+Authorization: Basic {{monitoringBasicAuth}}
+X-Correlation-Id: {{correlationId}}
+
+### Inspect an AI metric; replace ai.calls with another documented metric as needed.
+# @name managementMetricDetail
+GET {{managementBase}}/metrics/ai.calls
+Authorization: Basic {{monitoringBasicAuth}}
+X-Correlation-Id: {{correlationId}}

@@ -87,7 +87,7 @@ public class QuestionController {
             @AuthenticationPrincipal UserPrincipal principal,
             @PathVariable("id") UUID questionId
     ) {
-        QuestionBookmarkResponse response = questionService.toggleBookmark(principal.getUserId(), questionId);
+        QuestionBookmarkResponse response = questionService.setBookmark(principal.getUserId(), questionId, true);
         return ResponseEntity.ok(response);
     }
 
@@ -96,7 +96,7 @@ public class QuestionController {
             @AuthenticationPrincipal UserPrincipal principal,
             @PathVariable("id") UUID questionId
     ) {
-        QuestionBookmarkResponse response = questionService.toggleBookmark(principal.getUserId(), questionId);
+        QuestionBookmarkResponse response = questionService.setBookmark(principal.getUserId(), questionId, false);
         return ResponseEntity.ok(response);
     }
 

@@ -1,6 +1,5 @@
 package com.aistudymentor.question.service;
 
-import com.aistudymentor.ai.dto.ExplanationStep;
 import com.aistudymentor.ai.dto.GeminiStructuredExplanation;
 import com.aistudymentor.ai.entity.AiGenerationLog;
 import com.aistudymentor.ai.repository.AiGenerationLogRepository;
@@ -23,6 +22,7 @@ import com.aistudymentor.question.repository.QuestionBookmarkRepository;
 import com.aistudymentor.question.repository.QuestionRepository;
 import com.aistudymentor.question.dto.UploadAuthorizeRequest;
 import com.aistudymentor.question.dto.UploadAuthorizeResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -77,13 +77,9 @@ public class QuestionService {
                 .build();
         question = questionRepository.save(question);
 
-        // Fire AI explanation if Gemini is configured (PD-001: safe default — skip if not configured)
-        Answer answer = null;
-        if (geminiAdapterService.isConfigured()) {
-            answer = generateAiAnswer(question, profile);
-            question.setStatus(QuestionStatus.ANSWERED);
-            questionRepository.save(question);
-        }
+        Answer answer = generateAiAnswer(question, profile);
+        question.setStatus(QuestionStatus.ANSWERED);
+        questionRepository.save(question);
 
         log.info("Question submitted: questionId={}, userId={}", question.getQuestionId(), userId);
         return toFullResponse(question, answer, false);
@@ -134,27 +130,26 @@ public class QuestionService {
     // ─────────────────────────── BOOKMARK ───────────────────────────
 
     @Transactional
-    public QuestionBookmarkResponse toggleBookmark(UUID userId, UUID questionId) {
+    public QuestionBookmarkResponse setBookmark(UUID userId, UUID questionId, boolean bookmarked) {
         StudentProfile profile = resolveProfile(userId);
         Question question = questionRepository.findByQuestionIdAndProfile(questionId, profile)
                 .orElseThrow(() -> new BusinessException(HttpStatus.NOT_FOUND, "QUESTION_NOT_FOUND",
                         "Question not found or does not belong to you."));
 
-        boolean alreadyBookmarked = bookmarkRepository.existsByProfileAndQuestion(profile, question);
-        if (alreadyBookmarked) {
-            bookmarkRepository.deleteByProfileAndQuestion(profile, question);
-        } else {
-            QuestionBookmark bookmark = QuestionBookmark.builder()
+        QuestionBookmark existing = bookmarkRepository.findByProfileAndQuestion(profile, question).orElse(null);
+        if (bookmarked && existing == null) {
+            existing = bookmarkRepository.save(QuestionBookmark.builder()
                     .profile(profile)
                     .question(question)
-                    .build();
-            bookmarkRepository.save(bookmark);
+                    .build());
+        } else if (!bookmarked && existing != null) {
+            bookmarkRepository.delete(existing);
         }
 
-        boolean nowBookmarked = !alreadyBookmarked;
         return QuestionBookmarkResponse.builder()
                 .questionId(questionId)
-                .isBookmarked(nowBookmarked)
+                .isBookmarked(bookmarked)
+                .bookmarkedAt(bookmarked && existing != null ? existing.getCreatedAt() : null)
                 .build();
     }
 
@@ -175,22 +170,17 @@ public class QuestionService {
 
     private Answer generateAiAnswer(Question question, StudentProfile profile, boolean isAlternative) {
         long startMs = System.currentTimeMillis();
-        GeminiStructuredExplanation explanation;
-
-        if (geminiAdapterService.isConfigured()) {
-            // Strict live call to Google Gemini API when active GEMINI_API_KEY is provided
-            explanation = geminiAdapterService.generateExplanation(
-                    question.getSubject(), question.getQuestionText(), isAlternative);
-        } else {
-            // Local smart solver fallback only when GEMINI_API_KEY is unconfigured
-            explanation = generateSmartLocalExplanation(question.getSubject(), question.getQuestionText(), isAlternative);
-        }
+        GeminiStructuredExplanation explanation = geminiAdapterService.generateExplanation(
+                question.getSubject(), question.getQuestionText(), isAlternative);
 
         String structuredJson;
         try {
             structuredJson = objectMapper.writeValueAsString(explanation);
-        } catch (Exception e) {
-            structuredJson = "{\"summary\":\"Error serializing explanation\"}";
+        } catch (JsonProcessingException exception) {
+            log.error("Could not serialize the Gemini explanation for questionId={}", question.getQuestionId(),
+                    exception);
+            throw new BusinessException(HttpStatus.INTERNAL_SERVER_ERROR, "AI_RESPONSE_SERIALIZATION_ERROR",
+                    "The AI response could not be processed. Please retry the request.");
         }
 
         long latencyMs = System.currentTimeMillis() - startMs;
@@ -199,7 +189,7 @@ public class QuestionService {
         AiGenerationLog aiLog = AiGenerationLog.builder()
                 .profile(profile)
                 .questionId(question.getQuestionId())
-                .modelId(geminiAdapterService.isConfigured() ? geminiAdapterService.getModelId() : "local-smart-solver")
+                .modelId(geminiAdapterService.getModelId())
                 .promptVersion("v1.2")
                 .latencyTotalMs(latencyMs)
                 .cacheHit(false)
@@ -213,71 +203,6 @@ public class QuestionService {
                 .aiGenerationLog(aiLog)
                 .build();
         return answerRepository.save(answer);
-    }
-
-    private GeminiStructuredExplanation generateSmartLocalExplanation(String subject, String questionText, boolean isAlternative) {
-        String qText = questionText != null ? questionText.trim().toLowerCase() : "";
-        String summary;
-        List<ExplanationStep> steps = new ArrayList<>();
-        String finalAnswer;
-        List<String> takeaways;
-
-        if (qText.contains("2+2") || qText.contains("2 + 2")) {
-            summary = "Arithmetic Addition: 2 + 2";
-            steps.add(ExplanationStep.builder()
-                    .stepNumber(1)
-                    .title("Understand the Query")
-                    .explanation("The student is asking for the sum of 2 and 2.")
-                    .formula("2 + 2")
-                    .build());
-            steps.add(ExplanationStep.builder()
-                    .stepNumber(2)
-                    .title("Perform Addition")
-                    .explanation("Adding 2 and 2 together yields 4.")
-                    .formula("2 + 2 = 4")
-                    .build());
-            finalAnswer = "4";
-            takeaways = List.of("Basic arithmetic addition combines quantities.", "2 + 2 always equals 4.");
-        } else if (qText.contains("derivative") || qText.contains("f(x)")) {
-            summary = "Calculus Derivative Solution";
-            steps.add(ExplanationStep.builder()
-                    .stepNumber(1)
-                    .title("Analyze Function Expression")
-                    .explanation("Examine the given function for differentiation.")
-                    .formula(qText)
-                    .build());
-            steps.add(ExplanationStep.builder()
-                    .stepNumber(2)
-                    .title("Apply Differentiation Rules")
-                    .explanation("Apply power rule, product rule, or chain rule.")
-                    .formula("d/dx [f(x)]")
-                    .build());
-            finalAnswer = "Derivative computed successfully.";
-            takeaways = List.of("Use standard derivative formulas.", "Check each term individually.");
-        } else {
-            summary = "AI Study Mentor Answer for: " + subject;
-            steps.add(ExplanationStep.builder()
-                    .stepNumber(1)
-                    .title("Analyze Question")
-                    .explanation("Examined prompt: " + questionText)
-                    .formula(questionText)
-                    .build());
-            steps.add(ExplanationStep.builder()
-                    .stepNumber(2)
-                    .title("Step-by-Step Resolution")
-                    .explanation("Derived the solution following core principles of " + subject + ".")
-                    .formula("Core Principle")
-                    .build());
-            finalAnswer = "Successfully resolved: " + questionText;
-            takeaways = List.of("Review fundamental principles of " + subject + ".", "Practice similar problems to reinforce understanding.");
-        }
-
-        return GeminiStructuredExplanation.builder()
-                .summary(summary)
-                .steps(steps)
-                .finalAnswer(finalAnswer)
-                .keyTakeaways(takeaways)
-                .build();
     }
 
     // ─────────────────────────── MAPPING ───────────────────────────
@@ -328,6 +253,8 @@ public class QuestionService {
         return AnswerResponse.builder()
                 .answerId(a.getAnswerId())
                 .isAlternative(a.getIsAlternative())
+                .demoResponse(a.getAiGenerationLog() != null
+                        && "local-demo".equals(a.getAiGenerationLog().getModelId()))
                 .structuredExplanation(explanation)
                 .createdAt(a.getCreatedAt())
                 .build();

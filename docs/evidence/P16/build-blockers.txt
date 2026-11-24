@@ -1,0 +1,94 @@
+Backend
+-------
+Command: .\mvnw.cmd test -DskipTests
+Runtime: JDK 17
+Result: BUILD FAILURE; compiler reported 23 errors.
+Affected API groups: account deletion/authentication methods and status, auth-version fields, AI usage log builder and Gemini adapter methods, upload request/response/entity fields, BusinessException details/constructor, quiz enum values.
+
+Android, repository wrapper
+---------------------------
+Command: .\gradlew.bat --no-daemon '-Pkotlin.compiler.execution.strategy=in-process' :app:installDebug
+Runtime: JDK 17; wrapper Gradle 9.7.1; Android Gradle Plugin 8.3.0
+Result: BUILD FAILED in :app:compressDebugAssets. Duplicate KaTeX asset entries were reported in compressed asset archives.
+
+Android, compatible Gradle retry
+--------------------------------
+Command: cached Gradle 8.4 --no-daemon '-Pkotlin.compiler.execution.strategy=in-process' :app:installDebug
+Result: BUILD FAILED in :app:compileDebugKotlin after 1m 32s. Unresolved app APIs/types and Coil references remain across recovery-code, history-detail, notification-settings, privacy/account, and quiz screens.
+
+Low-RAM AVD
+-----------
+Attempt: emulator -avd Medium_Phone_API_37.0 -port 5556 -read-only -memory 1536 -no-snapshot-load -no-snapshot-save -no-window -no-audio -no-boot-anim
+Result: emulator reported "Increasing RAM size to 4096MB" and exited with "Another emulator instance is running."
+
+Provider availability
+---------------------
+GEMINI_API_KEY_CONFIGURED=false (value was not displayed).
+
+Current recheck (2026-11-17)
+----------------------------
+Branch: feature/p16-performance; HEAD: 2579e16.
+JDK: Temurin 25.0.5; Android Studio JBR 25.0.3. No JDK 17 was found in the checked install locations.
+
+Backend: copied pom.xml, Maven wrapper, and src tree to a fresh temporary directory so the tracked backend/target files were not cleaned or overwritten. A clean-source Maven compile with annotation processing enabled failed before source diagnostics with:
+  Fatal error compiling: java.lang.ExceptionInInitializerError:
+  com.sun.tools.javac.code.TypeTag :: UNKNOWN
+The in-place compile said "Nothing to compile" because existing tracked target classes were up to date; it is not a source-build result. Prior JDK 17 source-build diagnostics remain recorded above.
+
+Android: :app:compileDebugKotlin with the repository Gradle 9.7.1 wrapper and JDK 25 failed in :app:kspDebugKotlin while parsing JavaVersion 25.0.5. The emulator is connected, but the APK available for launch predates the current source build.
+
+Runtime: no listener on ports 8080, 3306, or 6379; no Gemini key, database URL, load-test access token, or load-test user file configured in the process environment. No backend requests, query plans, Gemini calls, or 50-user load run were made.
+
+Harness: scripts/loadtest/P16-LoadTest.ps1 passed PowerShell parser validation and -ValidateOnly against its example JSON. A one-second, six-worker smoke run against a temporary local mock listener exercised all six request builders and output generation; the mock timings were discarded and are not backend measurements. The harness was not run against the unavailable backend; no application request samples or performance percentiles were produced.
+
+JDK 17 build/runtime recheck (2026-11-17)
+----------------------------------------
+JDK: Temurin 17.0.21+9 installed and selected for Maven/Gradle. Maven 3.9.6 verified Java 17.0.21.
+
+Backend: main source compilation passed in an isolated source copy. Five focused GeminiAdapterServiceTest tests passed. Full test compilation remains blocked by unrelated GlobalExceptionHandlerTest API mismatches.
+
+Android: :app:compileDebugKotlin passed in an isolated copy, including KSP. Added room-testing as androidTestImplementation and compatibility constructors for existing offline entity tests. Instrumentation test sources still have additional stale API mismatches; no device tests were run. Isolated copies were used so tracked build outputs were not replaced.
+
+Stack: no containers or listeners on ports 3306, 6379, or 8080. backend/.env exists, but required DB, Redis, JWT/MFA, and Gemini secret values are blank. Named Docker volumes exist. No credentials were regenerated and no containers were started; restoring old secrets or using new credentials with those volumes without verification risks data access.
+
+Load test: not run against the application. No private 50-user fixture file is available, dev startup requires a real Gemini key, and the HTTP question path does not currently use the configurable stub/cache path. No application measurements or optimizations are claimed.
+
+User-authorized next steps and latest prerequisite check (2026-11-17)
+--------------------------------------------------------------------
+The user selected restoring the existing local secrets, authorized generating fixtures in a new database on the existing MySQL instance, and approved a full real-Gemini load. A subsequent check still found DB_PASSWORD, DB_ROOT_PASSWORD, REDIS_PASSWORD, JWT_SECRET, MFA_ENCRYPTION_KEY, and GEMINI_API_KEY empty in backend/.env. Docker Compose config validation failed on the missing DB values. No stack was started and no database or fixture data was created.
+
+Follow-up recheck (2026-11-17 13:18 +07:00)
+-------------------------------------------
+PERFORMANCE_REPORT_2.md is not present; docs/PERFORMANCE_REPORT.md is the current report. Required local secrets remain empty, Docker Compose config still fails, and no containers or service listeners are running. No credentials were generated; no Java application was launched, health check run, fixture database created, or application load test executed.
+
+Environment/configuration recheck (2026-11-17 13:27 +07:00)
+-----------------------------------------------------------
+backend/.env has non-empty DB URL/username and Gemini-key fields; the Gemini value was neither printed nor validated. DB/root/Redis passwords and JWT/MFA keys remain blank. Compose validation fails for missing DB/root/Redis passwords. No containers or listeners are running; named MySQL/Redis volumes remain.
+
+The generator was not run because it replaces the entire .env with fresh credentials and a template Gemini placeholder. Fresh DB credentials would not update accounts in an initialized volume, and a new MFA key could make stored factors unreadable. application-dev.yml now resolves settings from imported environment variables. Flyway clean is disabled to prevent data removal on migration validation errors. Backend main-source compile passed on JDK 17 in an isolated copy. No stack, backend, health check, fixture database, or load test was started.
+
+Environment-file audit (2026-11-17 13:49 +07:00)
+------------------------------------------------
+Audited key names and empty-state flags only; no secret values were printed. backend/.env has 64 keys and backend/.env.example has 18; every reference key exists in the active file. No backup env file was found.
+
+DB URL/user/password, Redis host/port/password, and Gemini key/model/API version are non-empty. DB_ROOT_PASSWORD, JWT_SECRET, MFA_ENCRYPTION_KEY, and MANAGEMENT_PASSWORD are empty. DB_ROOT_PASSWORD is not present in the reference template. Existing populated values were not modified. The Gemini key was not provider-validated.
+
+docker compose config --quiet fails on DB_ROOT_PASSWORD. The dev startup validator additionally requires JWT_SECRET, MFA_ENCRYPTION_KEY, and MANAGEMENT_PASSWORD. Example values were not copied because they are defaults, not proof of the credentials used to initialize existing volumes or encrypt persisted MFA factors. No stack or load test was started.
+
+Local DB/Redis configuration update (2026-11-17 14:09 +07:00)
+-------------------------------------------------------------
+Updated only DB_USERNAME, DB_PASSWORD, DB_ROOT_PASSWORD, and REDIS_PASSWORD in the ignored backend/.env to the exact user-requested values. Other lines were preserved and no secret values were printed. Verified no malformed non-comment lines or duplicate keys; Docker Compose config --quiet passed.
+
+Compose validation does not verify the new MySQL credentials against users stored in the existing volume. No containers or backend were started. JWT_SECRET, MFA_ENCRYPTION_KEY, and MANAGEMENT_PASSWORD remain empty, so dev backend startup and load testing remain blocked. No performance metrics were collected.
+
+Local stack authentication recheck (2026-11-17)
+----------------------------------------------
+The existing MySQL/Redis/Mailpit stack was started without deleting or recreating volumes. Redis and Mailpit checks pass. An authenticated SQL query using the configured MySQL root password fails with access denied from both localhost in the container and the host-mapped port; backend startup consequently remains unhealthy. The previous mysqladmin ping healthcheck was insufficient because it can report the server alive without proving credentials. Updated the Compose healthcheck and both dev-status scripts to require authenticated SELECT 1. Compose config validation and git diff --check pass. No database accounts or volume data were changed, and no fixture, application load test, or performance measurement was produced. Credential recovery awaits user authorization for either restoring existing local credentials or performing a protected-backup-first account reset.
+
+Local stack recovery and live application smoke (2026-11-17)
+-----------------------------------------------------------
+The user explicitly authorized a local dev-volume reset and generation of JWT_SECRET, MFA_ENCRYPTION_KEY, and MANAGEMENT_PASSWORD. The authorized reset/startup completed; MySQL, Redis, Mailpit, and backend actuator health all report OK. Fifty private user/quiz fixtures were created in the local dev database. The temporary JSON containing their passwords and signed access tokens was removed after the smoke run; no secret values were printed.
+
+P16-LoadTest.ps1 was run against the live backend with 6 workers (one per scenario), 50 fixture records, and a one-second target. Actual wall time was 60.05 seconds because an AI ask hit the 60-second client timeout. It recorded 163 measured requests: 161 successful non-AI requests, one ask timeout at 60,018.03 ms, and one cache-hit ask HTTP 502 at 2,536.80 ms. The smoke error rate was 2/163 (1.23%); this is diagnostic only and is not the requested 50-user/120-second baseline. Raw sanitized evidence: backend-load-smoke-20261117.csv and backend-load-smoke-summary-20261117.json.
+
+The harness provider/stubLatencyMs fields are metadata; the question HTTP route calls Gemini directly and bypasses the existing StubAiProvider/AiOrchestrator path. No full baseline, successful real-provider token/cost measurement, query-plan capture, Android runtime profile, optimization, or NFR claim was produced. No application behavior was changed to force a stub path.

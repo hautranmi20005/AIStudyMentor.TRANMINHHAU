@@ -57,10 +57,11 @@ management:
     password: ${MANAGEMENT_PASSWORD}
 
 app:
+  guardian-consent:
+    base-url: ${GUARDIAN_CONSENT_BASE_URL:${APP_BASE_URL}}
+    reminder-scan-delay-ms: ${GUARDIAN_CONSENT_REMINDER_SCAN_DELAY_MS:3600000}
   mail:
     from: ${MAIL_FROM}
-  guardian-consent:
-    reminder-scan-delay-ms: ${GUARDIAN_CONSENT_REMINDER_SCAN_DELAY_MS:3600000}
   cors:
     allowed-origins: ${CORS_ALLOWED_ORIGINS:}
   security:

@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -27,12 +28,14 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ObserveSnackbarEvents(viewModel: NetworkViewModel, hostState: SnackbarHostState) {
+    val context = LocalContext.current
     LaunchedEffect(viewModel, hostState) {
         viewModel.snackbarEvents.collect { event ->
+            val message = context.getString(event.messageRes, *event.messageArgs.toTypedArray())
             val result = hostState.showSnackbar(
-                message = event.message,
-                actionLabel = event.retryLabel,
-                withDismissAction = event.retryLabel != null
+                message = message,
+                actionLabel = event.retryLabelRes?.let(context::getString),
+                withDismissAction = event.retryLabelRes != null
             )
             if (result == SnackbarResult.ActionPerformed) viewModel.retryLastAction()
         }

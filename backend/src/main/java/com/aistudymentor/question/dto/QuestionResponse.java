@@ -1,5 +1,6 @@
 package com.aistudymentor.question.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.aistudymentor.question.entity.QuestionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +21,7 @@ public class QuestionResponse {
     private String subject;
     private String questionText;
     private QuestionStatus status;
+    @JsonProperty("isBookmarked")
     private boolean isBookmarked;
     private List<String> imageStoragePaths;
     private AnswerResponse answer;

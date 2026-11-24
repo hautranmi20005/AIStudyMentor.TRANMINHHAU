@@ -61,10 +61,11 @@ Student academic profile and preferences. All educational data is owned by `prof
 * `profile_id` VARCHAR(36) NOT NULL PRIMARY KEY
 * `user_id` VARCHAR(36) NOT NULL UNIQUE FK -> `users(user_id)` ON DELETE CASCADE
 * `education_level` VARCHAR(50) NULL
-* `preferred_subject` VARCHAR(100) NULL
 * `learning_style` VARCHAR(50) NULL
 * `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
 * `updated_at` DATETIME(6) NULL ON UPDATE CURRENT_TIMESTAMP(6)
+
+Migration V14 removes the redundant `preferred_subject` field.
 
 ---
 

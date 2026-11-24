@@ -1,7 +1,7 @@
 package com.aistudymentor.ui.dashboard
 
 import com.aistudymentor.data.remote.DashboardMetricsDto
-import com.aistudymentor.data.repository.DashboardRepository
+import com.aistudymentor.data.repository.DashboardDataSource
 import com.aistudymentor.ui.common.NetworkViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +13,7 @@ data class DashboardUiState(
     val hasLoaded: Boolean = false
 )
 
-class DashboardViewModel(private val repository: DashboardRepository) : NetworkViewModel() {
+class DashboardViewModel(private val repository: DashboardDataSource) : NetworkViewModel() {
     private val mutableUiState = MutableStateFlow(DashboardUiState())
     val uiState = mutableUiState.asStateFlow()
 
@@ -34,7 +34,8 @@ class DashboardViewModel(private val repository: DashboardRepository) : NetworkV
             action = {
                 val metrics = repository.metrics()
                 mutableUiState.update { it.copy(metrics = metrics, hasLoaded = true) }
-            }
+            },
+            onFailure = { mutableUiState.update { it.copy(hasLoaded = true) } }
         )
     }
 }

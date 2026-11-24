@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 public class StudentProfileUpdateRequest {
 
     private String educationLevel;
-    private String preferredSubject;
     private String learningStyle;
 }

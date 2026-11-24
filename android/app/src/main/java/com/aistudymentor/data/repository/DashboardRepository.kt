@@ -5,11 +5,15 @@ import com.aistudymentor.data.remote.DashboardMetricsDto
 import com.aistudymentor.data.security.SecureTokenStorage
 import com.aistudymentor.data.telemetry.monitorRetrofitCall
 
+interface DashboardDataSource {
+    suspend fun metrics(): DashboardMetricsDto
+}
+
 class DashboardRepository(
     private val api: ApiService,
     private val tokenStorage: SecureTokenStorage
-) {
-    suspend fun metrics(): DashboardMetricsDto {
+) : DashboardDataSource {
+    override suspend fun metrics(): DashboardMetricsDto {
         val token = tokenStorage.accessToken()
             ?: throw ApiFailure(401, "AUTH_REQUIRED", "Please sign in to view your dashboard.", retryable = false)
         return monitorRetrofitCall("dashboard.metrics") {

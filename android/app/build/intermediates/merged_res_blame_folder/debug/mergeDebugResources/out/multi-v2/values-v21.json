@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.aistudymentor.app-mergeDebugResources-68:/values-v21/values-v21.xml",
+            "outputFile": "com.aistudymentor.app-mergeDebugResources-70:/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\PC\\.gradle\\caches\\transforms-3\\d997eaeb75427bd5653b91268b77cb5c\\transformed\\core-1.12.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\PC\\.gradle\\caches\\9.7.1\\transforms\\dd1128327b19e95c67956436fd1e2731\\transformed\\core-1.12.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

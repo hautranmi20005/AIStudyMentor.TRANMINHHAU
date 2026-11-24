@@ -1,12 +1,15 @@
 package com.aistudymentor.config;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -46,6 +49,86 @@ class SecurityConfigCorsTest {
 
         assertTrue(cors.getAllowedOrigins().isEmpty());
         assertNull(cors.checkOrigin("https://any.example"));
+    }
+
+    @Test
+    void sameOriginGuardianConsentFormPostDoesNotTriggerCorsRejection() throws Exception {
+        SecurityConfig securityConfig = securityConfig();
+        ReflectionTestUtils.setField(securityConfig, "corsAllowedOrigins", "");
+        CorsConfigurationSource source = securityConfig.corsConfigurationSource();
+        MockHttpServletRequest request = new MockHttpServletRequest(
+                "POST", "/api/v1/guardian-consent/verify");
+        request.setScheme("http");
+        request.setServerName("127.0.0.1");
+        request.setServerPort(8080);
+        request.addHeader("Origin", "http://127.0.0.1:8080");
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        AtomicBoolean continued = new AtomicBoolean();
+
+        new CorsFilter(source).doFilter(request, response,
+                (servletRequest, servletResponse) -> continued.set(true));
+
+        assertTrue(continued.get());
+        assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    void mailpitAndSandboxOriginsAreAllowedForGuardianConsentGetAndPost() throws Exception {
+        SecurityConfig securityConfig = securityConfig();
+        ReflectionTestUtils.setField(securityConfig, "corsAllowedOrigins", "");
+        CorsConfigurationSource source = securityConfig.corsConfigurationSource();
+        List<String> origins = List.of(
+                "http://localhost:8025",
+                "http://127.0.0.1:8025",
+                "null");
+
+        for (String origin : origins) {
+            for (String method : List.of("GET", "POST")) {
+                MockHttpServletRequest request = new MockHttpServletRequest(
+                        method, "/api/v1/guardian-consent/verify");
+                request.setScheme("http");
+                request.setServerName("localhost");
+                request.setServerPort(8080);
+                request.addHeader("Origin", origin);
+                MockHttpServletResponse response = new MockHttpServletResponse();
+                AtomicBoolean continued = new AtomicBoolean();
+
+                new CorsFilter(source).doFilter(request, response,
+                        (servletRequest, servletResponse) -> {
+                            continued.set(true);
+                            ((MockHttpServletResponse) servletResponse).getWriter().write(
+                                    "<h1>Consent Approved Successfully</h1>");
+                        });
+
+                assertTrue(continued.get(), method + " from " + origin + " should reach the consent endpoint");
+                assertEquals(200, response.getStatus());
+                assertEquals(origin, response.getHeader("Access-Control-Allow-Origin"));
+                assertTrue(response.getContentAsString().contains("Consent Approved Successfully"));
+            }
+        }
+    }
+
+    @Test
+    void mailpitOriginRemainsRejectedForOtherApiEndpoints() throws Exception {
+        SecurityConfig securityConfig = securityConfig();
+        ReflectionTestUtils.setField(securityConfig, "corsAllowedOrigins", "");
+        CorsConfigurationSource source = securityConfig.corsConfigurationSource();
+        for (String origin : List.of("http://127.0.0.1:8025", "null")) {
+            MockHttpServletRequest request = new MockHttpServletRequest("POST", "/api/v1/questions");
+            request.setScheme("http");
+            request.setServerName("localhost");
+            request.setServerPort(8080);
+            request.addHeader("Origin", origin);
+            MockHttpServletResponse response = new MockHttpServletResponse();
+            AtomicBoolean continued = new AtomicBoolean();
+
+            new CorsFilter(source).doFilter(request, response,
+                    (servletRequest, servletResponse) -> continued.set(true));
+
+            assertFalse(continued.get(), origin + " must not be allowed on other API endpoints");
+            assertEquals(403, response.getStatus());
+            assertEquals("Invalid CORS request", response.getContentAsString());
+        }
     }
 
     @Test

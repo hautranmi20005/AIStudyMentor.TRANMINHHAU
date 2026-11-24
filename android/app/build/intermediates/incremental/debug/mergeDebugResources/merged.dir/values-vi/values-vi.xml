@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="about_app_name">Cố vấn học tập AI</string>
+    <string name="about_mission">Bạn đồng hành học tập để đặt câu hỏi, xem lời giải và luyện tập kiến thức.</string>
+    <string name="about_title">Giới thiệu</string>
+    <string name="about_version">Phiên bản %1$s</string>
+    <string name="account_email">Email tài khoản</string>
+    <string name="accuracy_value">Độ chính xác: %1$.1f%%</string>
+    <string name="add_bookmark">Lưu câu hỏi</string>
+    <string name="age">Tuổi</string>
+    <string name="ai_demo_response_label">Lời giải demo cục bộ — không do Gemini tạo. Hãy tự kiểm chứng.</string>
+    <string name="ai_disclaimer">Câu trả lời của AI có thể sai; hãy xác minh những kết quả quan trọng</string>
+    <string name="answer_not_synced">Lời giải đầy đủ chưa được đồng bộ cho câu hỏi này.</string>
+    <string name="answer_title">Lời giải</string>
+    <string name="answer_unavailable">Lời giải này không còn khả dụng. Hãy quay lại mục Hỏi và thử lại.</string>
+    <string name="answer_unreadable">Không thể đọc lời giải đã lưu. Hãy kết nối và đồng bộ lại.</string>
+    <string name="app_name">Cố vấn học tập AI</string>
+    <string name="ask_accessibility">Gửi câu hỏi</string>
+    <string name="ask_action">Giải bài</string>
+    <string name="ask_intro">Hôm nay bạn muốn tìm hiểu hoặc giải bài nào?</string>
+    <string name="ask_title">Hỏi AI</string>
+    <string name="authenticator_code">Mã xác thực</string>
+    <string name="back">Quay lại</string>
+    <string name="back_to_history">Quay lại lịch sử</string>
+    <string name="back_to_profile">Quay lại hồ sơ</string>
+    <string name="back_to_sign_in">Quay lại đăng nhập</string>
+    <string name="bookmark_pending_sync">Thay đổi mục đã lưu đang chờ đồng bộ</string>
+    <string name="bookmark_saving">Đang lưu…</string>
+    <string name="by_subject">Theo môn học</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Trả lời"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"Từ chối"</string>
@@ -10,11 +37,79 @@
     <string msgid="406453423630273620" name="close_drawer">"Đóng trình đơn điều hướng"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Đóng trang tính"</string>
     <string name="common_google_play_services_unknown_issue">%1$s đang gặp sự cố với Dịch vụ Google Play. Hãy thử lại.</string>
+    <string name="copy_recovery_codes">Sao chép mã khôi phục</string>
+    <string name="daily_quota_loading">Đang kiểm tra giới hạn hôm nay…</string>
+    <string name="daily_quota_title">Số câu hỏi AI còn lại hôm nay</string>
+    <string name="daily_quota_unavailable">Không thể tải giới hạn hôm nay.</string>
+    <string name="daily_quota_value">Còn %1$d lượt</string>
+    <string name="dashboard_refresh">Làm mới tiến độ</string>
+    <string name="dashboard_retry_message">Kiểm tra kết nối rồi thử lại.</string>
+    <string name="dashboard_title">Tiến độ</string>
+    <string name="dashboard_unavailable">Không thể tải tiến độ</string>
     <string msgid="8038256446254964252" name="default_error_message">"Giá trị nhập không hợp lệ"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Cửa sổ bật lên"</string>
+    <string name="delete_account">Xóa tài khoản</string>
+    <string name="delete_account_title">Xóa vĩnh viễn tài khoản</string>
+    <string name="delete_confirmation_hint">Nhập DELETE MY ACCOUNT để xác nhận. Thao tác này không thể hoàn tác.</string>
+    <string name="delete_confirmation_label">Nhập DELETE MY ACCOUNT</string>
+    <string name="delete_confirmation_phrase">DELETE MY ACCOUNT</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Trình đơn thả xuống"</string>
+    <string name="education_level">Cấp học</string>
+    <string name="email">Email</string>
+    <string name="empty_state">Chưa có nội dung.</string>
+    <string name="error_account_locked">Tài khoản này tạm thời không khả dụng.</string>
+    <string name="error_ai_not_configured">Câu trả lời AI hiện không khả dụng. Vui lòng thử lại sau.</string>
+    <string name="error_ai_timeout">Dịch vụ AI phản hồi quá lâu. Vui lòng thử lại.</string>
+    <string name="error_ai_unavailable">Dịch vụ AI tạm thời không khả dụng. Vui lòng thử lại sau.</string>
+    <string name="error_empty_response">Dịch vụ không trả về thông tin. Vui lòng thử lại.</string>
+    <string name="error_generic">Đã xảy ra lỗi. Vui lòng thử lại.</string>
+    <string name="error_guardian_consent">Cần có sự chấp thuận của người giám hộ để sử dụng tính năng học tập.</string>
+    <string name="error_invalid_request">Vui lòng kiểm tra thông tin và thử lại.</string>
+    <string name="error_network">Lỗi kết nối. Hãy kiểm tra internet rồi thử lại.</string>
+    <string name="error_not_found">Không tìm thấy thông tin được yêu cầu.</string>
+    <string name="error_permission_denied">Bạn không có quyền thực hiện thao tác này.</string>
+    <string name="error_quota_exceeded">Bạn đã đạt giới hạn câu hỏi AI trong ngày.</string>
+    <string name="error_rate_limited">Quá nhiều yêu cầu. Vui lòng đợi rồi thử lại.</string>
+    <string name="error_session_expired">Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.</string>
+    <string name="explanation_style">Bạn muốn lời giải được trình bày như thế nào?</string>
+    <string name="explanation_title">Lời giải từng bước</string>
+    <string name="final_answer">Đáp án cuối cùng</string>
+    <string name="finish_onboarding">Hoàn tất thiết lập</string>
+    <string name="formula_accessibility">Công thức: %1$s</string>
+    <string name="guardian_approval_notice">Cha mẹ hoặc người giám hộ phải xác minh tài khoản trước khi bạn sử dụng tính năng học tập.</string>
+    <string name="guardian_check_status">Kiểm tra trạng thái</string>
+    <string name="guardian_current_status">Trạng thái hiện tại:</string>
+    <string name="guardian_description">Bạn đã đăng ký là người dưới 13 tuổi. Cha mẹ hoặc người giám hộ cần chấp thuận tài khoản qua email xác minh đã gửi.</string>
+    <string name="guardian_email_required">Email người giám hộ (bắt buộc nếu dưới 13 tuổi)</string>
+    <string name="guardian_email_resent">Đã gửi lại email đồng ý. Hãy kiểm tra hộp thư người giám hộ.</string>
+    <string name="guardian_resend_email">Gửi lại email người giám hộ</string>
+    <string name="guardian_sign_in_after_approval">Đăng nhập lại sau khi người giám hộ chấp thuận email.</string>
+    <string name="guardian_title">Cần có sự đồng ý của người giám hộ</string>
+    <string name="history_bookmark_default">Câu hỏi đã lưu</string>
+    <string name="history_bookmarks">Đã lưu</string>
+    <string name="history_completed">Đã hoàn thành</string>
+    <string name="history_detail_title">Câu hỏi đã lưu</string>
+    <string name="history_empty_bookmarks">Câu hỏi đã lưu sẽ có thể xem tại đây khi ngoại tuyến.</string>
+    <string name="history_empty_questions">Lịch sử câu hỏi sẽ hiển thị tại đây và có thể xem ngoại tuyến.</string>
+    <string name="history_empty_results">Kết quả bài tập sẽ hiển thị tại đây để xem ngoại tuyến.</string>
+    <string name="history_offline_sync_hint">Kết nối internet để đồng bộ lịch sử tài khoản.</string>
+    <string name="history_photo_question">Câu hỏi bằng ảnh</string>
+    <string name="history_question_default">Câu hỏi học tập</string>
+    <string name="history_questions">Câu hỏi</string>
+    <string name="history_quiz_default">Bài tập luyện tập</string>
+    <string name="history_quiz_score">Đúng %1$d/%2$d câu · %3$d%%</string>
+    <string name="history_results">Kết quả bài tập</string>
+    <string name="history_sync">Đồng bộ thư viện ngoại tuyến</string>
+    <string name="history_title">Lịch sử học tập</string>
     <string msgid="6827826412747255547" name="in_progress">"Đang thực hiện"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Đã kiểm tra một phần"</string>
+    <string name="key_takeaways">Ý chính</string>
+    <string name="loading">Đang tải…</string>
+    <string name="login_prompt">Đã có tài khoản? Đăng nhập</string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="logout_all_devices">Đăng xuất khỏi mọi thiết bị</string>
+    <string name="logout_switch_account">Đăng xuất / đổi tài khoản</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"Thu gọn bảng dưới cùng"</string>
     <string msgid="1555567894577437024" name="m3c_bottom_sheet_dismiss_description">"Đóng bảng dưới cùng"</string>
     <string msgid="8403354765404029791" name="m3c_bottom_sheet_drag_handle_description">"Nút kéo"</string>
@@ -71,17 +166,149 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"CH"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"Hiện chú giải công cụ"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"Chú giải công cụ"</string>
+    <string name="mfa_code_hint">Mã xác thực gồm 6 chữ số</string>
+    <string name="mfa_instructions">Nhập mã 6 chữ số hiện tại từ ứng dụng xác thực.</string>
+    <string name="mfa_title">Xác minh danh tính</string>
+    <string name="nav_ask">Hỏi</string>
+    <string name="nav_history">Lịch sử</string>
+    <string name="nav_profile">Hồ sơ</string>
+    <string name="nav_progress">Tiến độ</string>
+    <string name="nav_quiz">Bài tập</string>
     <string msgid="542007171693138492" name="navigation_menu">"Trình đơn điều hướng"</string>
+    <string name="new_answer_label">Câu trả lời của bạn</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="next">Tiếp theo</string>
     <string msgid="6610465462668679431" name="not_selected">"Chưa chọn"</string>
+    <string name="notification_bookmarks">Ôn tập câu hỏi đã lưu</string>
+    <string name="notification_master">Bật nhắc nhở học tập</string>
+    <string name="notification_mistakes">Luyện tập chủ đề đã trả lời sai</string>
+    <string name="notification_permission_denied">Hãy cho phép thông báo trong Cài đặt Android để nhận nhắc nhở học tập.</string>
+    <string name="notification_settings_description">Chọn loại nhắc nhở cục bộ mà WorkManager có thể gửi trên thiết bị này.</string>
+    <string name="notification_settings_error">Không thể tải cài đặt thông báo.</string>
+    <string name="notification_settings_title">Nhắc nhở học tập</string>
+    <string name="notification_summary">Tóm tắt học tập hằng tuần</string>
     <string msgid="875452955155264703" name="off">"Đang tắt"</string>
+    <string name="offline_banner">Bạn đang ngoại tuyến. Tài liệu học đã lưu vẫn có thể sử dụng.</string>
+    <string name="offline_bookmark_reconnect">Kết nối lại để thay đổi mục đã lưu.</string>
+    <string name="offline_saved_question">Ngoại tuyến · Đang xem bản đã lưu</string>
     <string msgid="8655164131929253426" name="on">"Đang bật"</string>
+    <string name="onboarding_step">Bắt đầu (%1$d/2)</string>
+    <string name="online_saved_question">Trực tuyến · Câu hỏi đã lưu có thể xem ngoại tuyến</string>
+    <string name="overall_accuracy">Độ chính xác tổng thể</string>
+    <string name="password">Mật khẩu</string>
+    <string name="password_recovery_title">Khôi phục mật khẩu</string>
+    <string name="password_reset_sent">Nếu tài khoản tồn tại, email đặt lại mật khẩu đã được gửi.</string>
+    <string name="password_updated">Đã cập nhật mật khẩu. Hãy đăng nhập bằng mật khẩu mới.</string>
+    <string name="privacy_data_details">Tài khoản có thể gồm email và ngày sinh; tùy chọn học tập; câu hỏi, ảnh tải lên, lời giải, hoạt động bài tập và mục đã lưu; cài đặt thông báo và mã thiết bị đã đăng ký. Tài khoản dưới 13 tuổi cũng có thể lưu bằng chứng đồng ý của người giám hộ.</string>
+    <string name="privacy_data_title">Dữ liệu được lưu cho tài khoản</string>
+    <string name="privacy_delete_details">Xóa tài khoản sẽ xóa dữ liệu liên kết, ảnh đã lưu, phiên đăng nhập và dữ liệu học ngoại tuyến trên thiết bị. Nhật ký xóa tối thiểu gồm mã băm và thời gian, cùng bằng chứng đồng ý đã ẩn danh, có thể được giữ lại theo chính sách lưu trữ.</string>
+    <string name="privacy_title">Quyền riêng tư và tài khoản</string>
+    <string name="problem_summary">Tóm tắt bài toán</string>
+    <string name="profile_about">Giới thiệu Cố vấn học tập AI</string>
+    <string name="profile_notifications">Nhắc nhở học tập</string>
+    <string name="profile_privacy">Quyền riêng tư và tài khoản</string>
+    <string name="profile_title">Hồ sơ và cài đặt</string>
+    <string name="question_hint">Đặt câu hỏi học tập hoặc nhập nội dung bài tập</string>
+    <string name="question_image">Ảnh câu hỏi</string>
+    <string name="question_not_available_offline">Câu hỏi này không có trong thư viện ngoại tuyến.</string>
+    <string name="questions_asked">Câu hỏi đã đặt</string>
+    <string name="quiz_add_option">Thêm lựa chọn</string>
+    <string name="quiz_add_question">Thêm câu hỏi</string>
+    <string name="quiz_cancel">Tiếp tục làm bài</string>
+    <string name="quiz_confirm_complete">Bạn đã trả lời tất cả câu hỏi. Nộp bài ngay?</string>
+    <string name="quiz_confirm_submit">Nộp câu trả lời</string>
+    <string name="quiz_confirm_title">Nộp bài tập?</string>
+    <string name="quiz_confirm_unanswered">Còn %1$d câu chưa trả lời. Vẫn nộp bài chứ?</string>
+    <string name="quiz_correct_option_hint">Chọn đáp án đúng</string>
+    <string name="quiz_delete">Xóa</string>
+    <string name="quiz_delete_message">Bài tập và câu hỏi sẽ bị xóa. Chỉ có thể xóa bài tập chưa bắt đầu.</string>
+    <string name="quiz_delete_title">Xóa bài tập này?</string>
+    <string name="quiz_edit">Sửa</string>
+    <string name="quiz_edit_question_number">Câu %1$d</string>
+    <string name="quiz_edit_title">Sửa bài luyện tập</string>
+    <string name="quiz_error">Không thể tải bài tập. Vui lòng thử lại.</string>
+    <string name="quiz_explanation_label">Giải thích</string>
+    <string name="quiz_generate">Tạo bài luyện tập</string>
+    <string name="quiz_intro">Sẵn sàng kiểm tra kiến thức của bạn?</string>
+    <string name="quiz_loading">Đang tải bài tập…</string>
+    <string name="quiz_manage_locked">Không thể sửa hoặc xóa bài tập đã bắt đầu để bảo toàn kết quả.</string>
+    <string name="quiz_new">Về trang bài tập</string>
+    <string name="quiz_next">Câu tiếp</string>
+    <string name="quiz_no_questions">Bài tập này hiện không có câu hỏi.</string>
+    <string name="quiz_no_saved_quizzes">Bài tập được tạo sẽ hiển thị tại đây.</string>
+    <string name="quiz_offline">Kết nối internet để bắt đầu bài tập mới.</string>
+    <string name="quiz_option_number">Lựa chọn %1$d</string>
+    <string name="quiz_previous">Câu trước</string>
+    <string name="quiz_question_count">Câu %1$d/%2$d</string>
+    <string name="quiz_question_prompt">Câu hỏi</string>
+    <string name="quiz_remove_option">Xóa</string>
+    <string name="quiz_remove_question">Xóa câu hỏi</string>
+    <string name="quiz_result_answer">Đáp án đúng: %1$s</string>
+    <string name="quiz_result_correct">Chính xác</string>
+    <string name="quiz_result_count">Đúng %1$d/%2$d câu</string>
+    <string name="quiz_result_explanation">Giải thích: %1$s</string>
+    <string name="quiz_result_incorrect">Chưa chính xác</string>
+    <string name="quiz_result_score">Đúng %1$d%%</string>
+    <string name="quiz_result_title">Kết quả bài tập</string>
+    <string name="quiz_retake">Làm bài khác</string>
+    <string name="quiz_save">Lưu</string>
+    <string name="quiz_start">Bắt đầu</string>
+    <string name="quiz_status">Trạng thái: %1$s</string>
+    <string name="quiz_subject">Toán học</string>
+    <string name="quiz_subject_label">Môn học</string>
+    <string name="quiz_submit">Nộp bài</string>
+    <string name="quiz_suggested">Bắt đầu bài luyện tập</string>
+    <string name="quiz_title">Bài tập luyện tập</string>
+    <string name="quiz_topic_label">Chủ đề (không bắt buộc)</string>
+    <string name="quiz_weak_topic">Luyện tập %1$s</string>
+    <string name="quiz_your_quizzes">Bài tập của bạn</string>
+    <string name="quizzes_completed">Bài tập đã hoàn thành</string>
     <string msgid="5941395253238309765" name="range_end">"Điểm kết thúc phạm vi"</string>
     <string msgid="7097486360902471446" name="range_start">"Điểm bắt đầu phạm vi"</string>
+    <string name="reauthenticate">Xác thực lại</string>
+    <string name="recent_questions_empty">Câu hỏi gần đây sẽ hiển thị tại đây.</string>
+    <string name="recent_questions_title">Câu hỏi gần đây</string>
+    <string name="recovery_codes_description">Mỗi mã chỉ dùng được một lần. Hãy lưu ở nơi riêng tư; mã sẽ không hiển thị lại.</string>
+    <string name="recovery_codes_saved">Tôi đã lưu các mã này</string>
+    <string name="recovery_codes_title">Lưu mã khôi phục</string>
+    <string name="register_account">Đăng ký tài khoản</string>
+    <string name="register_prompt">Chưa có tài khoản? Đăng ký</string>
+    <string name="register_title">Tạo tài khoản</string>
+    <string name="registration_complete">Đăng ký hoàn tất. Hãy đăng nhập để tiếp tục.</string>
+    <string name="registration_pending">Đăng ký đang chờ người giám hộ chấp thuận. Email xác minh đã được gửi tới %1$s. Hãy đăng nhập sau khi xác minh.</string>
+    <string name="remove_bookmark">Bỏ lưu câu hỏi</string>
+    <string name="reset_password">Đặt lại mật khẩu</string>
+    <string name="reset_token">Mã đặt lại từ email</string>
+    <string name="retry">Thử lại</string>
     <string msgid="6043586758067023" name="selected">"Đã chọn"</string>
+    <string name="send_reset_email">Gửi email đặt lại</string>
+    <string name="sign_in">Đăng nhập</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="step_title">Bước %1$d: %2$s</string>
+    <string name="subject_activity">%1$d câu hỏi · %2$d bài tập</string>
+    <string name="subject_biology">Sinh học</string>
+    <string name="subject_chemistry">Hóa học</string>
+    <string name="subject_history">Lịch sử</string>
+    <string name="subject_label">Môn học</string>
+    <string name="subject_mathematics">Toán học</string>
+    <string name="subject_physics">Vật lý</string>
+    <string name="subject_unknown">Môn học</string>
+    <string name="suggestion_action">Xem bài tập</string>
+    <string name="suggestion_body">Sẵn sàng làm một bài luyện tập nhanh chưa?</string>
+    <string name="suggestion_title">Tiếp tục học tập</string>
     <string msgid="2561197295334830845" name="switch_role">"Chuyển"</string>
     <string msgid="1672349317127674378" name="tab">"Thẻ"</string>
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g>%%."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"chú thích"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"hiện chú thích"</string>
+    <string name="validation_account_email">Nhập email tài khoản hợp lệ.</string>
+    <string name="validation_age">Nhập tuổi hợp lệ.</string>
+    <string name="validation_guardian_email">Người dưới 13 tuổi cần email hợp lệ của cha mẹ hoặc người giám hộ.</string>
+    <string name="validation_login">Nhập email và mật khẩu để tiếp tục.</string>
+    <string name="validation_mfa">Nhập mã xác thực gồm 6 chữ số.</string>
+    <string name="validation_question">Nhập câu hỏi trước khi gửi.</string>
+    <string name="validation_register">Nhập email hợp lệ và mật khẩu có ít nhất 8 ký tự.</string>
+    <string name="validation_reset">Nhập mã đặt lại và mật khẩu mới.</string>
+    <string name="verify">Xác minh</string>
+    <string name="verify_code">Xác minh mã</string>
 </resources>

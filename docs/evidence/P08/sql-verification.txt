@@ -1,0 +1,14 @@
+﻿Mathematics	Solve%202x%20+%205%20=%2015	ANSWERED	0	1
+Mathematics	Solve%202x%20+%205%20=%2015	ANSWERED	1	1
+INCORRECT_ANSWER	OPEN	1
+7	Answer Reports	1
+AI_UNAVAILABLE	gemini-3.5-flash	0	4
+SUCCESS	gemini-3.5-flash	0	1
+SUCCESS	gemini-3.5-flash	1	1
+
+P08 runtime recheck (2026-11-13; read-only aggregate queries)
+math	Solve 2x + 5 = 15	FAILED	1 question	0 answers	1 AI log	AI_INVALID_RESPONSE
+out-of-scope	Tell me a joke	FAILED	1 question	0 answers	0 AI logs (classifier refusal happened before provider call)
+interrupted-physics	Explain why the sky appears blue	0 persisted questions (backend stopped during request)
+off-topic-pizza	What is the best pizza topping?	AI_UNAVAILABLE (classifier did not match this wording)
+report submission	INCORRECT_ANSWER	OPEN	1 report (verified in prior run)

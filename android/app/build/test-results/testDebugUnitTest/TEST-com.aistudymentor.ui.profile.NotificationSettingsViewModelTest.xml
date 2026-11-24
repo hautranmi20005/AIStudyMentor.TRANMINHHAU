@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aistudymentor.ui.profile.NotificationSettingsViewModelTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-18T19:11:57.899Z" hostname="LAPTOP-VOR58HRT" time="0.047">
+  <properties/>
+  <testcase name="masterTogglePersistsAllReminderCategoriesTogether" classname="com.aistudymentor.ui.profile.NotificationSettingsViewModelTest" time="0.041"/>
+  <testcase name="updatesArePersistedLocallyAndReflectedThroughThePreferenceSource" classname="com.aistudymentor.ui.profile.NotificationSettingsViewModelTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

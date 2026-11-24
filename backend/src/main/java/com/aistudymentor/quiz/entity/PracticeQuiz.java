@@ -49,6 +49,9 @@ public class PracticeQuiz extends BaseEntity {
     @Column(name = "subject", nullable = false, length = 100)
     private String subject;
 
+    @Column(name = "topic", length = 100)
+    private String topic;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 30)
     @Builder.Default

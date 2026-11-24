@@ -1,5 +1,7 @@
 package com.aistudymentor.ui.common
 
+import androidx.annotation.StringRes
+import com.aistudymentor.R
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aistudymentor.data.repository.ApiFailure
@@ -10,7 +12,11 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-data class SnackbarEvent(val message: String, val retryLabel: String? = null)
+data class SnackbarEvent(
+    @StringRes val messageRes: Int,
+    val messageArgs: List<Any> = emptyList(),
+    @StringRes val retryLabelRes: Int? = null
+)
 
 abstract class NetworkViewModel : ViewModel() {
     private val mutableSnackbarEvents = MutableSharedFlow<SnackbarEvent>(extraBufferCapacity = 1)
@@ -20,7 +26,9 @@ abstract class NetworkViewModel : ViewModel() {
     protected fun launchRequest(
         setLoading: (Boolean) -> Unit,
         retry: suspend () -> Unit,
-        action: suspend () -> Unit
+        action: suspend () -> Unit,
+        showFailureMessage: Boolean = true,
+        onFailure: (Throwable) -> Unit = {}
     ) {
         viewModelScope.launch {
             setLoading(true)
@@ -30,22 +38,25 @@ abstract class NetworkViewModel : ViewModel() {
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (failure: Exception) {
+                onFailure(failure)
                 val canRetry = failure.isRetryableNetworkFailure()
-                retryAction = retry.takeIf { canRetry }
-                mutableSnackbarEvents.emit(
-                    SnackbarEvent(
-                        message = userFacingMessage(failure),
-                        retryLabel = if (canRetry) "Retry" else null
+                retryAction = retry.takeIf { canRetry && showFailureMessage }
+                if (showFailureMessage) {
+                    mutableSnackbarEvents.emit(
+                        SnackbarEvent(
+                            messageRes = userFacingMessage(failure),
+                            retryLabelRes = if (canRetry) R.string.retry else null
+                        )
                     )
-                )
+                }
             } finally {
                 setLoading(false)
             }
         }
     }
 
-    protected fun emitSnackbar(message: String) {
-        mutableSnackbarEvents.tryEmit(SnackbarEvent(message))
+    protected fun emitSnackbar(@StringRes messageRes: Int, vararg args: Any) {
+        mutableSnackbarEvents.tryEmit(SnackbarEvent(messageRes, args.toList()))
     }
 
     fun retryLastAction() {
@@ -54,11 +65,23 @@ abstract class NetworkViewModel : ViewModel() {
         viewModelScope.launch { retry() }
     }
 
-    private fun userFacingMessage(failure: Throwable): String = when {
-        (failure as? ApiFailure)?.code == "ACCOUNT_PENDING_CONSENT" ->
-            "Guardian approval is required before using study features."
-        failure is ApiFailure -> failure.message
-        failure is IOException -> "Network connection problem. Check your connection and try again."
-        else -> "Something went wrong. Please try again."
+    @StringRes
+    private fun userFacingMessage(failure: Throwable): Int {
+        val apiFailure = failure as? ApiFailure
+        return when {
+            apiFailure?.code == "ACCOUNT_PENDING_CONSENT" -> R.string.error_guardian_consent
+            apiFailure?.code == "AI_QUOTA_EXCEEDED" -> R.string.error_quota_exceeded
+            apiFailure?.code == "ACCOUNT_LOCKED" -> R.string.error_account_locked
+            apiFailure?.code == "INVALID_REQUEST" -> R.string.error_invalid_request
+            apiFailure?.code == "AI_PROVIDER_TIMEOUT" -> R.string.error_ai_timeout
+            apiFailure?.code == "AI_PROVIDER_ERROR" -> R.string.error_ai_unavailable
+            apiFailure?.code == "AI_NOT_CONFIGURED" -> R.string.error_ai_not_configured
+            apiFailure?.statusCode == 401 -> R.string.error_session_expired
+            apiFailure?.statusCode == 403 -> R.string.error_permission_denied
+            apiFailure?.statusCode == 404 -> R.string.error_not_found
+            apiFailure?.statusCode == 429 -> R.string.error_rate_limited
+            failure is IOException -> R.string.error_network
+            else -> R.string.error_generic
+        }
     }
 }

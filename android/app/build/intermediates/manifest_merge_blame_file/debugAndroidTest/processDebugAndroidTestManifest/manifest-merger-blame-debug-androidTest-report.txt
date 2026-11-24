@@ -3,24 +3,24 @@
 3    package="com.aistudymentor.test" >
 4
 5    <uses-sdk
-5-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:5:5-74
+5-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:5:5-74
 6        android:minSdkVersion="26"
-6-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:5:15-41
+6-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:5:15-41
 7        android:targetSdkVersion="34" />
-7-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:5:42-71
+7-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:5:42-71
 8
 9    <instrumentation
-9-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:11:5-15:67
+9-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:11:5-15:67
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:11:22-76
+10-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:11:22-76
 11        android:functionalTest="false"
-11-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:14:22-52
+11-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:14:22-52
 12        android:handleProfiling="false"
-12-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:13:22-53
+12-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:13:22-53
 13        android:label="Tests for com.aistudymentor"
-13-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:15:22-65
+13-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:15:22-65
 14        android:targetPackage="com.aistudymentor" />
-14-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:12:22-63
+14-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:12:22-63
 15
 16    <uses-permission android:name="android.permission.REORDER_TASKS" />
 16-->[androidx.test:core:1.7.0] C:\Users\PC\.gradle\caches\9.7.1\transforms\3a6546ee3a2e0e42327f683509ac26d6\transformed\core-1.7.0\AndroidManifest.xml:24:5-72
@@ -40,12 +40,12 @@
 22    </queries>
 23
 24    <application
-24-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:7:5-9:19
+24-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:7:5-9:19
 25        android:debuggable="true"
 26        android:extractNativeLibs="false" >
 27        <uses-library android:name="android.test.runner" />
-27-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:8:9-60
-27-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17933904213373426377.xml:8:23-57
+27-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:8:9-60
+27-->D:\AIStudyMentor\android\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest9557630031854903121.xml:8:23-57
 28
 29        <activity
 29-->[androidx.test:core:1.7.0] C:\Users\PC\.gradle\caches\9.7.1\transforms\3a6546ee3a2e0e42327f683509ac26d6\transformed\core-1.7.0\AndroidManifest.xml:27:9-34:20

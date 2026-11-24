@@ -43,9 +43,6 @@ public class StudentProfile extends BaseEntity {
     @Column(name = "education_level", length = 50)
     private String educationLevel;
 
-    @Column(name = "preferred_subject", length = 100)
-    private String preferredSubject;
-
     @Column(name = "learning_style", length = 50)
     private String learningStyle;
 }
